@@ -44,3 +44,42 @@ All additions and rejections are logged here. Most recent entries appear first.
   - 收录理由：唯一专门针对 multi-turn agentic workload 的 serving 优化 [early, high-attention]
 
 ---
+## 2026-05-19
+
+### Added
+- [AgentPrune](https://arxiv.org/abs/2410.02506) → §1.4 Multi-Agent Coordination | Agent Δ: one-shot graph pruning | Acc Δ: ≈SOTA / +3.5–10.8% robust | Cost Δ: −28.1–72.8% tokens | Prunes redundant multi-agent messages; requires topology optimization before deployment
+  - 来源：arXiv / OpenReview
+  - 收录理由：ICLR 2025，直接优化 multi-agent communication cost，有开源实现和强量化结果
+
+- [G-Designer](https://openreview.net/forum?id=LpE54NUnmO) → §1.4 Multi-Agent Coordination | Agent Δ: task-adaptive topology | Acc Δ: MMLU 84.50%, HumanEval 89.90% | Cost Δ: −95.33% tokens | Designs per-task MAS communication graphs with GNNs; requires topology training/setup
+  - 来源：arXiv / OpenReview
+  - 收录理由：ICML 2025 spotlight，直接优化 multi-agent communication topology
+
+- [Optima](https://aclanthology.org/2025.findings-acl.601/) → §1.4 Multi-Agent Coordination | Agent Δ: trained MAS communication | Acc Δ: up to 2.8× | Cost Δ: uses <10% tokens | Trains agents for concise collaboration; requires task-specific optimization
+  - 来源：ACL Anthology / arXiv
+  - 收录理由：ACL Findings 2025，直接优化 multi-agent communication efficiency
+
+- [GroupDebate](https://arxiv.org/abs/2409.14051) → §1.4 Multi-Agent Coordination | Agent Δ: grouped debate | Acc Δ: +25% | Cost Δ: −51.7% tokens | Groups debate agents and exchanges summaries; still costlier than single-agent CoT
+  - 来源：arXiv daily
+  - 收录理由：AAMAS 2026，直接优化 multi-agent debate 的 token-cost/accuracy tradeoff
+
+- [GeAR](https://aclanthology.org/2025.findings-acl.624/) → §1.5 Memory & Retrieval | Retrieval Δ: >10% on MuSiQue | Acc Δ: SOTA multi-hop QA | Index Cost: offline graph expansion | Uses graph expansion and agentic retrieval; depends on triple extraction quality
+  - 来源：ACL Anthology / arXiv
+  - 收录理由：ACL Findings 2025，优化 agentic multi-hop RAG 的 retrieval efficiency
+
+- [SCOUT](https://arxiv.org/abs/2605.04496) → §1.2 Token & Context | Token Δ: up to −8× | Acc Δ: ≈SOTA proprietary | Lat Δ: — | Actively forages query-sufficient evidence; strongest for sparse-evidence LTU
+  - 来源：arXiv daily
+  - 收录理由：ICML 2026，明确优化 long-text agent 的 token-cost tradeoff
+
+- [TSCG](https://arxiv.org/abs/2605.04107) → §1.3 Tool Use | Token Δ: −52–57% schema tokens | Acc Δ: +84.4pp on Phi-4 14B | Lat Δ: — | Compiles JSON tool schemas into compact text; gains vary by model/schema sensitivity
+  - 来源：arXiv daily / GitHub
+  - 收录理由：填补 tool-schema overhead gap，有开源实现和大规模 tool-call 实验
+
+- [RepoAudit](https://arxiv.org/abs/2501.18160) → §1.3 Tool Use | Call Δ: on-demand repo scan | Acc Δ: 78.43% precision | Cost Δ: $2.54/project | Uses memory-guided code exploration and validation; focused on code-auditing agents
+  - 来源：arXiv / ICML
+  - 收录理由：ICML 2025，面向 repository-level code auditing 的 autonomous LLM-agent
+
+- [DataLab](https://arxiv.org/abs/2412.02205) → §1.2 Token & Context | Token Δ: −61.65% token cost | Acc Δ: up to +58.58% | Lat Δ: — | Manages BI notebook context via cell dependencies; domain-specific platform
+  - 来源：arXiv daily / ICDE 2025
+  - 收录理由：面向 BI agent workflow 的上下文管理优化，有量化 token-cost 实验
+
