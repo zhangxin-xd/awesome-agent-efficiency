@@ -116,6 +116,8 @@ Compressing prompts, managing long contexts, and reducing per-step token consump
 | [Lost in the Middle](https://arxiv.org/abs/2307.03172) | TACL 2024 | — | — | — | Reveals positional bias in long contexts; motivates reranking/compression before agent input |
 | [RECOMP](https://arxiv.org/abs/2310.04408) | ICLR 2024 | −65% | +3% vs naive RAG | ↓2× | Abstractive + extractive compressors for RAG; directly applicable to agent memory retrieval |
 | [Selective Context](https://arxiv.org/abs/2304.01597) | arXiv 2023 | −50% | <−2% | ↓2× | Self-information-based pruning of redundant context; lightweight, no proxy model needed |
+| [SCOUT](https://arxiv.org/abs/2605.04496) | ICML 2026 | up to −8× | ≈SOTA proprietary | — | Actively forages query-sufficient evidence; strongest for sparse-evidence LTU |
+| [DataLab](https://arxiv.org/abs/2412.02205) | ICDE 2025 | −61.65% token cost | up to +58.58% | — | Manages BI notebook context via cell dependencies; domain-specific platform |
 
 ---
 
@@ -131,6 +133,9 @@ Reducing unnecessary tool calls, improving tool selection, and enabling parallel
 | [Parallel Function Calling](https://platform.openai.com/docs/guides/function-calling) | OpenAI 2024 | — | ≈0% | ↓N× (N=parallel calls) | Native parallelism for independent tool calls; largest latency win when dependency graph allows |
 | [ToolkenGPT](https://arxiv.org/abs/2305.11554) | NeurIPS 2023 | — | +8% | ↓1.3× | Encodes tools as token embeddings; zero-overhead selection but less flexible for dynamic tools |
 | [API-Bank](https://arxiv.org/abs/2304.08244) | EMNLP 2023 | — | — | — | Benchmark rather than method; first systematic tool-use efficiency evaluation |
+| [TSCG](https://arxiv.org/abs/2605.04107) | arXiv 2026 | −52–57% schema tokens | +84.4pp on Phi-4 14B | — | Compiles JSON tool schemas into compact text; gains vary by model/schema sensitivity |
+| [RepoAudit](https://arxiv.org/abs/2501.18160) | ICML 2025 | on-demand repo scan | 78.43% precision | 0.44h / $2.54 per project | Uses memory-guided code exploration and validation; focused on code-auditing agents |
+
 
 ---
 
@@ -146,6 +151,10 @@ Reducing communication overhead, redundant work, and orchestration cost in multi
 | [AgentPrune](https://arxiv.org/abs/2402.05840) | arXiv 2024 | −60% agents | <−3% | −60% | Single-agent planner eliminates redundant sub-agents; strong for structured tasks |
 | [EvoAgent](https://arxiv.org/abs/2406.14228) | arXiv 2024 | adaptive | +10% | varies | Evolves team size to match task complexity; avoids over-provisioning but needs offline evolution |
 | [Scaling Test-Time Compute](https://arxiv.org/abs/2408.03314) | arXiv 2024 | — | +20% | ≈same | Per-task adaptive compute budget more efficient than fixed-depth search |
+| [AgentPrune](https://arxiv.org/abs/2410.02506) | ICLR 2025 | one-shot graph pruning | ≈SOTA / +3.5–10.8% robust | −28.1–72.8% tokens | Prunes redundant multi-agent messages; requires topology optimization before deployment |
+| [G-Designer](https://openreview.net/forum?id=LpE54NUnmO) | ICML 2025 | task-adaptive topology | MMLU 84.50%, HumanEval 89.90% | −95.33% tokens | Designs per-task MAS communication graphs with GNNs; requires topology training/setup |
+| [Optima](https://aclanthology.org/2025.findings-acl.601/) | ACL Findings 2025 | trained MAS communication | up to 2.8× | uses <10% tokens | Trains agents for concise collaboration; requires task-specific optimization |
+| [GroupDebate](https://arxiv.org/abs/2409.14051) | AAMAS 2026 | grouped debate | +25% | −51.7% tokens | Groups debate agents and exchanges summaries; still costlier than single-agent CoT |
 
 ---
 
@@ -161,6 +170,7 @@ Efficiently storing, indexing, and retrieving agent memories and external knowle
 | [GraphRAG](https://arxiv.org/abs/2404.16130) | arXiv 2024 | graph-structured | +20% global | Very high | Best for global/relational queries; indexing cost prohibitive for small corpora |
 | [HyDE](https://arxiv.org/abs/2212.10496) | ACL 2023 | +1 LLM call | +10% | None | Hypothetical doc embeddings improve precision; adds one generation per query |
 | [A-MEM](https://arxiv.org/abs/2502.12110) | arXiv 2025 | dynamic linking | +12% long-horizon | Low | Dynamic note-taking + linking outperforms static stores on long-horizon tasks |
+| [GeAR](https://aclanthology.org/2025.findings-acl.624/) | ACL Findings 2025 | >10% gain on MuSiQue | SOTA multi-hop QA | offline graph expansion | Uses graph expansion and agentic retrieval; depends on triple extraction quality |
 
 ---
 
