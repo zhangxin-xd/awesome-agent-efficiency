@@ -83,3 +83,24 @@ All additions and rejections are logged here. Most recent entries appear first.
   - 来源：arXiv daily / ICDE 2025
   - 收录理由：面向 BI agent workflow 的上下文管理优化，有量化 token-cost 实验
 
+
+
+## 2026-05-25
+
+
+### Added
+- [S$^2$-MAD](https://aclanthology.org/2025.naacl-long.475/) → §1.4 Multi-Agent Coordination | Agent Δ: selective debate participation | Acc Δ: <−2.0% | Cost Δ: up to −94.5% tokens | Filters redundant viewpoints and skips low-value debate turns in multi-agent debate
+  - 来源：ACL Anthology / NAACL 2025
+  - 收录理由：NAACL 2025 Long，直接优化 multi-agent debate 的 token cost，量化收益强
+
+- [Beyond Frameworks](https://aclanthology.org/2025.acl-long.1037/) → §1.4 Multi-Agent Coordination | Agent Δ: governance / participation ablation | Acc Δ: maintained / better | Cost Δ: up to −93.0% tokens | Identifies centralized governance and instructor-curated context as efficient MAS protocols
+  - 来源：ACL Anthology / ACL 2025
+  - 收录理由：ACL 2025 Long，系统分析 multi-agent collaboration strategy 对准确率和 token cost 的影响
+
+- [StepSearch](https://aclanthology.org/2025.emnlp-main.1106/) → §1.5 Memory & Retrieval | Retrieval Δ: −3.8–25.8% queries vs Search-R1-it | Acc Δ: +11.2pp / +4.2pp over 3B / 7B baselines | Index Cost: 19k search trajectories + retriever index | Step-wise PPO rewards information gain and penalizes redundant search
+  - 来源：ACL Anthology / EMNLP 2025 / GitHub
+  - 收录理由：EMNLP 2025，优化 search agent 的 multi-hop retrieval efficiency，有开源实现和明确量化结果
+
+- [LongSpec](https://arxiv.org/abs/2502.17421) → §1.6 Serving | Throughput Δ: up to +3.26× decoding speed | Lat Δ: ↓2.25× on AIME24 / avg. ↓2.34× on QwQ math | Mem Δ: constant-size draft KV cache | Lossless speculative decoding for long-context agents and long reasoning
+  - 来源：arXiv / GitHub
+  - 收录理由：ACL 2025 Main，直接优化 long-context agent 和 long reasoning 的 decoding latency
