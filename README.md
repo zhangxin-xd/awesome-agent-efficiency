@@ -155,6 +155,8 @@ Reducing communication overhead, redundant work, and orchestration cost in multi
 | [G-Designer](https://openreview.net/forum?id=LpE54NUnmO) | ICML 2025 | task-adaptive topology | MMLU 84.50%, HumanEval 89.90% | −95.33% tokens | Designs per-task MAS communication graphs with GNNs; requires topology training/setup |
 | [Optima](https://aclanthology.org/2025.findings-acl.601/) | ACL Findings 2025 | trained MAS communication | up to 2.8× | uses <10% tokens | Trains agents for concise collaboration; requires task-specific optimization |
 | [GroupDebate](https://arxiv.org/abs/2409.14051) | AAMAS 2026 | grouped debate | +25% | −51.7% tokens | Groups debate agents and exchanges summaries; still costlier than single-agent CoT |
+| [S$^2$-MAD](https://aclanthology.org/2025.naacl-long.475/) | NAACL 2025 Long | sparse debate participation | drop <2.0% | up to −94.5% tokens | Sparsifies multi-agent debate to skip low-value exchanges; strongest for debate-style reasoning tasks |
+| [Beyond Frameworks](https://aclanthology.org/2025.acl-long.1037/) | ACL 2025 Long | centralized governance + instructor-led participation/context | maintained / better | up to −93.0% tokens | Identifies low-level MAS collaboration strategies that improve token-accuracy tradeoff; design guidance rather than a standalone framework |
 
 ---
 
@@ -171,6 +173,8 @@ Efficiently storing, indexing, and retrieving agent memories and external knowle
 | [HyDE](https://arxiv.org/abs/2212.10496) | ACL 2023 | +1 LLM call | +10% | None | Hypothetical doc embeddings improve precision; adds one generation per query |
 | [A-MEM](https://arxiv.org/abs/2502.12110) | arXiv 2025 | dynamic linking | +12% long-horizon | Low | Dynamic note-taking + linking outperforms static stores on long-horizon tasks |
 | [GeAR](https://aclanthology.org/2025.findings-acl.624/) | ACL Findings 2025 | >10% gain on MuSiQue | SOTA multi-hop QA | offline graph expansion | Uses graph expansion and agentic retrieval; depends on triple extraction quality |
+| [StepSearch](https://aclanthology.org/2025.emnlp-main.1106/) | EMNLP 2025 | approx. −3.8–25.8% queries vs Search-R1-it; Rec. 83.11–84.52% | +11.2pp / +4.2pp over 3B / 7B search-RL baselines | 19k search trajectories + retriever index | Step-wise PPO rewards information gain and penalizes redundant search; requires RL training and retrieval setup |
+
 
 ---
 
@@ -186,6 +190,8 @@ Reducing per-token latency and increasing throughput for deployed agent workload
 | [SGLang / RadixAttention](https://arxiv.org/abs/2312.07104) | NeurIPS 2024 | +5× | ↓4× | −shared prefix | KV cache reuse across requests; especially effective for shared system prompts |
 | [Prompt Cache](https://arxiv.org/abs/2311.04934) | MLSys 2024 | — | ↓2× prefix | — | Reuses KV cache for fixed prompt prefixes; direct win for agents with long system prompts |
 | [MInference](https://arxiv.org/abs/2407.02490) | NeurIPS 2024 | — | ↓10× prefill | — | Sparse attention for long-context prefill; critical when agent history exceeds 100K tokens |
+| [LongSpec](https://arxiv.org/abs/2502.17421) | ACL 2025 Main | up to +3.26× decoding speed | ↓2.25× on AIME24 | constant-size draft KV cache | Accelerates long-context speculative decoding for agentic long-context workloads; requires specialized draft model and inference implementation |
+
 
 ---
 
