@@ -104,3 +104,40 @@ All additions and rejections are logged here. Most recent entries appear first.
 - [LongSpec](https://arxiv.org/abs/2502.17421) → §1.6 Serving | Throughput Δ: up to +3.26× decoding speed | Lat Δ: ↓2.25× on AIME24 / avg. ↓2.34× on QwQ math | Mem Δ: constant-size draft KV cache | Lossless speculative decoding for long-context agents and long reasoning
   - 来源：arXiv / GitHub
   - 收录理由：ACL 2025 Main，直接优化 long-context agent 和 long reasoning 的 decoding latency
+
+
+
+## 2026-05-30
+
+### Added
+- [Cognitive Duality](https://arxiv.org/abs/2508.05081) → §1.1 Planning | Token Δ: −75% | Acc Δ: 43.96% WebArena success | Lat Δ: — | Switches between fast reactive and slow deliberative web-agent modes; web-navigation specific
+  - 来源：arXiv
+  - 收录理由：直接优化 web agent 的 reasoning budget 和 token cost，有明确 WebArena 结果
+
+- [MCP-Zero](https://arxiv.org/abs/2506.01056) → §1.3 Tool Use | Token Δ: −98% tool-context tokens | Acc Δ: high accuracy maintained | Lat Δ: — | Actively discovers tools instead of injecting all schemas; evaluated mainly on MCP/APIBank-style tool pools
+  - 来源：arXiv
+  - 收录理由：直接解决 tool schema/context 爆炸问题，适合补充 tool-use efficiency
+
+- [Smurfs](https://arxiv.org/abs/2405.05955) → §1.3 Tool Use | Token Δ: −60.9% vs DFSDT | Acc Δ: SOTA on StableToolBench / HotpotQA | Lat Δ: training-free | Makes DFSDT tool planning context-efficient with MAS modules; still inherits tree-search setup complexity
+  - 来源：arXiv / NAACL 2025
+  - 收录理由：NAACL 2025 Long，面向 tool planning 的 context-efficient multi-agent method
+
+- [BridgeScope](https://arxiv.org/abs/2508.04031) → §1.3 Tool Use | Token Δ: up to −80% | Acc Δ: — | Lat Δ: bypasses inter-tool transfer | Modularizes database tools and proxy data transfer for DB agents; database-specific evidence
+  - 来源：arXiv
+  - 收录理由：优化 LLM agent 与数据库工具交互时的 token 传输瓶颈
+
+- [LLM-Explorer](https://arxiv.org/abs/2505.10593) → §1.3 Tool Use | Call Δ: LLM-less action generation | Acc Δ: highest app coverage | Lat Δ: 148× lower cost | Uses LLMs mainly for compact exploration knowledge; focused on mobile app exploration
+  - 来源：arXiv / MobiCom 2025
+  - 收录理由：MobiCom 2025，显著降低移动 app exploration agent 的 LLM 调用成本
+
+- [CodeAgents](https://arxiv.org/abs/2507.03254) → §1.4 Multi-Agent Coordination | Agent Δ: codified MAS reasoning | Acc Δ: +3–36pp | Cost Δ: input −55–87%, output −41–70% tokens | Converts multi-agent reasoning into structured pseudocode; depends on task-specific codification
+  - 来源：arXiv
+  - 收录理由：同时提升多 agent planning accuracy 和 token efficiency，量化结果清晰
+
+- [Adaptive Graph Pruning](https://arxiv.org/abs/2506.02951) → §1.4 Multi-Agent Coordination | Agent Δ: hard+soft graph pruning | Acc Δ: +2.58–9.84% | Cost Δ: −90%+ tokens | Dynamically prunes agent count and communication topology; requires pruning-network training
+  - 来源：arXiv / ECAI 2025
+  - 收录理由：直接优化 multi-agent communication topology，token 降幅很强
+
+- [R-Search](https://arxiv.org/abs/2506.08352) → §1.5 Memory & Retrieval | Retrieval Δ: single-LLM multi-source DAG search | Acc Δ: outperforms SOTA search agents | Index Cost: ReFT training; −70% context tokens / −50% latency | Unifies planning, search, and synthesis in one inference process; requires specialized RL fine-tuning
+  - 来源：arXiv / GitHub
+  - 收录理由：减少多 agent search framework 的上下文 token 和执行延迟，适合补充 agentic search efficiency
