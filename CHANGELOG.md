@@ -141,3 +141,80 @@ All additions and rejections are logged here. Most recent entries appear first.
 - [R-Search](https://arxiv.org/abs/2506.08352) → §1.5 Memory & Retrieval | Retrieval Δ: single-LLM multi-source DAG search | Acc Δ: outperforms SOTA search agents | Index Cost: ReFT training; −70% context tokens / −50% latency | Unifies planning, search, and synthesis in one inference process; requires specialized RL fine-tuning
   - 来源：arXiv / GitHub
   - 收录理由：减少多 agent search framework 的上下文 token 和执行延迟，适合补充 agentic search efficiency
+
+
+## 2026-06-02
+
+### Added
+- [ACON](https://arxiv.org/abs/2510.00615) → §1.2 Token & Context | Token Δ: peak tokens −26–54% | Acc Δ: >95% preserved after distillation | Lat Δ: — | Optimizes long-horizon agent context compression across observations and histories; preprint without venue signal
+  - 来源：arXiv / GitHub
+  - 收录理由：直接面向 long-horizon LLM agents 的 context compression，有明确 token/memory 指标和开源实现
+
+- [FocusAgent](https://arxiv.org/abs/2510.03204) → §1.2 Token & Context | Token Δ: observation size −50%+ | Acc Δ: ≈strong baselines on WebArena / WorkArena | Lat Δ: — | Trims noisy web-agent context and reduces prompt-injection exposure; mainly validated on web agents
+  - 来源：arXiv
+  - 收录理由：直接优化 web agent 的大上下文输入，并兼顾效率和安全性
+
+- [Efficient On-Device Agents](https://arxiv.org/abs/2511.03728) → §1.2 Token & Context | Token Δ: >6× smaller initial context; 10–25× slower context growth | Acc Δ: matches or exceeds baseline | Lat Δ: — | Compresses memory and tool schemas for on-device agents; device-side setting limits generality
+  - 来源：arXiv
+  - 收录理由：补充 on-device agent 的 context management 和 tool schema 压缩方向
+
+- [RepoMaster](https://arxiv.org/abs/2505.21577) → §1.3 Tool Use | Call Δ: repo exploration pruning | Acc Δ: +110% valid submissions / 40.7→62.9% pass rate | Lat Δ: −95% tokens | Explores GitHub repositories via dependency and call graphs for code agents; software-engineering specific
+  - 来源：arXiv / GitHub
+  - 收录理由：代码 agent 复用 GitHub repo 时显著降低上下文 token，并提升任务通过率
+
+- [RCR-Router](https://arxiv.org/abs/2508.04903) → §1.4 Multi-Agent Coordination | Agent Δ: role-aware context routing | Acc Δ: maintained / improved answer quality | Cost Δ: up to −30% tokens | Routes task-relevant memory subsets per agent role and stage; arXiv-only with limited reproducibility signal
+  - 来源：arXiv
+  - 收录理由：直接优化 multi-agent collaboration 中的 memory exposure 和 token cost
+
+- [Maestro](https://arxiv.org/abs/2509.04642) → §1.4 Multi-Agent Coordination | Agent Δ: joint graph+config optimization | Acc Δ: +12% vs MIPROv2 / +4.9% vs GEPA | Cost Δ: fewer rollouts than GEPA | Optimizes agent graph structure and node configuration under budgets; technical report with weaker publication signal
+  - 来源：arXiv
+  - 收录理由：把 agent graph 结构和 node config 一起纳入预算约束下优化，覆盖现有 prompt-only optimizer 的空白
+
+- [AgentInit](https://arxiv.org/abs/2509.19236) → §1.4 Multi-Agent Coordination | Agent Δ: diversity+expertise initialization | Acc Δ: up to +1.2 / +1.6 over baselines | Cost Δ: significantly lower token use | Initializes MAS teams for efficient collaboration; abstract lacks exact token-reduction number
+  - 来源：arXiv / EMNLP 2025 Findings / GitHub
+  - 收录理由：EMNLP 2025 Findings，直接优化 multi-agent team initialization 的效率和效果
+
+- [SuffixDecoding](https://arxiv.org/abs/2411.04975) → §1.6 Serving | Throughput Δ: up to 5.3× speedup | Lat Δ: up to 5.3× speedup | Mem Δ: suffix-tree cache | Caches repeated suffixes for agentic inference workloads; serving-layer method rather than orchestration method
+  - 来源：arXiv / NeurIPS 2025 Spotlight / GitHub
+  - 收录理由：NeurIPS 2025 Spotlight，明确针对 agentic repetitive inference workloads，有强速度指标和开源实现
+
+- [GUI-KV](https://arxiv.org/abs/2510.00536) → §1.6 Serving | Throughput Δ: −38.9% decoding FLOPs | Lat Δ: — | Mem Δ: GUI-specific KV compression | Compresses GUI-agent KV cache with spatio-temporal awareness; strongest for screenshot-heavy GUI agents
+  - 来源：arXiv
+  - 收录理由：直接面向 GUI agents 的 KV cache 压缩，兼顾效率和 step accuracy
+
+- [REFRAG](https://arxiv.org/abs/2509.01092) → §1.6 Serving | Throughput Δ: — | Lat Δ: 30.85× TTFT speedup | Mem Δ: long-context RAG decoding compression | Removes unnecessary RAG-context decoding computation for multi-turn and agentic RAG; agentic use is one target scenario among several
+  - 来源：arXiv
+  - 收录理由：优化 RAG / multi-turn / agentic long-context decoding latency，速度指标强
+
+- [SWE-Effi](https://arxiv.org/abs/2509.09853) → §3 Benchmarks & Evaluation | Metric Δ: resource-aware effectiveness score | Acc Δ: re-ranks SWE agents by accuracy/resource tradeoff | Cost/Lat Δ: token and time constrained evaluation | Evaluates software agents under token/time budgets; benchmark rather than new efficiency method
+  - 来源：arXiv
+  - 收录理由：补充 software agent 的 cost-aware evaluation，避免只看 SWE-bench accuracy
+
+- [FDABench](https://arxiv.org/abs/2509.02473) → §3 Benchmarks & Evaluation | Metric Δ: 2,007 heterogeneous analytical tasks | Acc Δ: evaluates data-agent quality | Cost/Lat Δ: tracks latency/token cost | Benchmarks data agents over heterogeneous analytical queries; does not optimize agents directly
+  - 来源：arXiv
+  - 收录理由：补充 data agent benchmark，并显式关注 latency 和 token cost
+
+- [ToolGen](https://arxiv.org/abs/2410.03439) → §1.3 Tool Use | Call Δ: no separate tool retrieval | Acc Δ: superior on retrieval + agent tasks | Lat Δ: — | Generates tool calls as tool tokens; requires tool-token training
+  - 来源：arXiv / ICLR 2025
+  - 收录理由：直接优化大规模 tool retrieval/calling，把工具选择从额外检索步骤变成生成过程
+
+- [Divide, Optimize, Merge](https://arxiv.org/abs/2505.03973) → §1.1 Planning | Token Δ: −56.3% prompt tokens | Acc Δ: +1.6–8.6% | Lat Δ: offline optimization | Scales agent optimization by divide-and-merge; requires offline optimization data
+  - 来源：arXiv
+  - 收录理由：面向 agent optimization at scale，明确减少 prompt token 并提升 ALFWorld / LogisticsQA / GAIA 表现
+
+- [AgentDropout](https://arxiv.org/abs/2503.18891) → §1.4 Multi-Agent Coordination | Agent Δ: dynamic agent/edge dropout | Acc Δ: +1.14 avg task score | Cost Δ: −21.6% prompt / −18.4% completion tokens | Drops redundant agents across rounds; overlaps with pruning-based MAS methods
+  - 来源：arXiv / GitHub
+  - 收录理由：直接优化 multi-agent communication redundancy，有 token 与 task-performance 双重收益
+
+- [OpenCity](https://arxiv.org/abs/2410.21286) → §1.4 Multi-Agent Coordination | Agent Δ: 10k-agent scheduling + prompt distillation | Acc Δ: — | Cost Δ: 600× speed / −70% requests / −50% tokens | Scales massive LLM-agent simulation; strongest evidence is urban-simulation specific
+  - 来源：arXiv
+  - 收录理由：填补 massive LLM-agent simulation 的系统级效率条目，有请求数、token 和仿真速度量化结果
+
+- [Mem0](https://arxiv.org/abs/2504.19413) → §1.5 Memory & Retrieval | Retrieval Δ: persistent memory retrieval | Acc Δ: +26% LLM-as-judge vs OpenAI | Cost/Lat Δ: −91% p95 latency / >90% token cost | Extracts salient long-term memories with lower latency/cost; graph memory adds system complexity
+  - 来源：arXiv
+  - 收录理由：面向 production AI agents 的长期记忆系统，直接报告 latency 与 token-cost 收益
+
+- [XGrammar](https://arxiv.org/abs/2411.15100) → §1.6 Serving | Throughput Δ: up to +100× CFG execution | Lat Δ: near-zero overhead structured generation | Mem Δ: token-mask cache | Speeds constrained decoding for function calls; only helps structured-output workloads
+  - 来源：arXiv / MLSys 2025
+  - 收录理由：优化 agent structured output / function calling 的 constrained decoding overhead，系统实现价值高
+
