@@ -103,6 +103,8 @@ Reducing the number of steps, tokens, and retries needed for an agent to complet
 | [Chain-of-Abstraction](https://arxiv.org/abs/2401.17464) | arXiv 2024 | −30% | ≈0% | ↓1.5× | Decouples reasoning from tool calls; reduces unnecessary API calls with little accuracy cost |
 | [Cognitive Duality](https://arxiv.org/abs/2508.05081) | arXiv 2025 | −75% tokens | 43.96% WebArena success | — | Switches between fast reactive and slow deliberative web-agent modes; web-navigation specific and not yet venue-accepted |
 | [Divide, Optimize, Merge](https://arxiv.org/abs/2505.03973) | arXiv 2025 | −56.3% prompt tokens | +1.6–8.6% | offline optimization | Scales agent optimization by divide-and-merge; requires offline optimization data |
+| [DEPO](https://arxiv.org/abs/2511.15392) | arXiv 2025 | -60.9% tokens; -26.9% steps | up to +29.3% | - | Optimizes step-level and trajectory-level agent efficiency via preference optimization; training-based and mainly validated on WebShop/BabyAI |
+| [More with Less](https://arxiv.org/abs/2510.16786) | arXiv 2025 | cost -24-68%; extra -12-24% with dynamic turns | comparable / better solve rates | fewer turns | Controls coding-agent turn budgets with simple deployment strategies; empirical study rather than a new framework |
 
 ---
 
@@ -123,6 +125,7 @@ Compressing prompts, managing long contexts, and reducing per-step token consump
 | [ACON](https://arxiv.org/abs/2510.00615) | arXiv 2025 | peak tokens −26–54% | >95% accuracy preserved after distillation | — | Optimizes long-horizon agent context compression across observations and histories; preprint without venue signal |
 | [FocusAgent](https://arxiv.org/abs/2510.03204) | arXiv 2025 | observation size −50%+ | ≈strong baselines on WebArena / WorkArena | — | Trims noisy web-agent context and reduces prompt-injection exposure; mainly validated on web agents |
 | [Efficient On-Device Agents](https://arxiv.org/abs/2511.03728) | arXiv 2025 | >6× smaller initial context; 10–25× slower context growth | matches or exceeds baseline | — | Compresses memory and tool schemas for on-device agents; device-side setting limits generality |
+| [Prune4Web](https://arxiv.org/abs/2511.21398) | arXiv 2025 | 25-50x fewer candidate DOM elements | 46.8% -> 88.28% grounding accuracy | - | Replaces raw DOM reading with programmatic pruning for web agents; web-DOM specific and depends on generated pruning programs |
 
 ---
 
@@ -146,6 +149,7 @@ Reducing unnecessary tool calls, improving tool selection, and enabling parallel
 | [LLM-Explorer](https://arxiv.org/abs/2505.10593) | MobiCom 2025 | LLM-less action generation | highest app coverage | 148× lower cost | Uses LLMs mainly for compact exploration knowledge; focused on mobile app exploration |
 | [RepoMaster](https://arxiv.org/abs/2505.21577) | arXiv 2025 | repo exploration pruning | +110% valid submissions / 40.7→62.9% pass rate | −95% tokens | Explores GitHub repositories via dependency and call graphs for code agents; software-engineering specific |
 | [ToolGen](https://arxiv.org/abs/2410.03439) | ICLR 2025 | no separate tool retrieval | superior on retrieval + agent tasks | — | Generates tool calls as tool tokens; requires tool-token training |
+| [Z-Space](https://arxiv.org/abs/2511.19483) | arXiv 2025 | -96.26% tool-inference tokens | 92% tool invocation accuracy | - | Filters enterprise MCP tools through multi-agent orchestration; production evidence but limited open reproducibility |
 
 
 ---
@@ -175,6 +179,8 @@ Reducing communication overhead, redundant work, and orchestration cost in multi
 | [AgentInit](https://arxiv.org/abs/2509.19236) | EMNLP 2025 Findings | diversity+expertise initialization | up to +1.2 / +1.6 over baselines | significantly lower token use | Initializes MAS teams for efficient collaboration; abstract lacks exact token-reduction number |
 | [AgentDropout](https://arxiv.org/abs/2503.18891) | arXiv 2025 | dynamic agent/edge dropout | +1.14 avg task score | −21.6% prompt / −18.4% completion tokens | Drops redundant agents across rounds; overlaps with pruning-based MAS methods |
 | [OpenCity](https://arxiv.org/abs/2410.21286) | arXiv 2024 | 10k-agent scheduling + prompt distillation | — | 600× speed / −70% requests / −50% tokens | Scales massive LLM-agent simulation; strongest evidence is urban-simulation specific |
+| [Agent-GSPO](https://arxiv.org/abs/2510.22477) | arXiv 2025 | communication-aware GSPO | SOTA on seven reasoning benchmarks | fraction of baseline tokens | Trains agents to communicate concisely with token-aware rewards; abstract lacks exact token-reduction percentage |
+| [iMAD](https://arxiv.org/abs/2511.11306) | arXiv 2025 | selective debate triggering | up to +13.5% | up to -92% tokens | Triggers multi-agent debate only when useful; limited to debate-style agent workflows |
 
 
 
@@ -198,6 +204,8 @@ Efficiently storing, indexing, and retrieving agent memories and external knowle
 | [StepSearch](https://aclanthology.org/2025.emnlp-main.1106/) | EMNLP 2025 | approx. −3.8–25.8% queries vs Search-R1-it; Rec. 83.11–84.52% | +11.2pp / +4.2pp over 3B / 7B search-RL baselines | 19k search trajectories + retriever index | Step-wise PPO rewards information gain and penalizes redundant search; requires RL training and retrieval setup |
 | [R-Search](https://arxiv.org/abs/2506.08352) | arXiv 2025 | single-LLM multi-source DAG search | outperforms SOTA search agents | ReFT training; −70% context tokens / −50% latency | Unifies planning, search, and synthesis in one inference process; requires specialized RL fine-tuning |
 | [Mem0](https://arxiv.org/abs/2504.19413) | arXiv 2025 | persistent memory retrieval | +26% LLM-as-judge vs OpenAI | −91% p95 latency / >90% token cost | Extracts salient long-term memories with lower latency/cost; graph memory adds system complexity |
+| [TeaRAG](https://arxiv.org/abs/2511.05385) | arXiv 2025 | graph triplet retrieval + IP-DPO | +4% / +2% EM | -61% / -59% output tokens | Compresses retrieval content and reasoning steps for agentic RAG; requires graph retrieval and DPO setup |
+| [ParallelMuse](https://arxiv.org/abs/2510.24698) | arXiv 2025 | partial rollout reuse + compressed aggregation | up to +62% | -10-30% exploratory tokens | Reuses and compresses deep information-seeking trajectories; mainly useful for long-horizon search agents |
 
 
 
@@ -221,6 +229,10 @@ Reducing per-token latency and increasing throughput for deployed agent workload
 | [GUI-KV](https://arxiv.org/abs/2510.00536) | arXiv 2025 | — | +4.1% step accuracy | −38.9% decoding FLOPs | Compresses GUI-agent KV cache with spatio-temporal awareness; strongest for screenshot-heavy GUI agents |
 | [REFRAG](https://arxiv.org/abs/2509.01092) | arXiv 2025 | — | no loss in perplexity / accuracy | 30.85× TTFT speedup | Removes unnecessary RAG-context decoding computation for multi-turn and agentic RAG; agentic use is one target scenario among several |
 | [XGrammar](https://arxiv.org/abs/2411.15100) | MLSys 2025 | up to +100× CFG execution | near-zero overhead structured generation | token-mask cache | Speeds constrained decoding for function calls; only helps structured-output workloads |
+| [KVCOMM](https://arxiv.org/abs/2510.12872) | arXiv 2025 | >70% KV reuse | no quality degradation | up to 7.8x speedup; TTFT ~430 ms -> ~55 ms | Reuses cross-agent KV caches for overlapping contexts; benefits depend on shared context across agents |
+| [Scaling Graph-CoT / GLM](https://arxiv.org/abs/2511.01633) | arXiv 2025 | up to 15.1x throughput | up to +38% | -90.3% latency; -95.7% token cost | Co-designs multi-agent Graph-CoT with serving optimizations; strongest evidence is graph-reasoning specific |
+
+
 
 ---
 
@@ -283,6 +295,9 @@ Expected outcome: **stable performance** on tasks exceeding 100 steps or 500K to
 | [GAIA](https://arxiv.org/abs/2311.12983) | ICLR 2024 | General assistant task success | Does not track token usage or step count |
 | [SWE-Effi](https://arxiv.org/abs/2509.09853) | arXiv 2025 | Software-agent effectiveness under token/time constraints | Focuses on resource-aware reranking, not new agent method |
 | [FDABench](https://arxiv.org/abs/2509.02473) | arXiv 2025 | Data-agent benchmark over 2,007 heterogeneous analytical tasks | Benchmark construction includes latency/token cost but does not optimize agents directly |
+| [LoCoBench-Agent](https://arxiv.org/abs/2511.13998) | arXiv 2025 | Long-context software-agent benchmark with 9 comprehension and efficiency metrics over 10K-1M tokens | Benchmark only; does not directly optimize agents |
+| [MCP vs RAG vs NLWeb vs HTML](https://arxiv.org/abs/2511.23281) | Technical Report 2025 | Compares web-agent interfaces on F1, token usage, runtime, and completion rate | Simulated e-shop testbed; technical report status |
+
 
 > **Critical gap**: No widely-adopted benchmark jointly reports task success rate, total token cost, step count, and wall-clock latency on the same tasks. See §5.
 
