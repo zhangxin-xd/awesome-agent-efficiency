@@ -218,3 +218,55 @@ All additions and rejections are logged here. Most recent entries appear first.
   - 来源：arXiv / MLSys 2025
   - 收录理由：优化 agent structured output / function calling 的 constrained decoding overhead，系统实现价值高
 
+
+## 2026-06-08
+
+### Added
+- [DEPO](https://arxiv.org/abs/2511.15392) -> §1.1 Planning | Token Δ: -60.9% tokens; -26.9% steps | Acc Δ: up to +29.3% | Lat Δ: - | Optimizes step-level and trajectory-level agent efficiency; training-based and mainly validated on WebShop/BabyAI
+  - 来源：arXiv / project page
+  - 收录理由：直接定义并优化 agent token-per-step 和 trajectory-step efficiency，量化结果清楚
+
+- [More with Less](https://arxiv.org/abs/2510.16786) -> §1.1 Planning | Token Δ: cost -24-68%; dynamic turns add -12-24% | Acc Δ: comparable / better solve rates | Lat Δ: fewer turns | Controls coding-agent turn budgets; empirical study rather than a new framework
+  - 来源：arXiv
+  - 收录理由：填补 coding agent turn-control 成本管理方向，策略简单且工程可用
+
+- [Prune4Web](https://arxiv.org/abs/2511.21398) -> §1.2 Token & Context | Token Δ: 25-50x fewer candidate DOM elements | Acc Δ: 46.8% -> 88.28% grounding accuracy | Lat Δ: - | Programmatically prunes web-agent DOM context; web-DOM specific
+  - 来源：arXiv
+  - 收录理由：直接解决 web agent DOM token/context 爆炸问题，准确率和压缩收益都明确
+
+- [Z-Space](https://arxiv.org/abs/2511.19483) -> §1.3 Tool Use | Call Δ: -96.26% tool-inference tokens | Acc Δ: 92% tool invocation accuracy | Lat Δ: - | Filters enterprise MCP tools through multi-agent orchestration; production evidence but limited open reproducibility
+  - 来源：arXiv
+  - 收录理由：面向大规模 MCP/tool selection 的 token 开销优化，有生产级量化结果
+
+- [Agent-GSPO](https://arxiv.org/abs/2510.22477) -> §1.4 Multi-Agent Coordination | Agent Δ: communication-aware GSPO | Acc Δ: SOTA on seven reasoning benchmarks | Cost Δ: fraction of baseline tokens | Trains concise multi-agent communication; abstract lacks exact token-reduction percentage
+  - 来源：arXiv
+  - 收录理由：直接优化 MAS communication token economy，方向与 §1.4 高度匹配
+
+- [iMAD](https://arxiv.org/abs/2511.11306) -> §1.4 Multi-Agent Coordination | Agent Δ: selective debate triggering | Acc Δ: up to +13.5% | Cost Δ: up to -92% tokens | Triggers MAD only when beneficial; limited to debate-style workflows
+  - 来源：arXiv
+  - 收录理由：直接降低 multi-agent debate 的无效触发成本，同时提升准确率
+
+- [TeaRAG](https://arxiv.org/abs/2511.05385) -> §1.5 Memory & Retrieval | Retrieval Δ: graph triplet retrieval + IP-DPO | Acc Δ: +4% / +2% EM | Cost/Lat Δ: -61% / -59% output tokens | Compresses retrieval content and reasoning steps; requires graph retrieval and DPO setup
+  - 来源：arXiv / GitHub
+  - 收录理由：面向 agentic RAG 的 token-efficient retrieval 和 reasoning，指标清楚且有代码
+
+- [ParallelMuse](https://arxiv.org/abs/2510.24698) -> §1.5 Memory & Retrieval | Retrieval Δ: partial rollout reuse + compressed aggregation | Acc Δ: up to +62% | Cost/Lat Δ: -10-30% exploratory tokens | Reuses deep search trajectories; mainly useful for long-horizon information-seeking agents
+  - 来源：arXiv
+  - 收录理由：补充 deep information-seeking agent 的 parallel rollout reuse 和压缩聚合方向
+
+- [KVCOMM](https://arxiv.org/abs/2510.12872) -> §1.6 Serving | Throughput Δ: >70% KV reuse | Lat Δ: up to 7.8x speedup; TTFT ~430 ms -> ~55 ms | Mem Δ: online anchor pool | Reuses cross-agent KV caches; benefits depend on overlapping agent contexts
+  - 来源：arXiv
+  - 收录理由：专门面向 multi-agent repeated-prefill overhead，属于 agentic serving 的强相关系统论文
+
+- [Scaling Graph-CoT / GLM](https://arxiv.org/abs/2511.01633) -> §1.6 Serving | Throughput Δ: up to 15.1x | Lat Δ: -90.3% | Mem Δ: graph-specific KV cache | Co-designs multi-agent Graph-CoT with serving; strongest evidence is graph reasoning
+  - 来源：arXiv
+  - 收录理由：同时报告 token、latency、throughput 和 accuracy 收益，适合补 agentic serving
+
+- [LoCoBench-Agent](https://arxiv.org/abs/2511.13998) -> §3 Benchmarks & Evaluation | Metric Δ: 9 efficiency/comprehension metrics over 10K-1M tokens | Acc Δ: evaluates long-context software agents | Cost/Lat Δ: tracks tool and conversation efficiency | Benchmark only; no new optimization method
+  - 来源：arXiv
+  - 收录理由：补充 long-context software agent 的效率评测基准
+
+- [MCP vs RAG vs NLWeb vs HTML](https://arxiv.org/abs/2511.23281) -> §3 Benchmarks & Evaluation | Metric Δ: web-agent interface comparison | Acc Δ: F1 0.67 HTML -> 0.75-0.77 alternatives | Cost/Lat Δ: 241k -> 47k-140k tokens; 291s -> 50-62s | Simulated e-shop testbed; technical report status
+  - 来源：arXiv
+  - 收录理由：直接比较 web agent 接口选择对 effectiveness、token 和 runtime 的影响
+
