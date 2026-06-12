@@ -119,7 +119,7 @@ Compressing prompts, managing long contexts, and reducing per-step token consump
 | [MemGPT](https://arxiv.org/abs/2310.08560) | SOSP 2024 | −60% (ctx) | ≈0% | ↓2× | OS-style memory paging; effective for long-running agents; adds architectural complexity |
 | [Lost in the Middle](https://arxiv.org/abs/2307.03172) | TACL 2024 | — | — | — | Reveals positional bias in long contexts; motivates reranking/compression before agent input |
 | [RECOMP](https://arxiv.org/abs/2310.04408) | ICLR 2024 | −65% | +3% vs naive RAG | ↓2× | Abstractive + extractive compressors for RAG; directly applicable to agent memory retrieval |
-| [Selective Context]((https://arxiv.org/abs/2310.06201)) | arXiv 2023 | −50% | <−2% | ↓2× | Self-information-based pruning of redundant context; lightweight, no proxy model needed |
+| [Selective Context](https://arxiv.org/abs/2310.06201) | arXiv 2023 | −50% | <−2% | ↓2× | Self-information-based pruning of redundant context; lightweight, no proxy model needed |
 | [SCOUT](https://arxiv.org/abs/2605.04496) | ICML 2026 | up to −8× | ≈SOTA proprietary | — | Actively forages query-sufficient evidence; strongest for sparse-evidence LTU |
 | [DataLab](https://arxiv.org/abs/2412.02205) | ICDE 2025 | −61.65% token cost | up to +58.58% | — | Manages BI notebook context via cell dependencies; domain-specific platform |
 | [ACON](https://arxiv.org/abs/2510.00615) | arXiv 2025 | peak tokens −26–54% | >95% accuracy preserved after distillation | — | Optimizes long-horizon agent context compression across observations and histories; preprint without venue signal |
