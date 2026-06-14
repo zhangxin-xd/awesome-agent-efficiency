@@ -270,3 +270,54 @@ All additions and rejections are logged here. Most recent entries appear first.
   - 来源：arXiv
   - 收录理由：直接比较 web agent 接口选择对 effectiveness、token 和 runtime 的影响
 
+## 2026-06-14
+
+### Added
+
+- [UIFormer](https://arxiv.org/abs/2512.13438) → §1.2 Token & Context Efficiency | Token Δ: −48.7–55.8% UI tokens | Acc Δ: maintained / improved | Lat Δ: 5.7 ms overhead; prod −26.1% latency | Compact UI representation for GUI agents; UI-navigation-specific.
+  - 来源：arXiv / PDF
+  - 收录理由：直接优化 GUI agent 的上下文 token，是 agent efficiency 主题的强相关论文。
+
+- [Task-Decoupled Planning](https://arxiv.org/abs/2601.07577) → §1.1 Planning & Reasoning Efficiency | Token Δ: up to −82.4% output tokens | Acc Δ: HotpotQA up to 85.88% | Lat Δ: — | Separates planning into smaller scoped sub-tasks; sub-task granularity remains a limitation.
+  - 来源：arXiv / PDF
+  - 收录理由：用任务解耦减少长程 agent 规划的输出 token，和 planning efficiency 强相关。
+
+- [Agent.xpu](https://arxiv.org/abs/2506.24045) → §1.6 Inference & Serving Efficiency | Throughput Δ: +1.2–4.9× | Lat Δ: −91–97% reactive latency | Cost Δ: −26.8% energy | Heterogeneous on-device scheduling for agent workloads; hardware-specific.
+  - 来源：arXiv / PDF
+  - 收录理由：覆盖端侧 agent 的吞吐、延迟和能耗效率，适合放入 serving/system efficiency。
+
+- [ToolRM](https://arxiv.org/abs/2510.26167) → §1.3 Tool Use Efficiency | Call Δ: RM-guided tool selection | Acc Δ: up to +17.94% weighted accuracy | Token Δ: >66% fewer output tokens on ACEBench | Reward models for tool reasoning; requires curated preference data.
+  - 来源：arXiv / PDF
+  - 收录理由：直接提升 tool-use agent 的调用判断与 token 效率。
+
+- [Semantic Caching and Intent-Driven Context Optimization](https://arxiv.org/abs/2601.11687) → §1.5 Memory & Retrieval Efficiency | Retrieval Δ: 67.3% cache utilization | Acc Δ: 94.3% semantic accuracy | Token Δ: −51.7% prompt tokens | Production enterprise analytics cache/context optimizer; domain-specific.
+  - 来源：arXiv / PDF
+  - 收录理由：同时优化 semantic cache、context filtering、latency 和 cost，和 retrieval/context efficiency 高相关。
+
+- [An Information Theoretic Perspective on Agentic System Design](https://arxiv.org/abs/2512.21720) → §1.2 Token & Context Efficiency | Token Δ: 4.6× more concise summaries | Acc Δ: 99% frontier-LM accuracy recovered | Cost Δ: 74% API-cost cut | Information-bottleneck view of agent compression; more conceptual than plug-in framework.
+  - 来源：arXiv / PDF
+  - 收录理由：提供 agent 上下文压缩的理论视角和成本实验证据。
+
+- [FoldAct](https://arxiv.org/abs/2512.22733) → §1.2 Token & Context Efficiency | Token Δ: 0.25–0.65 context ratio | Acc Δ: HotpotQA 38.5 F1 / 29.5 EM | Lat Δ: 5.19× training speedup | Context folding for long-horizon search-agent RL; training-time method.
+  - 来源：arXiv / PDF
+  - 收录理由：面向长轨迹 agent 训练的上下文压缩方法，效率指标明确。
+
+- [CCPO](https://arxiv.org/abs/2601.11631) → §1.2 Token & Context Efficiency | Token Δ: up to −55.01% visual tokens | Acc Δ: AITW 75.12 overall | Lat Δ: up to 3.8× training speedup | Curriculum compression for GUI agents; coordinate/GUI-specific.
+  - 来源：arXiv / PDF
+  - 收录理由：直接减少 GUI agent 多轮视觉上下文，且报告 token、FLOPs、训练速度收益。
+
+- [ACE](https://arxiv.org/abs/2601.08747) → §1.5 Memory & Retrieval Efficiency | Retrieval Δ: adaptive retrieve-or-think | Acc Δ: HotpotQA 62.8%; MultiHop-RAG 57.9% | Token Δ: −42% vs IterDRAG on MultiHop-RAG | Adaptive context-efficient reasoning; higher token cost than one-shot RAG.
+  - 来源：arXiv / PDF
+  - 收录理由：把“是否检索”作为 agent 决策来优化上下文成本，适合 retrieval efficiency。
+
+- [When Single-Agent with Skills Replace Multi-Agent Systems and When They Fail](https://arxiv.org/abs/2601.04748) → §1.4 Multi-Agent Coordination | Agent Δ: API calls 3–4→1 | Acc Δ: avg +0.7% | Cost Δ: −53.7% tokens; −49.5% latency | Skill-equipped single agents can replace some MAS; preliminary scope.
+  - 来源：arXiv / PDF
+  - 收录理由：直接比较 MAS 和 skill-based single agent 的成本、token、latency trade-off。
+
+- [IDRBench](https://arxiv.org/abs/2601.06676) → §3 Benchmarks & Evaluation | Measures: report quality, turns, interaction tokens | Gap: benchmark only | Cost Δ: measured, not optimized | Interactive deep research benchmark with cost-aware metrics.
+  - 来源：arXiv / PDF
+  - 收录理由：提供 deep-research agent 的交互成本和质量评估框架。
+
+- [SWEnergy](https://arxiv.org/abs/2512.09543) → §3 Benchmarks & Evaluation | Measures: energy, duration, tokens, memory | Gap: near-zero solve rates | Cost Δ: AutoCodeRover Gemma uses 9.4× more energy than OpenHands Gemma | Energy-focused evaluation of SLM software-engineering agents.
+  - 来源：arXiv / PDF
+  - 收录理由：补上 agent efficiency repo 里较少覆盖的能耗评估维度。
