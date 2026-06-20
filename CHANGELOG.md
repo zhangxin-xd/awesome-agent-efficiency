@@ -321,3 +321,61 @@ All additions and rejections are logged here. Most recent entries appear first.
 - [SWEnergy](https://arxiv.org/abs/2512.09543) → §3 Benchmarks & Evaluation | Measures: energy, duration, tokens, memory | Gap: near-zero solve rates | Cost Δ: AutoCodeRover Gemma uses 9.4× more energy than OpenHands Gemma | Energy-focused evaluation of SLM software-engineering agents.
   - 来源：arXiv / PDF
   - 收录理由：补上 agent efficiency repo 里较少覆盖的能耗评估维度。
+
+## 2026-06-20
+
+### Added
+- [Toward Efficient Agents: Memory, Tool Learning, and Planning](https://arxiv.org/abs/2601.14192) → §0 Surveys | Metric Δ: agent efficiency taxonomy | Acc Δ: — | Cost/Lat Δ: covers tokens, steps, and latency | Surveys memory, tool-learning, and planning efficiency; does not introduce a new optimization method
+  - 来源：arXiv
+  - 收录理由：主题与 repo 高度一致，并以效果与成本的 Pareto 权衡统一整理 agent efficiency 研究
+
+- [Think Fast and Slow](https://arxiv.org/abs/2602.12662) → §1.1 Planning | Token Δ: -62% | Acc Δ: 82.3% success rate | Lat Δ: — | Routes each step to an appropriate cognitive depth; requires two-stage training
+  - 来源：arXiv
+  - 收录理由：直接优化长程 agent 每一步的推理深度，同时显著减少 token 并提高任务成功率
+
+- [EGSS](https://arxiv.org/abs/2602.05242) → §1.1 Planning | Token Δ: >-28% inference tokens | Acc Δ: +5-10% | Lat Δ: — | Allocates test-time compute using entropy-guided search; mainly validated on SWE-Bench-Verified
+  - 来源：arXiv
+  - 收录理由：在软件工程 agent 中同时提升准确率并降低测试时扩展的 token 开销
+
+- [Agentic Test-Time Scaling for WebAgents](https://arxiv.org/abs/2602.12276) → §1.1 Planning | Token Δ: up to 2.3x fewer tokens | Acc Δ: up to +9.1% vs. ReAct | Lat Δ: dynamic compute allocation | Scales compute only at uncertain steps; web-navigation specific
+  - 来源：arXiv
+  - 收录理由：利用不确定性按步骤分配推理预算，避免 uniform scaling 的无效计算
+
+- [HyFunc](https://arxiv.org/abs/2602.13665) → §1.3 Tool Use | Call Δ: hybrid-model function selection | Acc Δ: 80.1% | Lat Δ: 0.828 s inference | Accelerates function calls using model cascading and dynamic templates; specialized implementation required
+  - 来源：arXiv / GitHub
+  - 收录理由：直接消除 function calling 中的工具描述、模型生成和固定语法冗余
+
+- [OpaqueToolsBench](https://arxiv.org/abs/2602.15197) → §1.3 Tool Use | Call Δ: interaction-driven tool documentation | Acc Δ: outperforms existing methods | Cost/Lat Δ: 3.5-7.5x fewer total tokens | Learns opaque tool behavior from execution feedback; strongest with incomplete documentation
+  - 来源：arXiv
+  - 收录理由：优化 agent 探索和学习未知工具行为时产生的高额 token 成本
+
+- [Training-Free Agentic AI](https://arxiv.org/abs/2603.13256) → §1.4 Multi-Agent Coordination | Agent Δ: belief-guided delegation; -17% calls | Acc Δ: maintained / robust | Cost Δ: -28% tokens; -19% time-to-success | Improves recursive delegation without training; evaluated mainly on split-knowledge tasks
+  - 来源：arXiv
+  - 收录理由：用轻量概率控制减少 multi-agent 路由中的无效调用、token 和执行时间
+
+- [HyperAgent](https://arxiv.org/abs/2510.10611) → §1.4 Multi-Agent Coordination | Agent Δ: adaptive hypergraph topology | Acc Δ: 95.07% on GSM8K | Cost Δ: -25.33% tokens | Models group-level communication using hypergraphs; requires topology-learning setup
+  - 来源：arXiv
+  - 收录理由：相比现有 pairwise graph 方法，补充了多 agent 群组通信拓扑优化方向
+
+- [SimpleMem](https://arxiv.org/abs/2601.02553) → §1.5 Memory & Retrieval | Retrieval Δ: semantic compression + intent-aware retrieval | Acc Δ: +26.4% F1 on LoCoMo | Cost/Lat Δ: up to 30x fewer inference tokens | Compresses lifelong agent memory; adds a multi-stage memory pipeline
+  - 来源：arXiv / GitHub
+  - 收录理由：同时提升长期记忆准确率、检索效率并大幅减少推理 token
+
+- [A-RAG](https://arxiv.org/abs/2602.03442) → §1.5 Memory & Retrieval | Retrieval Δ: adaptive hierarchical retrieval | Acc Δ: outperforms existing RAG approaches | Cost/Lat Δ: comparable or fewer retrieved tokens | Lets agents control retrieval interfaces; abstract lacks an exact token-reduction percentage
+  - 来源：arXiv / GitHub
+  - 收录理由：将检索决策交给 agent，并在更少或相当检索 token 下提高效果
+
+- [AgentInfer](https://arxiv.org/abs/2512.18337) → §1.6 Serving | Throughput Δ: 1.8-2.5x speedup | Acc Δ: preserved | Mem Δ: >50% fewer ineffective tokens | Co-designs agent architecture and serving; deployment requires multiple integrated modules
+  - 来源：arXiv
+  - 收录理由：面向完整 agent 任务而非单次模型调用，联合优化调度、解码和上下文压缩
+
+- [Optimizing FaaS Platforms for MCP-enabled Agentic Workflows](https://arxiv.org/abs/2601.14735) → §1.6 Serving | Throughput Δ: FaaS orchestration | Lat Δ: up to 13x faster | Mem Δ: -88% input tokens; -66% cost | Optimizes MCP workflows through serverless execution; strongly tied to AWS infrastructure
+  - 来源：arXiv
+  - 收录理由：提供 agentic MCP 工作流在延迟、token 和成本上的完整系统级优化结果
+
+- [EffGen](https://arxiv.org/abs/2602.00887) → §4 Tools & Frameworks | Metric Δ: local SLM agent framework | Acc Δ: outperforms LangChain, AutoGen, and Smolagents | Cost/Lat Δ: 70-80% context compression | Combines routing, tool calling, and memory for local agents; individual contributions are less isolated
+  - 来源：arXiv / GitHub
+  - 收录理由：提供可直接使用的开源小模型 agent 框架，并报告明确的上下文压缩和执行效率收益
+
+
+
