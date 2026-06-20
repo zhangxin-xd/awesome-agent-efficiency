@@ -83,6 +83,7 @@ Your agent is too slow or too expensive?
 | [A Survey on LLM-based Autonomous Agents](https://arxiv.org/abs/2308.11432) | arXiv 2023 | Canonical agent architecture overview; efficiency not the focus but useful as baseline |
 | [The Landscape of Emerging AI Agent Architectures](https://arxiv.org/abs/2404.11584) | arXiv 2024 | Practitioner-oriented taxonomy; highlights where latency and cost accumulate in real deployments |
 | [AgentBench: Evaluating LLMs as Agents](https://arxiv.org/abs/2308.03688) | ICLR 2024 | Establishes task completion vs. cost tradeoff baseline across 8 environments |
+| [Toward Efficient Agents: Memory, Tool Learning, and Planning](https://arxiv.org/abs/2601.14192) | arXiv 2026 | Surveys agent efficiency across memory, tool learning, and planning using effectiveness-cost Pareto frontiers; survey without a new optimization method |
 
 ---
 
@@ -106,6 +107,9 @@ Reducing the number of steps, tokens, and retries needed for an agent to complet
 | [DEPO](https://arxiv.org/abs/2511.15392) | arXiv 2025 | -60.9% tokens; -26.9% steps | up to +29.3% | - | Optimizes step-level and trajectory-level agent efficiency via preference optimization; training-based and mainly validated on WebShop/BabyAI |
 | [More with Less](https://arxiv.org/abs/2510.16786) | arXiv 2025 | cost -24-68%; extra -12-24% with dynamic turns | comparable / better solve rates | fewer turns | Controls coding-agent turn budgets with simple deployment strategies; empirical study rather than a new framework |
 | [Task-Decoupled Planning](https://arxiv.org/abs/2601.07577) | arXiv 2026 | up to −82.4% output tokens | HotpotQA 85.88% / 82.14% acc | — | Decouples long-horizon planning into scoped sub-tasks; sub-task granularity is still hand-tuned. |
+| [Think Fast and Slow](https://arxiv.org/abs/2602.12662) | arXiv 2026 | -62% tokens | 82.3% success rate | — | Routes each agent step to an appropriate cognitive depth; requires two-stage cognition-aware training |
+| [EGSS](https://arxiv.org/abs/2602.05242) | arXiv 2026 | >-28% inference tokens | +5-10% | — | Allocates test-time compute using entropy-guided search; mainly validated on SWE-Bench-Verified |
+| [Agentic Test-Time Scaling for WebAgents](https://arxiv.org/abs/2602.12276) | arXiv 2026 | up to 2.3x fewer tokens | up to +9.1% vs. ReAct | dynamic compute allocation | Scales compute only at uncertain web-agent steps; evidence is web-navigation specific |
 
 ---
 
@@ -156,6 +160,8 @@ Reducing unnecessary tool calls, improving tool selection, and enabling parallel
 | [ToolGen](https://arxiv.org/abs/2410.03439) | ICLR 2025 | no separate tool retrieval | superior on retrieval + agent tasks | — | Generates tool calls as tool tokens; requires tool-token training |
 | [Z-Space](https://arxiv.org/abs/2511.19483) | arXiv 2025 | -96.26% tool-inference tokens | 92% tool invocation accuracy | - | Filters enterprise MCP tools through multi-agent orchestration; production evidence but limited open reproducibility |
 | [ToolRM](https://arxiv.org/abs/2510.26167) | arXiv 2025 | RM-guided tool selection | up to +17.94% weighted tool-call accuracy; +4.64/+5.62 pp RL gains | >66% fewer output tokens on ACEBench | Fine-grained reward models for tool reasoning; needs curated tool-use preference data. |
+| [HyFunc](https://arxiv.org/abs/2602.13665) | arXiv 2026 | hybrid-model function selection | 80.1% | 0.828 s inference | Accelerates function calls using model cascading and dynamic templates; specialized inference implementation required |
+| [OpaqueToolsBench](https://arxiv.org/abs/2602.15197) | arXiv 2026 | interaction-driven tool documentation | outperforms existing methods | 3.5-7.5x fewer total tokens | Learns opaque tool behavior from execution feedback; strongest when tool documentation is incomplete |
 
 
 ---
@@ -188,6 +194,8 @@ Reducing communication overhead, redundant work, and orchestration cost in multi
 | [Agent-GSPO](https://arxiv.org/abs/2510.22477) | arXiv 2025 | communication-aware GSPO | SOTA on seven reasoning benchmarks | fraction of baseline tokens | Trains agents to communicate concisely with token-aware rewards; abstract lacks exact token-reduction percentage |
 | [iMAD](https://arxiv.org/abs/2511.11306) | arXiv 2025 | selective debate triggering | up to +13.5% | up to -92% tokens | Triggers multi-agent debate only when useful; limited to debate-style agent workflows |
 | [When Single-Agent with Skills Replace Multi-Agent Systems and When They Fail](https://arxiv.org/abs/2601.04748) | arXiv 2026 | MAS→SAS; API calls 3–4→1 | avg +0.7% accuracy | −53.7% tokens; −49.5% latency | Shows when skill-equipped single agents can replace MAS; preliminary and not all MAS patterns are compilable. |
+| [Training-Free Agentic AI](https://arxiv.org/abs/2603.13256) | arXiv 2026 | belief-guided delegation; -17% agent calls | maintained / robust under degradation | -28% tokens; -19% time-to-success | Routes recursive delegation using probabilistic control without training; evaluated mainly on split-knowledge tasks |
+| [HyperAgent](https://arxiv.org/abs/2510.10611) | arXiv 2025 | adaptive hypergraph topology | 95.07% on GSM8K | -25.33% tokens | Models group-level multi-agent communication with hypergraphs; requires topology-learning setup |
 
 
 
@@ -215,6 +223,8 @@ Efficiently storing, indexing, and retrieving agent memories and external knowle
 | [ParallelMuse](https://arxiv.org/abs/2510.24698) | arXiv 2025 | partial rollout reuse + compressed aggregation | up to +62% | -10-30% exploratory tokens | Reuses and compresses deep information-seeking trajectories; mainly useful for long-horizon search agents |
 | [Semantic Caching and Intent-Driven Context Optimization for LLM-Powered Enterprise Analytics](https://arxiv.org/abs/2601.11687) | arXiv 2026 | 67.3% cache utilization | 94.3% semantic accuracy; cached answers 98.7% | −51.7% prompt tokens; 8.2 s avg latency | Combines semantic cache and context filtering in production analytics; evidence is domain-specific. |
 | [ACE: To Retrieve or To Think? Teaching LLMs Adaptive Context-Efficient Reasoning](https://arxiv.org/abs/2601.08747) | arXiv 2026 | retrieve-or-think controller | HotpotQA 62.8%; 2WikiQA 47.9%; MultiHop-RAG 57.9% | −42% tokens vs IterDRAG on MultiHop-RAG | Dynamically avoids redundant retrieval in multi-hop QA; still costlier than single-step RAG. |
+| [SimpleMem](https://arxiv.org/abs/2601.02553) | arXiv 2026 | semantic compression + intent-aware retrieval | +26.4% F1 on LoCoMo | up to 30x fewer inference tokens | Compresses and synthesizes lifelong agent memory; adds a multi-stage memory pipeline |
+| [A-RAG](https://arxiv.org/abs/2602.03442) | arXiv 2026 | adaptive hierarchical retrieval | outperforms existing RAG approaches | comparable or fewer retrieved tokens | Exposes retrieval interfaces directly to the agent; abstract lacks an exact token-reduction percentage |
 
 
 
@@ -241,6 +251,8 @@ Reducing per-token latency and increasing throughput for deployed agent workload
 | [KVCOMM](https://arxiv.org/abs/2510.12872) | arXiv 2025 | >70% KV reuse | no quality degradation | up to 7.8x speedup; TTFT ~430 ms -> ~55 ms | Reuses cross-agent KV caches for overlapping contexts; benefits depend on shared context across agents |
 | [Scaling Graph-CoT / GLM](https://arxiv.org/abs/2511.01633) | arXiv 2025 | up to 15.1x throughput | up to +38% | -90.3% latency; -95.7% token cost | Co-designs multi-agent Graph-CoT with serving optimizations; strongest evidence is graph-reasoning specific |
 | [Agent.xpu](https://arxiv.org/abs/2506.24045) | arXiv 2025 | +1.2–4.9× proactive throughput | — | −91–97% reactive latency; −26.8% energy | Runtime scheduler for heterogeneous on-device agents; hardware/system-level rather than agent-policy-level. |
+| [AgentInfer](https://arxiv.org/abs/2512.18337) | arXiv 2025 | 1.8-2.5x end-to-end speedup | preserved | >50% fewer ineffective tokens | Co-designs agent architecture, scheduling, decoding, and memory compression; deployment requires multiple integrated modules |
+| [Optimizing FaaS Platforms for MCP-enabled Agentic Workflows](https://arxiv.org/abs/2601.14735) | arXiv 2026 | FaaS agent orchestration | up to 13x faster | -88% input tokens; -66% cost | Optimizes MCP agent workflows using caching, persistence, and function fusion; strongly tied to AWS serverless infrastructure |
 
 
 
@@ -326,6 +338,9 @@ Expected outcome: **stable performance** on tasks exceeding 100 steps or 500K to
 | [MemGPT / Letta](https://github.com/letta-ai/letta) | Long-horizon context | OS-style memory paging |
 | [LiteLLM](https://github.com/BerriAI/litellm) | Cost visibility | Unified cost tracking across 400+ models |
 | [AgentOps](https://github.com/AgentOps-AI/agentops) | Observability | Token cost + latency + step trace per run |
+| [EffGen](https://github.com/ctrl-gaurav/effGen) | Local small-model agents | Open-source framework with 70-80% context compression, complexity routing, tool calling, and unified memory |
+
+
 
 ---
 
