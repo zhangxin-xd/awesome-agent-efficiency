@@ -322,7 +322,7 @@ All additions and rejections are logged here. Most recent entries appear first.
   - 来源：arXiv / PDF
   - 收录理由：补上 agent efficiency repo 里较少覆盖的能耗评估维度。
 
-## 2026-06-20
+## 2026-06-20-14:00
 
 ### Added
 - [Toward Efficient Agents: Memory, Tool Learning, and Planning](https://arxiv.org/abs/2601.14192) → §0 Surveys | Metric Δ: agent efficiency taxonomy | Acc Δ: — | Cost/Lat Δ: covers tokens, steps, and latency | Surveys memory, tool-learning, and planning efficiency; does not introduce a new optimization method
@@ -377,5 +377,98 @@ All additions and rejections are logged here. Most recent entries appear first.
   - 来源：arXiv / GitHub
   - 收录理由：提供可直接使用的开源小模型 agent 框架，并报告明确的上下文压缩和执行效率收益
 
+## 2026-06-20-15:00
 
+### Added
+- [ELHPlan](https://arxiv.org/abs/2509.24230) → §1.1 Planning | Token Δ: uses 30-40% of SOTA tokens | Acc Δ: comparable success | Lat Δ: lower planning time | Plans with intention-bound action chains for multi-agent collaboration; evaluated on embodied multi-agent benchmarks
+  - 来源：arXiv
+  - 收录理由：直接优化 long-horizon multi-agent planning 的 token 与规划成本，指标清楚
+
+- [SAGE](https://arxiv.org/abs/2512.17102) → §1.1 Planning | Token Δ: -59% | Acc Δ: +8.9% scenario goal completion | Lat Δ: -26% interaction steps | Learns reusable skills through sequential rollouts; depends on RL training and skill-library infrastructure
+  - 来源：arXiv
+  - 收录理由：通过 skill library 降低 agent 交互步骤和 token，同时提升任务完成率
+
+- [AgentOCR](https://arxiv.org/abs/2601.04786) → §1.2 Token & Context | Token Δ: >-50% | Acc Δ: >95% text-agent performance preserved | Lat Δ: 20x rendering speedup | Compresses agent history into visual representations; adds rendering and visual-cache machinery
+  - 来源：arXiv
+  - 收录理由：直接压缩多轮 agent history，是 token/context efficiency 的强相关方向
+
+- [AgentDiet](https://arxiv.org/abs/2509.23586) → §1.2 Token & Context | Token Δ: -39.9% to -59.7% input tokens | Acc Δ: maintained | Cost/Lat Δ: -21.1% to -35.9% total cost | Removes useless and expired trajectory content at inference time; mainly validated on coding agents
+  - 来源：arXiv
+  - 收录理由：无需训练即可减少 agent trajectory token，且不损失任务表现
+
+- [Agents Learn Their Runtime](https://arxiv.org/abs/2603.01209) → §1.3 Tool Use | Call Δ: interpreter-state alignment | Acc Δ: quality unchanged | Cost/Lat Δ: avoids up to 3.5x redundant tokens | Shows runtime persistence should match tool-agent traces; controlled synthetic-task evidence
+  - 来源：arXiv
+  - 收录理由：揭示 CodeAct/tool agent 的 runtime 语义会显著影响 token 成本和稳定性
+
+- [AutoTool](https://arxiv.org/abs/2603.13348) → §1.3 Tool Use | Call Δ: automatic tool reasoning scaling | Acc Δ: +9.8% | Cost/Lat Δ: ~-81% computational overhead | Uses entropy-constrained RL to adapt tool-use reasoning length; requires RL training
+  - 来源：arXiv
+  - 收录理由：直接解决 tool-use agent 在简单问题中过度思考导致的 token 浪费
+
+- [Semantic Tool Discovery](https://arxiv.org/abs/2603.20313) → §1.3 Tool Use | Call Δ: -99.6% tool tokens | Acc Δ: 97.1% hit rate at K=3 | Lat Δ: sub-100ms retrieval | Retrieves relevant MCP tools instead of exposing full catalogs; benchmark has 121 tools
+  - 来源：arXiv
+  - 收录理由：针对 MCP tool selection 的上下文爆炸问题，token 降幅极强
+
+- [WorkflowGen](https://arxiv.org/abs/2604.19756) → §1.3 Tool Use | Call Δ: trajectory-based workflow reuse | Acc Δ: +20% success on medium-similarity queries | Cost/Lat Δ: >-40% tokens | Rewrites reusable workflow trajectories instead of planning from scratch; evidence is qualitative/comparative
+  - 来源：arXiv
+  - 收录理由：通过复用历史 workflow experience 减少工具型 agent 的重复规划成本
+
+- [RUMAD](https://arxiv.org/abs/2602.23864) → §1.4 Multi-Agent Coordination | Agent Δ: dynamic debate topology | Acc Δ: improves over single LLM and MAD baselines | Cost Δ: >-80% token cost | Controls MAD communication with RL; strongest for debate-style reasoning
+  - 来源：arXiv
+  - 收录理由：直接优化 multi-agent debate 的通信拓扑和 token 成本，同时提升准确率
+
+- [Stop Wasting Your Tokens](https://arxiv.org/abs/2510.26585) → §1.4 Multi-Agent Coordination | Agent Δ: runtime supervision | Acc Δ: success maintained | Cost Δ: -29.68% tokens on GAIA | Adds lightweight adaptive supervision for MAS at runtime; depends on filter reliability
+  - 来源：arXiv
+  - 收录理由：无需改 base agent 架构即可减少 runtime multi-agent 系统 token 浪费
+
+- [LDP](https://arxiv.org/abs/2603.08852) → §1.4 Multi-Agent Coordination | Agent Δ: identity-aware delegation protocol | Acc Δ: aggregate quality not improved in small pool | Cost Δ: ~12x lower latency on easy tasks; -37% tokens | Adds model identity and payload negotiation to agent protocols; early local evidence
+  - 来源：arXiv
+  - 收录理由：从协议层减少 multi-agent delegation 的延迟和 payload token
+
+- [SafeSieve](https://arxiv.org/abs/2508.11733) → §1.4 Multi-Agent Coordination | Agent Δ: progressive communication pruning | Acc Δ: 94.01% avg accuracy | Cost Δ: -12.4% to -27.8% tokens; -13.3% deployment cost | Prunes MAS communication using semantics and feedback; gains are moderate but practical
+  - 来源：arXiv / GitHub
+  - 收录理由：GPU-free progressive pruning 方法，直接面向 multi-agent communication efficiency
+
+- [M$^2$](https://arxiv.org/abs/2603.00503) → §1.5 Memory & Retrieval | Retrieval Δ: dual memory for web agents | Acc Δ: up to +19.6% success | Cost/Lat Δ: -58.7% tokens | Combines trajectory summarization with insight retrieval; web-navigation focused
+  - 来源：arXiv
+  - 收录理由：同时提升长程 web agent 成功率并明显降低 token 使用
+
+- [Tiny-Critic RAG](https://arxiv.org/abs/2603.00846) → §1.5 Memory & Retrieval | Retrieval Δ: SLM fallback gate | Acc Δ: ≈GPT-4o-mini routing accuracy | Cost/Lat Δ: order-of-magnitude latency reduction | Uses a LoRA SLM for reflective RAG routing; focused on binary fallback decisions
+  - 来源：arXiv
+  - 收录理由：用小模型替代大模型 evaluator，降低 agentic RAG routing 成本
+
+- [Mem-T](https://arxiv.org/abs/2601.23014) → §1.5 Memory & Retrieval | Retrieval Δ: memory-operation tree credit assignment | Acc Δ: up to +14.92% | Cost/Lat Δ: -24.45% inference tokens | Trains long-horizon memory agents with dense rewards; requires RL and hierarchical memory DB
+  - 来源：arXiv
+  - 收录理由：直接优化 memory agent 的构建、更新和检索策略，并报告 token 收益
+
+- [Test-Time Strategies for Agentic RAG](https://arxiv.org/abs/2603.12396) → §1.5 Memory & Retrieval | Retrieval Δ: contextualization + de-duplication | Acc Δ: +5.6% EM | Cost/Lat Δ: -10.5% turns | Improves Search-R1-style agentic RAG at test time; evaluated on QA datasets
+  - 来源：arXiv
+  - 收录理由：减少 agentic RAG 的重复检索 turn，同时提高答案准确率
+
+- [D-MEM](https://arxiv.org/abs/2603.14597) → §1.5 Memory & Retrieval | Retrieval Δ: reward-prediction memory routing | Acc Δ: outperforms baselines | Cost/Lat Δ: >-80% tokens; removes $O(N^2)$ write bottleneck | Routes memory updates through fast/slow paths; adds critic router
+  - 来源：arXiv
+  - 收录理由：直接解决 lifelong agent memory 的 token 成本和写入延迟瓶颈
+
+- [Memori](https://arxiv.org/abs/2603.19935) → §1.5 Memory & Retrieval | Retrieval Δ: structured persistent memory | Acc Δ: 81.95% on LoCoMo | Cost/Lat Δ: 1,294 tokens/query; -67% vs competitors | Converts dialogue into triples and summaries; system-layer memory design
+  - 来源：arXiv
+  - 收录理由：持久化 memory layer 有清楚的 token/cost 数字，适合补充 memory efficiency
+
+- [ICaRus](https://arxiv.org/abs/2603.13281) → §1.6 Serving | Throughput Δ: 3.8x | Lat Δ: 11.1x lower P95 latency | Mem Δ: shared cross-model KV cache | Shares identical KV caches across specialized models; requires compatible fine-tuning setup
+  - 来源：arXiv
+  - 收录理由：面向 multi-model / multi-agent workflow 的 KV cache 共享，latency 和 throughput 指标强
+
+- [RelayCaching](https://arxiv.org/abs/2603.13289) → §1.6 Serving | Throughput Δ: >80% KV reuse | Lat Δ: up to 4.7x TTFT speedup | Mem Δ: decoding KV reuse | Reuses previous agents' decoding KV caches during later prefill; assumes shared content
+  - 来源：arXiv
+  - 收录理由：专门减少多 agent 协作中的重复 prefill 计算和 TTFT
+
+- [IndexCache](https://arxiv.org/abs/2603.12201) → §1.6 Serving | Throughput Δ: removes 75% indexer computations | Lat Δ: 1.82x prefill; 1.48x decode | Mem Δ: cross-layer sparse-index reuse | Reuses sparse-attention indices across layers; tied to DSA-style serving stacks
+  - 来源：arXiv
+  - 收录理由：针对 long-context agentic workflow 的 attention serving bottleneck，有明确加速数字
+
+- [AgentAssay](https://arxiv.org/abs/2603.02601) → §3 Benchmarks & Evaluation | Metric Δ: token-efficient regression testing | Acc Δ: 86% detection power where binary testing has 0% | Cost/Lat Δ: 78-100% cost reduction | Tests nondeterministic agent workflows; testing framework rather than optimizer
+  - 来源：arXiv
+  - 收录理由：补充 agent workflow 回归测试与成本受控评估方向
+
+- [SkillCraft](https://arxiv.org/abs/2603.00718) → §3 Benchmarks & Evaluation | Metric Δ: tool-skill formation and reuse benchmark | Acc Δ: success correlates with tool composition | Cost/Lat Δ: up to -80% tokens from skill saving and reuse | Evaluates reusable tool compositions; not a standalone efficiency method
+  - 来源：arXiv
+  - 收录理由：补充 tool-use agent 是否能形成并复用技能的效率评测
 
