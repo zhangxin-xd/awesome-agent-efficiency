@@ -472,3 +472,72 @@ All additions and rejections are logged here. Most recent entries appear first.
   - 来源：arXiv
   - 收录理由：补充 tool-use agent 是否能形成并复用技能的效率评测
 
+## 2026-06-23-18:00
+
+- [SkillReducer](https://arxiv.org/abs/2603.29919) → §1.2 Token & Context | Token Δ: −48% descriptions / −39% bodies | Acc Δ: +2.8% functional quality | Lat Δ: — | Compresses LLM-agent skills for token efficiency; needs validation beyond skill repositories
+  - 来源：arXiv search start=400 / arXiv
+  - 收录理由：直接优化 agent skill 的 token footprint，实验规模大且指标清楚
+
+- [LightThinker++](https://arxiv.org/abs/2604.03679) → §1.2 Token & Context | Token Δ: peak −70% | Acc Δ: +14.8% | Lat Δ: ↓26% | Combines reasoning compression with memory management; strongest evidence is on long-horizon tasks
+  - 来源：arXiv search start=400 / arXiv
+  - 收录理由：同时覆盖 reasoning compression、memory management、latency reduction，和 repo 主线高度吻合
+
+- [Active Context Curation](https://arxiv.org/abs/2604.11462) → §1.2 Token & Context | Token Δ: −8.8% WebArena / up to 8× on DeepSearch | Acc Δ: WebArena 36.4→41.2 / DeepSearch 53.9→57.1 | Lat Δ: — | RL policy actively curates agent context; requires environment-specific training
+  - 来源：arXiv search start=400 / arXiv
+  - 收录理由：直接解决 agent context bottleneck，兼顾 token reduction 和 success improvement
+
+- [Computer Environments](https://arxiv.org/abs/2601.16206) → §1.3 Tool Use | Token Δ: up to −8× | Acc Δ: up to +15.5% | Lat Δ: — | Uses executable computer environments to elicit agentic behavior; depends on sandbox/tool availability
+  - 来源：arXiv search start=400 / arXiv
+  - 收录理由：把 computer environment 作为 agent efficiency tool，token 降幅强
+
+- [Dynamic analysis enhances issue resolution](https://arxiv.org/abs/2603.22048) → §1.3 Tool Use | Token Δ: −25% input tokens | Acc Δ: 79.4% SWE-bench Verified | Cost Δ: −10% | Adds dynamic analysis to SWE agents; focused on software issue resolution
+  - 来源：arXiv search start=400 / arXiv
+  - 收录理由：SWE agent 场景里同时提升 success、降低 token 和 cost
+
+- [WebMAC](https://arxiv.org/abs/2604.13559) → §1.3 Tool Use | Agent Δ: multi-agent web testing | Acc Δ: +30–60% execution success | Cost Δ: −47.6% tokens / +29% efficiency | Coordinates agents for web scenario testing; domain-specific to web systems
+  - 来源：arXiv search start=400 / arXiv
+  - 收录理由：web agent 测试场景中有明确 token 和 efficiency 收益
+
+- [Agent Q-Mix](https://arxiv.org/abs/2604.00344) → §1.4 Multi-Agent Coordination | Agent Δ: RL action selection | Acc Δ: HLE 20.8 vs 19.2 | Cost Δ: token-efficient policy | Selects actions for LLM multi-agent systems with QMIX; exact token savings are not fully reported
+  - 来源：arXiv search start=400 / arXiv
+  - 收录理由：面向 LLM multi-agent action selection，补足 MAS 决策效率方向
+
+- [Dynamic Attentional Context Scoping](https://arxiv.org/abs/2604.07911) → §1.4 Multi-Agent Coordination | Agent Δ: isolated per-agent focus sessions | Acc Δ: steering 90–98.4% | Cost Δ: up to 3.53× context efficiency | Scopes context per agent to reduce interference; evaluated mainly on steering/orchestration tasks
+  - 来源：arXiv search start=400 / arXiv
+  - 收录理由：直接优化 multi-agent context isolation 和 coordination efficiency
+
+- [TopoDIM](https://arxiv.org/abs/2601.10120) → §1.4 Multi-Agent Coordination | Agent Δ: one-shot topology generation | Acc Δ: +1.50% | Cost Δ: −46.41% tokens | Generates diverse MAS interaction topologies in one shot; gains are modest outside token savings
+  - 来源：arXiv search start=400 / arXiv
+  - 收录理由：multi-agent topology 方向有清晰 token reduction，和现有 §1.4 主题一致
+
+- [Latent-Space Agent Communication](https://arxiv.org/abs/2511.09149) → §1.4 Multi-Agent Coordination | Agent Δ: latent communication | Acc Δ: — | Lat Δ: up to 24× faster inference | Lets agents communicate in latent space; interpretability and debugging are harder
+  - 来源：arXiv search start=400 / arXiv
+  - 收录理由：直接减少 multi-agent communication overhead，速度收益强
+
+- [OThink-SRR1](https://arxiv.org/abs/2604.19766) → §1.5 Memory & Retrieval | Retrieval Δ: fewer retrieval/refinement steps | Acc Δ: improves 4 multi-hop QA benchmarks | Index Cost: RL search setup | Reinforces search-refine-reason loops for efficient agentic retrieval; needs RL pipeline
+  - 来源：arXiv search start=400 / arXiv
+  - 收录理由：优化 agentic search / RAG 的 retrieval steps 和 token 使用
+
+- [MemMachine](https://arxiv.org/abs/2604.04853) → §1.5 Memory & Retrieval | Token Δ: ≈80% fewer input tokens | Acc Δ: LoCoMo 0.9169 / LongMemEvalS 93% | Index Cost: memory system | Preserves personalized agent memory with much lower context cost; adds dedicated memory infrastructure
+  - 来源：arXiv search start=400 / arXiv
+  - 收录理由：personalized agent memory 方向有明确 input-token reduction 和高准确率
+
+- [On the Impact of AGENTS.md Files](https://arxiv.org/abs/2601.20404) → §3 Benchmarks & Evaluation | Metric Δ: 10 repos / 124 PRs | Acc Δ: comparable completion | Cost/Lat Δ: runtime −28.64%, output tokens −16.58% | Measures AGENTS.md impact on coding-agent efficiency; observational rather than causal
+  - 来源：arXiv search start=400 / arXiv
+  - 收录理由：直接评估 coding agent 本地指令文件对 runtime 和 token 的影响
+
+- [Single-Agent LLMs Outperform Multi-Agent Systems Under Equal Thinking Token Budgets](https://arxiv.org/abs/2604.02460) → §3 Benchmarks & Evaluation | Metric Δ: equal thinking-token budgets | Acc Δ: single-agent ≥ multi-agent on multi-hop reasoning | Cost/Lat Δ: fixed token budget | Compares agent designs under controlled token budgets; benchmark-style evidence rather than a framework
+  - 来源：arXiv search start=400 / arXiv
+  - 收录理由：回答 MAS 是否真的值得额外 token 成本的问题，适合 §3
+
+- [SkVM](https://arxiv.org/abs/2604.03088) → §4 Tools & Frameworks | Token Δ: up to −40% | Acc Δ: — | Lat Δ: 3.2× speedup / 19–50× lower latency | Skill VM standardizes cross-harness skill execution; benefits depend on VM integration
+  - 来源：arXiv search start=400 / arXiv
+  - 收录理由：工具层直接减少 skill execution 的 token 和 latency，适合作为 framework 条目
+ 
+
+
+
+
+
+
+
