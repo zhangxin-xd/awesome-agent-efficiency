@@ -112,6 +112,7 @@ Reducing the number of steps, tokens, and retries needed for an agent to complet
 | [Agentic Test-Time Scaling for WebAgents](https://arxiv.org/abs/2602.12276) | arXiv 2026 | up to 2.3x fewer tokens | up to +9.1% vs. ReAct | dynamic compute allocation | Scales compute only at uncertain web-agent steps; evidence is web-navigation specific |
 | [ELHPlan](https://arxiv.org/abs/2509.24230) | arXiv 2026 | uses 30-40% of SOTA tokens | comparable success | lower planning time | Plans with intention-bound action chains for multi-agent collaboration; evaluated on embodied multi-agent benchmarks |
 | [SAGE](https://arxiv.org/abs/2512.17102) | arXiv 2026 | -59% tokens | +8.9% scenario goal completion | -26% interaction steps | Learns reusable skills through sequential rollouts; depends on RL training and skill-library infrastructure |
+| [EET](https://arxiv.org/abs/2601.05777) | ACL Findings 2026 | input -30%, output -25% | resolution loss <=0.2% | total cost -19-55%; API calls -21% | Terminates unproductive SE-agent iterations using prior experience; focused on SWE-bench-style issue resolution |
 
 ---
 
@@ -142,6 +143,7 @@ Compressing prompts, managing long contexts, and reducing per-step token consump
 | [SkillReducer](https://arxiv.org/abs/2603.29919) | arXiv 2026 | −48% descriptions / −39% bodies | +2.8% functional quality | — | Compresses LLM-agent skills for token efficiency; needs validation beyond skill repositories |
 | [LightThinker++](https://arxiv.org/abs/2604.03679) | arXiv 2026 | peak −70% | +14.8% | ↓26% | Combines reasoning compression with memory management; strongest evidence is on long-horizon tasks |
 | [Active Context Curation](https://arxiv.org/abs/2604.11462) | arXiv 2026 | −8.8% WebArena / up to 8× on DeepSearch | WebArena 36.4→41.2 / DeepSearch 53.9→57.1 | — | RL policy actively curates agent context; requires environment-specific training |
+| [GenericAgent](https://arxiv.org/abs/2604.17091) | arXiv 2026 | fewer tokens and interactions | outperforms leading agent systems | — | Maximizes context information density for long-horizon agents; abstract lacks exact token-reduction percentage |
 
 ---
 
@@ -176,7 +178,7 @@ Reducing unnecessary tool calls, improving tool selection, and enabling parallel
 | [Computer Environments](https://arxiv.org/abs/2601.16206) | arXiv 2026 | up to −8× tokens | up to +15.5% | — | Uses executable computer environments to elicit agentic behavior; depends on sandbox/tool availability |
 | [Dynamic analysis enhances issue resolution](https://arxiv.org/abs/2603.22048) | arXiv 2026 | −25% input tokens | 79.4% SWE-bench Verified | cost −10% | Adds dynamic analysis to SWE agents; focused on software issue resolution |
 | [WebMAC](https://arxiv.org/abs/2604.13559) | arXiv 2026 | multi-agent web testing | +30–60% execution success | −47.6% tokens / +29% efficiency | Coordinates agents for web scenario testing; domain-specific to web systems |
-
+| [Agentic Compilation](https://arxiv.org/abs/2604.09718) | arXiv 2026 | one-shot workflow compilation | 80-94% zero-shot compilation success | <$0.10 per workflow; $0.002-$0.092 per compilation | Compiles repeated web-agent workflows into deterministic execution; best for repetitive browser automation |
 
 ---
 
@@ -218,6 +220,9 @@ Reducing communication overhead, redundant work, and orchestration cost in multi
 | [Dynamic Attentional Context Scoping](https://arxiv.org/abs/2604.07911) | arXiv 2026 | isolated per-agent focus sessions | steering 90–98.4% | up to 3.53× context efficiency | Scopes context per agent to reduce interference; evaluated mainly on steering/orchestration tasks |
 | [TopoDIM](https://arxiv.org/abs/2601.10120) | arXiv 2026 | one-shot topology generation | +1.50% | −46.41% tokens | Generates diverse MAS interaction topologies in one shot; gains are modest outside token savings |
 | [Latent-Space Agent Communication](https://arxiv.org/abs/2511.09149) | arXiv 2025 | latent communication | — | up to 24× faster inference | Lets agents communicate in latent space; interpretability and debugging are harder |
+| [Cost-Effective Communication](https://arxiv.org/abs/2511.13193) | arXiv 2026 | auction-gated speaking | MMLU 84.32%, HumanEval 91.21% pass@1 | 6.25M tokens on GSM8K | Treats MAS communication as scarce bandwidth; exact savings vs each baseline need table-level verification |
+| [Recursive Multi-Agent Systems](https://arxiv.org/abs/2604.25917) | arXiv 2026 | recursive latent MAS | +8.3% avg accuracy | -34.6% to -75.6% tokens; 1.2x-2.4x speedup | Scales collaboration through latent recursive computation; requires specialized recursive training |
+| [Agent Capsules](https://arxiv.org/abs/2605.00410) | arXiv 2026 | quality-gated compound execution | +0.020/+0.017 quality; +0.052 vs MIPROv2 | -19% to -68% tokens | Merges multi-agent pipeline stages under quality gates; evaluated on selected business pipelines |
 
 
 
@@ -255,6 +260,7 @@ Efficiently storing, indexing, and retrieving agent memories and external knowle
 | [Memori](https://arxiv.org/abs/2603.19935) | arXiv 2026 | structured persistent memory | 81.95% on LoCoMo | 1,294 tokens/query; -67% vs competitors | Converts dialogue into triples and summaries for agent memory; system-layer memory design rather than model method |
 | [OThink-SRR1](https://arxiv.org/abs/2604.19766) | arXiv 2026 | fewer retrieval/refinement steps | improves 4 multi-hop QA benchmarks | RL search setup | Reinforces search-refine-reason loops for efficient agentic retrieval; needs RL pipeline |
 | [MemMachine](https://arxiv.org/abs/2604.04853) | arXiv 2026 | ≈80% fewer input tokens | LoCoMo 0.9169 / LongMemEvalS 93% | memory system | Preserves personalized agent memory with much lower context cost; adds dedicated memory infrastructure |
+| [StructMem](https://arxiv.org/abs/2604.21748) | ACL 2026 Main | structured hierarchical memory | better LoCoMo temporal/multi-hop performance | lower tokens, API calls, and runtime | Adds event bindings and semantic consolidation for long-term memory; exact reduction numbers need PDF table check |
 
 
 
@@ -286,6 +292,8 @@ Reducing per-token latency and increasing throughput for deployed agent workload
 | [ICaRus](https://arxiv.org/abs/2603.13281) | arXiv 2026 | shared cross-model KV cache | comparable to task-specific fine-tuning | 11.1x lower P95 latency; 3.8x throughput | Shares identical KV caches across specialized models; requires compatible fine-tuning setup |
 | [RelayCaching](https://arxiv.org/abs/2603.13289) | arXiv 2026 | >80% decoding KV reuse | negligible degradation | up to 4.7x TTFT speedup | Reuses previous agents' decoding KV caches during later prefill; assumes reusable shared content |
 | [IndexCache](https://arxiv.org/abs/2603.12201) | arXiv 2026 | removes 75% indexer computations | negligible quality degradation | 1.82x prefill; 1.48x decode | Reuses sparse-attention indices across layers for long-context agentic workflows; tied to DSA-style serving stacks |
+| [AgentStop](https://arxiv.org/abs/2605.15206) | ACM CAIS 2026 | early termination supervisor | utility drop <5% | energy -15% to -20% | Stops low-success local-agent trajectories to save energy; tuned for consumer-device local agents |
+| [Not All Prefills Are Equal](https://arxiv.org/abs/2603.13358) | ICML 2026 | PPD routing for multi-turn serving | competitive TPOT | Turn 2+ TTFT -68%; cached KV reuse | Routes append-prefill locally on decode nodes; serving-layer method with SLO-dependent routing |
 
 
 
@@ -358,6 +366,8 @@ Expected outcome: **stable performance** on tasks exceeding 100 steps or 500K to
 | [SkillCraft](https://arxiv.org/abs/2603.00718) | arXiv 2026 | Benchmark for tool-skill formation and reuse; skill saving cuts tokens by up to 80% | Measures reusable tool composition, not a standalone efficiency method |
 | [On the Impact of AGENTS.md Files](https://arxiv.org/abs/2601.20404) | arXiv 2026 | Measures runtime and output-token impact across 10 repos / 124 PRs | Observational study; not a reusable method |
 | [Single-Agent LLMs Outperform Multi-Agent Systems Under Equal Thinking Token Budgets](https://arxiv.org/abs/2604.02460) | arXiv 2026 | Compares single-agent vs multi-agent reasoning under equal token budgets | Focused on multi-hop reasoning; benchmark-style evidence rather than a framework |
+| [How Do AI Agents Spend Your Money?](https://arxiv.org/abs/2604.22750) | arXiv 2026 | Token consumption patterns for coding agents on SWE-bench Verified | Empirical study; does not propose a new optimization method |
+| [SWE Context Bench](https://arxiv.org/abs/2602.08316) | arXiv 2026 | Context reuse in coding agents across 1,100 base tasks and 376 related tasks | Benchmark; gains depend on accurate summarized/retrieved prior context |
 
 
 > **Critical gap**: No widely-adopted benchmark jointly reports task success rate, total token cost, step count, and wall-clock latency on the same tasks. See §5.
