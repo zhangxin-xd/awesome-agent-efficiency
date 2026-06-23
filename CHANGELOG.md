@@ -535,7 +535,50 @@ All additions and rejections are logged here. Most recent entries appear first.
   - 收录理由：工具层直接减少 skill execution 的 token 和 latency，适合作为 framework 条目
  
 
+## 2026-06-23-19:00
+- [EET](https://arxiv.org/abs/2601.05777) → §1.1 Planning | Token Δ: input -30%, output -25% | Acc Δ: resolution loss <=0.2% | Cost/Lat Δ: total cost -19-55%, API calls -21% | Terminates unproductive SE-agent iterations using prior experience; focused on SWE-bench-style issue resolution
+  - 来源：arXiv
+  - 收录理由：直接降低软件工程 agent 的成本、调用次数和 token，用 ACL Findings 2026 + 开源信号支撑
 
+- [GenericAgent](https://arxiv.org/abs/2604.17091) → §1.2 Token & Context | Token Δ: fewer tokens and interactions | Acc Δ: outperforms leading agent systems | Lat Δ: — | Maximizes context information density for long-horizon agents; abstract lacks exact token-reduction percentage
+  - 来源：arXiv
+  - 收录理由：围绕长程 agent 的 context density、tool/memory/self-evolution 做系统级 token efficiency 优化
+
+- [Cost-Effective Communication](https://arxiv.org/abs/2511.13193) → §1.4 Multi-Agent Coordination | Agent Δ: auction-gated speaking | Acc Δ: MMLU 84.32%, HumanEval 91.21% pass@1 | Cost Δ: 6.25M tokens on GSM8K | Treats MAS communication as scarce bandwidth; exact savings vs each baseline need table-level verification
+  - 来源：arXiv
+  - 收录理由：直接解决 multi-agent free-for-all communication 的 token 浪费，并有多 benchmark 结果
+
+- [Recursive Multi-Agent Systems](https://arxiv.org/abs/2604.25917) → §1.4 Multi-Agent Coordination | Agent Δ: recursive latent MAS | Acc Δ: +8.3% avg accuracy | Cost Δ: -34.6% to -75.6% tokens; 1.2x-2.4x speedup | Scales collaboration through latent recursive computation; requires specialized recursive training
+  - 来源：arXiv
+  - 收录理由：同时报告 multi-agent token reduction、速度和准确率收益，和 §1.4 高度匹配
+
+- [Agent Capsules](https://arxiv.org/abs/2605.00410) → §1.4 Multi-Agent Coordination | Agent Δ: quality-gated compound execution | Acc Δ: +0.020/+0.017 quality; +0.052 vs MIPROv2 | Cost Δ: -19% to -68% tokens | Merges multi-agent pipeline stages under quality gates; evaluated on selected business pipelines
+  - 来源：arXiv
+  - 收录理由：把 multi-agent pipeline 粒度控制成可执行 runtime，token 节省和质量门控都清楚
+
+- [StructMem](https://arxiv.org/abs/2604.21748) → §1.5 Memory & Retrieval | Retrieval Δ: structured hierarchical memory | Acc Δ: better LoCoMo temporal/multi-hop performance | Cost/Lat Δ: lower tokens, API calls, and runtime | Adds event bindings and semantic consolidation for long-term memory; exact reduction numbers need PDF table check
+  - 来源：arXiv
+  - 收录理由：ACL 2026 Main，直接优化 long-term conversational agent memory 的 token/call/runtime 成本
+
+- [AgentStop](https://arxiv.org/abs/2605.15206) → §1.6 Serving | Throughput Δ: early termination supervisor | Acc Δ: utility drop <5% | Cost/Lat Δ: energy -15% to -20% | Stops low-success local-agent trajectories to save energy; tuned for consumer-device local agents
+  - 来源：arXiv
+  - 收录理由：面向本地 agent 部署的 energy/time/token 浪费，有实际系统指标
+
+- [Not All Prefills Are Equal](https://arxiv.org/abs/2603.13358) → §1.6 Serving | Throughput Δ: PPD routing for multi-turn serving | Acc Δ: competitive TPOT | Lat Δ: Turn 2+ TTFT -68% | Routes append-prefill locally on decode nodes; serving-layer method with SLO-dependent routing
+  - 来源：arXiv
+  - 收录理由：ICML 2026，直接优化 multi-turn / agentic serving 的 prefill 和 KV transfer 开销
+
+- [How Do AI Agents Spend Your Money?](https://arxiv.org/abs/2604.22750) → §3 Benchmarks & Evaluation | Metric Δ: SWE-bench Verified trajectories from 8 frontier LLMs | Acc Δ: cost does not monotonically improve accuracy | Cost/Lat Δ: agentic tasks use 1000x more tokens than code chat/reasoning | Studies coding-agent token economics; empirical study rather than optimization method
+  - 来源：arXiv
+  - 收录理由：系统回答 coding agents token 花在哪里、哪些模型更省、是否能预测成本，填补 repo benchmark gap
+
+- [SWE Context Bench](https://arxiv.org/abs/2602.08316) → §3 Benchmarks & Evaluation | Metric Δ: 1,100 base tasks + 376 related tasks | Acc Δ: retrieved prior experience improves hard-task resolution | Cost/Lat Δ: reduces runtime and token cost when context is accurate | Benchmarks context reuse in coding agents; gains depend on accurate summarized/retrieved prior context
+  - 来源：arXiv
+  - 收录理由：专门评估 coding agents 的 context reuse 与效率收益，适合作为 §3 benchmark 条目
+
+- [Agentic Compilation](https://arxiv.org/abs/2604.09718) → §1.3 Tool Use | Call Δ: one-shot workflow compilation | Acc Δ: 80-94% zero-shot compilation success | Cost/Lat Δ: <$0.10 per workflow; $0.002-$0.092 per compilation | Compiles repeated web-agent workflows into deterministic execution; best for repetitive browser automation
+  - 来源：arXiv
+  - 收录理由：把 web agent 重复执行从连续 LLM loop 降到一次编译，成本下降非常直接
 
 
 
