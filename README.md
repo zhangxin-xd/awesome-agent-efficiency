@@ -139,6 +139,9 @@ Compressing prompts, managing long contexts, and reducing per-step token consump
 | [CCPO](https://arxiv.org/abs/2601.11631) | arXiv 2026 | up to −55.01% visual tokens | AITW 75.12 overall; AC 73.25 SR | up to 3.8× training speedup | Compresses GUI-agent visual contexts with curriculum policy optimization; domain-specific to coordinate/GUI agents. |
 | [AgentOCR](https://arxiv.org/abs/2601.04786) | arXiv 2026 | >-50% tokens | >95% text-agent performance preserved | 20x rendering speedup | Compresses agent history into visual representations; adds rendering and visual-cache machinery |
 | [AgentDiet](https://arxiv.org/abs/2509.23586) | arXiv 2026 | -39.9% to -59.7% input tokens | maintained | -21.1% to -35.9% total cost | Removes useless, redundant, and expired trajectory content at inference time; validated mainly on coding agents |
+| [SkillReducer](https://arxiv.org/abs/2603.29919) | arXiv 2026 | −48% descriptions / −39% bodies | +2.8% functional quality | — | Compresses LLM-agent skills for token efficiency; needs validation beyond skill repositories |
+| [LightThinker++](https://arxiv.org/abs/2604.03679) | arXiv 2026 | peak −70% | +14.8% | ↓26% | Combines reasoning compression with memory management; strongest evidence is on long-horizon tasks |
+| [Active Context Curation](https://arxiv.org/abs/2604.11462) | arXiv 2026 | −8.8% WebArena / up to 8× on DeepSearch | WebArena 36.4→41.2 / DeepSearch 53.9→57.1 | — | RL policy actively curates agent context; requires environment-specific training |
 
 ---
 
@@ -170,6 +173,9 @@ Reducing unnecessary tool calls, improving tool selection, and enabling parallel
 | [AutoTool](https://arxiv.org/abs/2603.13348) | arXiv 2026 | automatic tool reasoning scaling | +9.8% | ~-81% computational overhead | Uses entropy-constrained RL to adapt tool-use reasoning length; requires RL training |
 | [Semantic Tool Discovery](https://arxiv.org/abs/2603.20313) | arXiv 2026 | -99.6% tool tokens | 97.1% hit rate at K=3 | sub-100ms retrieval | Retrieves only relevant MCP tools instead of exposing full catalogs; benchmark is 121 tools across 5 MCP servers |
 | [WorkflowGen](https://arxiv.org/abs/2604.19756) | arXiv 2026 | trajectory-based workflow reuse | +20% success on medium-similarity queries | >-40% tokens | Rewrites reusable workflow trajectories instead of planning from scratch; evidence is qualitative/comparative |
+| [Computer Environments](https://arxiv.org/abs/2601.16206) | arXiv 2026 | up to −8× tokens | up to +15.5% | — | Uses executable computer environments to elicit agentic behavior; depends on sandbox/tool availability |
+| [Dynamic analysis enhances issue resolution](https://arxiv.org/abs/2603.22048) | arXiv 2026 | −25% input tokens | 79.4% SWE-bench Verified | cost −10% | Adds dynamic analysis to SWE agents; focused on software issue resolution |
+| [WebMAC](https://arxiv.org/abs/2604.13559) | arXiv 2026 | multi-agent web testing | +30–60% execution success | −47.6% tokens / +29% efficiency | Coordinates agents for web scenario testing; domain-specific to web systems |
 
 
 ---
@@ -208,6 +214,10 @@ Reducing communication overhead, redundant work, and orchestration cost in multi
 | [Stop Wasting Your Tokens](https://arxiv.org/abs/2510.26585) | arXiv 2026 | runtime supervision | success maintained | -29.68% tokens on GAIA | Adds lightweight adaptive supervision for MAS at runtime; intervention quality depends on filter reliability |
 | [LDP](https://arxiv.org/abs/2603.08852) | arXiv 2026 | identity-aware delegation protocol | aggregate quality not improved in small pool | ~12x lower latency on easy tasks; -37% tokens | Adds model identity and payload negotiation to agent protocols; early evidence from small local delegate pools |
 | [SafeSieve](https://arxiv.org/abs/2508.11733) | arXiv 2026 | progressive communication pruning | 94.01% avg accuracy | -12.4% to -27.8% tokens; -13.3% deployment cost | Prunes multi-agent communication using semantics and feedback; gains are smaller than heavier topology-training methods |
+| [Agent Q-Mix](https://arxiv.org/abs/2604.00344) | arXiv 2026 | RL action selection | HLE 20.8 vs 19.2 | token-efficient policy | Selects actions for LLM multi-agent systems with QMIX; exact token savings are not fully reported |
+| [Dynamic Attentional Context Scoping](https://arxiv.org/abs/2604.07911) | arXiv 2026 | isolated per-agent focus sessions | steering 90–98.4% | up to 3.53× context efficiency | Scopes context per agent to reduce interference; evaluated mainly on steering/orchestration tasks |
+| [TopoDIM](https://arxiv.org/abs/2601.10120) | arXiv 2026 | one-shot topology generation | +1.50% | −46.41% tokens | Generates diverse MAS interaction topologies in one shot; gains are modest outside token savings |
+| [Latent-Space Agent Communication](https://arxiv.org/abs/2511.09149) | arXiv 2025 | latent communication | — | up to 24× faster inference | Lets agents communicate in latent space; interpretability and debugging are harder |
 
 
 
@@ -243,6 +253,8 @@ Efficiently storing, indexing, and retrieving agent memories and external knowle
 | [Test-Time Strategies for Agentic RAG](https://arxiv.org/abs/2603.12396) | arXiv 2026 | contextualization + retrieval de-duplication | +5.6% EM | -10.5% turns | Improves Search-R1-style agentic RAG at test time; evaluated on QA datasets |
 | [D-MEM](https://arxiv.org/abs/2603.14597) | arXiv 2026 | reward-prediction memory routing | outperforms baselines | >-80% tokens; removes $O(N^2)$ write bottleneck | Routes memory updates through fast/slow paths; adds critic router and memory-evolution pipeline |
 | [Memori](https://arxiv.org/abs/2603.19935) | arXiv 2026 | structured persistent memory | 81.95% on LoCoMo | 1,294 tokens/query; -67% vs competitors | Converts dialogue into triples and summaries for agent memory; system-layer memory design rather than model method |
+| [OThink-SRR1](https://arxiv.org/abs/2604.19766) | arXiv 2026 | fewer retrieval/refinement steps | improves 4 multi-hop QA benchmarks | RL search setup | Reinforces search-refine-reason loops for efficient agentic retrieval; needs RL pipeline |
+| [MemMachine](https://arxiv.org/abs/2604.04853) | arXiv 2026 | ≈80% fewer input tokens | LoCoMo 0.9169 / LongMemEvalS 93% | memory system | Preserves personalized agent memory with much lower context cost; adds dedicated memory infrastructure |
 
 
 
@@ -344,6 +356,8 @@ Expected outcome: **stable performance** on tasks exceeding 100 steps or 500K to
 | [SWEnergy](https://arxiv.org/abs/2512.09543) | arXiv 2025 | Energy, duration, token usage, and memory over SLM issue-resolution agents | Empirical study; near-zero solve rates limit success-cost conclusions. |
 | [AgentAssay](https://arxiv.org/abs/2603.02601) | arXiv 2026 | Token-efficient regression testing for nondeterministic agent workflows with 7,605 trials | Testing framework rather than an agent optimization method |
 | [SkillCraft](https://arxiv.org/abs/2603.00718) | arXiv 2026 | Benchmark for tool-skill formation and reuse; skill saving cuts tokens by up to 80% | Measures reusable tool composition, not a standalone efficiency method |
+| [On the Impact of AGENTS.md Files](https://arxiv.org/abs/2601.20404) | arXiv 2026 | Measures runtime and output-token impact across 10 repos / 124 PRs | Observational study; not a reusable method |
+| [Single-Agent LLMs Outperform Multi-Agent Systems Under Equal Thinking Token Budgets](https://arxiv.org/abs/2604.02460) | arXiv 2026 | Compares single-agent vs multi-agent reasoning under equal token budgets | Focused on multi-hop reasoning; benchmark-style evidence rather than a framework |
 
 
 > **Critical gap**: No widely-adopted benchmark jointly reports task success rate, total token cost, step count, and wall-clock latency on the same tasks. See §5.
@@ -363,7 +377,7 @@ Expected outcome: **stable performance** on tasks exceeding 100 steps or 500K to
 | [LiteLLM](https://github.com/BerriAI/litellm) | Cost visibility | Unified cost tracking across 400+ models |
 | [AgentOps](https://github.com/AgentOps-AI/agentops) | Observability | Token cost + latency + step trace per run |
 | [EffGen](https://github.com/ctrl-gaurav/effGen) | Local small-model agents | Open-source framework with 70-80% context compression, complexity routing, tool calling, and unified memory |
-
+| [SkVM](https://arxiv.org/abs/2604.03088) | Cross-harness skill execution | Up to −40% token consumption, 3.2× speedup, and large latency reductions |
 
 
 ---
