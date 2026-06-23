@@ -113,6 +113,8 @@ Reducing the number of steps, tokens, and retries needed for an agent to complet
 | [ELHPlan](https://arxiv.org/abs/2509.24230) | arXiv 2026 | uses 30-40% of SOTA tokens | comparable success | lower planning time | Plans with intention-bound action chains for multi-agent collaboration; evaluated on embodied multi-agent benchmarks |
 | [SAGE](https://arxiv.org/abs/2512.17102) | arXiv 2026 | -59% tokens | +8.9% scenario goal completion | -26% interaction steps | Learns reusable skills through sequential rollouts; depends on RL training and skill-library infrastructure |
 | [EET](https://arxiv.org/abs/2601.05777) | ACL Findings 2026 | input -30%, output -25% | resolution loss <=0.2% | total cost -19-55%; API calls -21% | Terminates unproductive SE-agent iterations using prior experience; focused on SWE-bench-style issue resolution |
+| [PIVOT](https://arxiv.org/abs/2605.11225) | arXiv 2026 | 3x-5x fewer tokens | up to +94% relative constraint satisfaction with HITL | lower refinement cost | Refines failed plans through executable trajectory feedback; HITL upper-bound results are stronger than fully autonomous gains |
+| [SPIKE](https://arxiv.org/abs/2605.18636) | arXiv 2026 | -54.9% tokens | +5.0pp Lite-100 SR / +9.3pp Budgeted SR | -40.8% latency | Uses strategic/reactive controllers for long-horizon game agents; strongest evidence is open-world games |
 
 ---
 
@@ -144,6 +146,10 @@ Compressing prompts, managing long contexts, and reducing per-step token consump
 | [LightThinker++](https://arxiv.org/abs/2604.03679) | arXiv 2026 | peak −70% | +14.8% | ↓26% | Combines reasoning compression with memory management; strongest evidence is on long-horizon tasks |
 | [Active Context Curation](https://arxiv.org/abs/2604.11462) | arXiv 2026 | −8.8% WebArena / up to 8× on DeepSearch | WebArena 36.4→41.2 / DeepSearch 53.9→57.1 | — | RL policy actively curates agent context; requires environment-specific training |
 | [GenericAgent](https://arxiv.org/abs/2604.17091) | arXiv 2026 | fewer tokens and interactions | outperforms leading agent systems | — | Maximizes context information density for long-horizon agents; abstract lacks exact token-reduction percentage |
+| [SKILL0](https://arxiv.org/abs/2604.02268) | arXiv 2026 | <0.5k tokens per step | +9.7% ALFWorld / +6.6% Search-QA / +10.1% WebShop | — | Internalizes agent skills instead of loading them at inference; requires RL curriculum training |
+| [TACO](https://arxiv.org/abs/2604.19572) | arXiv 2026 | lower total tokens | +1-4% on TerminalBench; +2-3% under same budget | — | Compresses noisy terminal observations with self-evolving rules; terminal-agent specific |
+| [AQuaUI](https://arxiv.org/abs/2605.19260) | arXiv 2026 | -29.52% visual tokens | retains 99.06% full-token performance | up to +13.22% speedup | Uses adaptive quadtrees for GUI screenshot tokens; gains depend on GUI spatial redundancy |
+| [PEEK](https://arxiv.org/abs/2605.19932) | arXiv 2026 | constant-size context map | +6.3-34.0% / +6.0-14.0% solving rate | 93-145 fewer iterations; 1.7-5.8x lower cost | Caches reusable orientation knowledge for recurring contexts; needs programmable cache maintenance |
 
 ---
 
@@ -179,6 +185,9 @@ Reducing unnecessary tool calls, improving tool selection, and enabling parallel
 | [Dynamic analysis enhances issue resolution](https://arxiv.org/abs/2603.22048) | arXiv 2026 | −25% input tokens | 79.4% SWE-bench Verified | cost −10% | Adds dynamic analysis to SWE agents; focused on software issue resolution |
 | [WebMAC](https://arxiv.org/abs/2604.13559) | arXiv 2026 | multi-agent web testing | +30–60% execution success | −47.6% tokens / +29% efficiency | Coordinates agents for web scenario testing; domain-specific to web systems |
 | [Agentic Compilation](https://arxiv.org/abs/2604.09718) | arXiv 2026 | one-shot workflow compilation | 80-94% zero-shot compilation success | <$0.10 per workflow; $0.002-$0.092 per compilation | Compiles repeated web-agent workflows into deterministic execution; best for repetitive browser automation |
+| [Do Agents Need to Plan Step-by-Step?](https://arxiv.org/abs/2605.08477) | CAIS 2026 | full-horizon lazy replanning | accuracy parity with step-by-step planning | 2-3x fewer tokens | Shows eager step-wise tool planning is often unnecessary; focused on data-centric tasks |
+| [HyperEyes](https://arxiv.org/abs/2605.07177) | arXiv 2026 | 5.3x fewer tool-call rounds | +9.9% over strongest comparable open-source agent | parallel multimodal search | Searches wider instead of longer for multimodal retrieval; benchmark is newly introduced |
+| [Runtime-Structured Task Decomposition](https://arxiv.org/abs/2605.15425) | Agentic SE Workshop 2026 | reruns failed subtasks only | — | retry cost -51.7% vs monolithic / -73.2% vs static decomposition | Moves coding-agent workflow control into runtime logic; evidence covers two SE workloads |
 
 ---
 
@@ -223,6 +232,9 @@ Reducing communication overhead, redundant work, and orchestration cost in multi
 | [Cost-Effective Communication](https://arxiv.org/abs/2511.13193) | arXiv 2026 | auction-gated speaking | MMLU 84.32%, HumanEval 91.21% pass@1 | 6.25M tokens on GSM8K | Treats MAS communication as scarce bandwidth; exact savings vs each baseline need table-level verification |
 | [Recursive Multi-Agent Systems](https://arxiv.org/abs/2604.25917) | arXiv 2026 | recursive latent MAS | +8.3% avg accuracy | -34.6% to -75.6% tokens; 1.2x-2.4x speedup | Scales collaboration through latent recursive computation; requires specialized recursive training |
 | [Agent Capsules](https://arxiv.org/abs/2605.00410) | arXiv 2026 | quality-gated compound execution | +0.020/+0.017 quality; +0.052 vs MIPROv2 | -19% to -68% tokens | Merges multi-agent pipeline stages under quality gates; evaluated on selected business pipelines |
+| [LATTE](https://arxiv.org/abs/2605.06320) | arXiv 2026 | evolving task graph | matches or exceeds MetaGPT / decentralized / Leader-Worker baselines | lower tokens, wall-clock time, and communication | Coordinates agent teams with adaptive task graphs; abstract lacks exact reduction percentages |
+| [TFlow](https://arxiv.org/abs/2605.13839) | arXiv 2026 | weight-space communication | up to +8.5 accuracy points vs standalone | up to -83.27% processed tokens; up to 4.6x faster | Replaces text messages with transient LoRA perturbations; requires fixed receiver architecture |
+| [GTD](https://arxiv.org/abs/2510.07799) | ACL 2026 Main | graph-diffusion topology generation | significantly outperforms existing MAS methods | sparse efficient topologies | Generates task-adaptive communication graphs; abstract lacks exact token-reduction percentage |
 
 
 
@@ -261,6 +273,11 @@ Efficiently storing, indexing, and retrieving agent memories and external knowle
 | [OThink-SRR1](https://arxiv.org/abs/2604.19766) | arXiv 2026 | fewer retrieval/refinement steps | improves 4 multi-hop QA benchmarks | RL search setup | Reinforces search-refine-reason loops for efficient agentic retrieval; needs RL pipeline |
 | [MemMachine](https://arxiv.org/abs/2604.04853) | arXiv 2026 | ≈80% fewer input tokens | LoCoMo 0.9169 / LongMemEvalS 93% | memory system | Preserves personalized agent memory with much lower context cost; adds dedicated memory infrastructure |
 | [StructMem](https://arxiv.org/abs/2604.21748) | ACL 2026 Main | structured hierarchical memory | better LoCoMo temporal/multi-hop performance | lower tokens, API calls, and runtime | Adds event bindings and semantic consolidation for long-term memory; exact reduction numbers need PDF table check |
+| [LatentRAG](https://arxiv.org/abs/2605.06285) | arXiv 2026 | latent reasoning + retrieval | comparable to explicit agentic RAG | approx. -90% inference latency | Avoids token-by-token thought/query generation; needs latent alignment training |
+| [xMemory](https://arxiv.org/abs/2602.02007) | arXiv 2026 | decouple-then-aggregate memory retrieval | consistent gains on LoCoMo / PerLTQA | improved inference token efficiency | Retrieves compact complementary memory evidence; adds hierarchical memory maintenance |
+| [Executable Agentic Memory](https://arxiv.org/abs/2605.12294) | arXiv 2026 | executable KG memory | up to +19.6% on AndroidWorld | 6x lower token cost; 2.8s avg latency | Turns GUI history into retrieval-and-execution memory; GUI-automation specific |
+| [R^2-Mem](https://arxiv.org/abs/2605.13486) | arXiv 2026 | reflective memory-search experience | up to +22.6% F1 | -12.9% tokens; -20.2% search iterations | Learns from high/low-quality search trajectories without RL; focused on memory search |
+| [GRASP](https://arxiv.org/abs/2605.16598) | arXiv 2026 | graph agentic search over propositions | best QA accuracy on reported multi-hop settings | -40-50% tokens vs IRCoT+HippoRAG2; -30% vs next best | Dynamically scales retrieval sub-agents; requires graph/proposition indexing |
 
 
 
@@ -368,6 +385,7 @@ Expected outcome: **stable performance** on tasks exceeding 100 steps or 500K to
 | [Single-Agent LLMs Outperform Multi-Agent Systems Under Equal Thinking Token Budgets](https://arxiv.org/abs/2604.02460) | arXiv 2026 | Compares single-agent vs multi-agent reasoning under equal token budgets | Focused on multi-hop reasoning; benchmark-style evidence rather than a framework |
 | [How Do AI Agents Spend Your Money?](https://arxiv.org/abs/2604.22750) | arXiv 2026 | Token consumption patterns for coding agents on SWE-bench Verified | Empirical study; does not propose a new optimization method |
 | [SWE Context Bench](https://arxiv.org/abs/2602.08316) | arXiv 2026 | Context reuse in coding agents across 1,100 base tasks and 376 related tasks | Benchmark; gains depend on accurate summarized/retrieved prior context |
+| [TRIAGE](https://arxiv.org/abs/2605.13414) | arXiv 2026 | Prospective metacognitive control under finite token budgets | Evaluation framework; does not directly optimize agents |
 
 
 > **Critical gap**: No widely-adopted benchmark jointly reports task success rate, total token cost, step count, and wall-clock latency on the same tasks. See §5.
@@ -388,7 +406,9 @@ Expected outcome: **stable performance** on tasks exceeding 100 steps or 500K to
 | [AgentOps](https://github.com/AgentOps-AI/agentops) | Observability | Token cost + latency + step trace per run |
 | [EffGen](https://github.com/ctrl-gaurav/effGen) | Local small-model agents | Open-source framework with 70-80% context compression, complexity routing, tool calling, and unified memory |
 | [SkVM](https://arxiv.org/abs/2604.03088) | Cross-harness skill execution | Up to −40% token consumption, 3.2× speedup, and large latency reductions |
-
+| [FlashEvolve](https://arxiv.org/abs/2605.08520) | Agent self-evolution throughput | Async stage orchestration improves proposal throughput by 3.5x on local vLLM and 4.9x on API serving |
+| [SkillSmith](https://arxiv.org/abs/2605.15215) | Agent skill runtime context | Compiles skills into boundary-guided interfaces; -57.44% solve-stage tokens, -42.99% iterations, 2.02x faster |
+| [Formal Skill](https://arxiv.org/abs/2605.19604) | Runtime-native executable skills | Moves reusable procedures into state machines, hooks, and skill-local state with substantially fewer tokens |
 
 ---
 
