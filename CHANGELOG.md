@@ -580,7 +580,89 @@ All additions and rejections are logged here. Most recent entries appear first.
   - 来源：arXiv
   - 收录理由：把 web agent 重复执行从连续 LLM loop 降到一次编译，成本下降非常直接
 
+## 2026-06-24-01:00
+- [PIVOT](https://arxiv.org/abs/2605.11225) → §1.1 Planning | Token Δ: 3x-5x fewer tokens | Acc Δ: up to +94% relative constraint satisfaction with HITL | Lat Δ: lower refinement cost | Refines failed plans through executable trajectory feedback; HITL upper-bound results are stronger than fully autonomous gains
+  - 来源：arXiv
+  - 收录理由：直接降低 autonomous agent trajectory refinement 的 token 成本，并提升计划-执行一致性
 
+- [SPIKE](https://arxiv.org/abs/2605.18636) → §1.1 Planning | Token Δ: -54.9% | Acc Δ: +5.0pp Lite-100 SR / +9.3pp Budgeted SR | Lat Δ: -40.8% | Uses strategic/reactive controllers for long-horizon game agents; strongest evidence is open-world games
+  - 来源：arXiv
+  - 收录理由：长程 agent 中同时报告 token、latency 和 success 改善，效率信号清楚
 
+- [SKILL0](https://arxiv.org/abs/2604.02268) → §1.2 Token & Context | Token Δ: <0.5k tokens per step | Acc Δ: +9.7% ALFWorld / +6.6% Search-QA / +10.1% WebShop | Lat Δ: — | Internalizes agent skills instead of loading them at inference; requires RL curriculum training
+  - 来源：arXiv
+  - 收录理由：直接解决 skill retrieval/injection 带来的 token overhead，适合补充 skill-context 方向
+
+- [TACO](https://arxiv.org/abs/2604.19572) → §1.2 Token & Context | Token Δ: lower total tokens | Acc Δ: +1-4% on TerminalBench; +2-3% under same budget | Lat Δ: — | Compresses noisy terminal observations with self-evolving rules; terminal-agent specific
+  - 来源：arXiv
+  - 收录理由：面向 terminal agents 的 observation compression，训练免费且覆盖多 benchmark
+
+- [AQuaUI](https://arxiv.org/abs/2605.19260) → §1.2 Token & Context | Token Δ: -29.52% visual tokens | Acc Δ: retains 99.06% full-token performance | Lat Δ: up to +13.22% speedup | Uses adaptive quadtrees for GUI screenshot tokens; gains depend on GUI spatial redundancy
+  - 来源：arXiv
+  - 收录理由：GUI agent 视觉 token 压缩方向有明确 token、speed 和性能保持指标
+
+- [PEEK](https://arxiv.org/abs/2605.19932) → §1.2 Token & Context | Token Δ: constant-size context map | Acc Δ: +6.3-34.0% / +6.0-14.0% solving rate | Cost/Lat Δ: 93-145 fewer iterations; 1.7-5.8x lower cost | Caches reusable orientation knowledge for recurring contexts; needs programmable cache maintenance
+  - 来源：arXiv
+  - 收录理由：针对长上下文/代码库等重复上下文 agent，显著减少迭代和成本
+
+- [Do Agents Need to Plan Step-by-Step?](https://arxiv.org/abs/2605.08477) → §1.3 Tool Use | Call Δ: full-horizon lazy replanning | Acc Δ: accuracy parity with step-by-step planning | Cost/Lat Δ: 2-3x fewer tokens | Shows eager step-wise tool planning is often unnecessary; focused on data-centric tasks
+  - 来源：arXiv
+  - 收录理由：直接比较 tool-calling planning horizon，给出清晰 token 节省
+
+- [HyperEyes](https://arxiv.org/abs/2605.07177) → §1.3 Tool Use | Call Δ: 5.3x fewer tool-call rounds | Acc Δ: +9.9% over strongest comparable open-source agent | Lat Δ: parallel multimodal search | Searches wider instead of longer for multimodal retrieval; benchmark is newly introduced
+  - 来源：arXiv
+  - 收录理由：把 multimodal search agent 的 tool-call rounds 作为核心效率指标优化
+
+- [Runtime-Structured Task Decomposition](https://arxiv.org/abs/2605.15425) → §1.3 Tool Use | Call Δ: reruns failed subtasks only | Acc Δ: — | Cost/Lat Δ: retry cost -51.7% vs monolithic / -73.2% vs static decomposition | Moves coding-agent workflow control into runtime logic; evidence covers two SE workloads
+  - 来源：arXiv
+  - 收录理由：软件工程 agent 中把失败重跑成本显著降低，工程可解释性强
+
+- [LATTE](https://arxiv.org/abs/2605.06320) → §1.4 Multi-Agent Coordination | Agent Δ: evolving task graph | Acc Δ: matches or exceeds MetaGPT / decentralized / Leader-Worker baselines | Cost Δ: lower tokens, wall-clock time, and communication | Coordinates agent teams with adaptive task graphs; abstract lacks exact reduction percentages
+  - 来源：arXiv
+  - 收录理由：直接优化 language agent teams 的 token、时间、通信和协调失败
+
+- [TFlow](https://arxiv.org/abs/2605.13839) → §1.4 Multi-Agent Coordination | Agent Δ: weight-space communication | Acc Δ: up to +8.5 accuracy points vs standalone | Cost Δ: up to -83.27% processed tokens; up to 4.6x faster | Replaces text messages with transient LoRA perturbations; requires fixed receiver architecture
+  - 来源：arXiv
+  - 收录理由：用非文本通信显著减少 MAS token 和 prefill 开销，效率收益很强
+
+- [GTD](https://arxiv.org/abs/2510.07799) → §1.4 Multi-Agent Coordination | Agent Δ: graph-diffusion topology generation | Acc Δ: significantly outperforms existing MAS methods | Cost Δ: sparse efficient topologies | Generates task-adaptive communication graphs; abstract lacks exact token-reduction percentage
+  - 来源：arXiv
+  - 收录理由：ACL 2026 Main，直接面向 multi-agent topology 的 accuracy/cost/robustness tradeoff
+
+- [LatentRAG](https://arxiv.org/abs/2605.06285) → §1.5 Memory & Retrieval | Retrieval Δ: latent reasoning + retrieval | Acc Δ: comparable to explicit agentic RAG | Cost/Lat Δ: approx. -90% inference latency | Avoids token-by-token thought/query generation; needs latent alignment training
+  - 来源：arXiv
+  - 收录理由：agentic RAG 中把多步显式思考替换为 latent retrieval，latency 收益非常明确
+
+- [xMemory](https://arxiv.org/abs/2602.02007) → §1.5 Memory & Retrieval | Retrieval Δ: decouple-then-aggregate memory retrieval | Acc Δ: consistent gains on LoCoMo / PerLTQA | Cost/Lat Δ: improved inference token efficiency | Retrieves compact complementary memory evidence; adds hierarchical memory maintenance
+  - 来源：arXiv
+  - 收录理由：直接针对 agent memory 的冗余检索问题，适合 memory efficiency section
+
+- [Executable Agentic Memory](https://arxiv.org/abs/2605.12294) → §1.5 Memory & Retrieval | Retrieval Δ: executable KG memory | Acc Δ: up to +19.6% on AndroidWorld | Cost/Lat Δ: 6x lower token cost; 2.8s avg latency | Turns GUI history into retrieval-and-execution memory; GUI-automation specific
+  - 来源：arXiv
+  - 收录理由：GUI agent memory 中同时提升成功率并显著降低 token 成本
+
+- [R^2-Mem](https://arxiv.org/abs/2605.13486) → §1.5 Memory & Retrieval | Retrieval Δ: reflective memory-search experience | Acc Δ: up to +22.6% F1 | Cost/Lat Δ: -12.9% tokens; -20.2% search iterations | Learns from high/low-quality search trajectories without RL; focused on memory search
+  - 来源：arXiv
+  - 收录理由：memory search agent 中同时减少 token 和 search iterations，且不需要 RL
+
+- [GRASP](https://arxiv.org/abs/2605.16598) → §1.5 Memory & Retrieval | Retrieval Δ: graph agentic search over propositions | Acc Δ: best QA accuracy on reported multi-hop settings | Cost/Lat Δ: -40-50% tokens vs IRCoT+HippoRAG2; -30% vs next best | Dynamically scales retrieval sub-agents; requires graph/proposition indexing
+  - 来源：arXiv
+  - 收录理由：agentic multi-hop retrieval 中有清晰 token 节省和准确率提升
+
+- [TRIAGE](https://arxiv.org/abs/2605.13414) → §3 Benchmarks & Evaluation | Metric Δ: token-budget task selection / sequencing / allocation | Acc Δ: oracle-normalized triage efficiency ratio | Cost/Lat Δ: finite token budget evaluation | Measures prospective metacognitive control; evaluation framework rather than an optimization method
+  - 来源：arXiv
+  - 收录理由：补足 agent 在有限 token budget 下如何分配计算资源的评估空白
+
+- [FlashEvolve](https://arxiv.org/abs/2605.08520) → §4 Tools & Frameworks | Metric Δ: async stage orchestration | Acc Δ: applies to GEPA / ACE / Meta-Harness workloads | Cost/Lat Δ: proposal throughput +3.5x local vLLM / +4.9x API serving | Accelerates agent self-evolution; gains depend on staged evolution pipelines
+  - 来源：arXiv
+  - 收录理由：工具/框架层直接降低 agent self-evolution 的 wall-clock bottleneck
+
+- [SkillSmith](https://arxiv.org/abs/2605.15215) → §4 Tools & Frameworks | Token Δ: -57.44% solve-stage tokens | Acc Δ: improves smaller runtime model when raw skill interpretation fails | Lat Δ: -50.57% solve time / 2.02x faster | Compiles skills into boundary-guided interfaces; requires offline skill compilation
+  - 来源：arXiv
+  - 收录理由：agent skill runtime 的 token、thinking iteration、时间和成本指标都很清楚
+
+- [Formal Skill](https://arxiv.org/abs/2605.19604) → §4 Tools & Frameworks | Token Δ: substantially fewer tokens | Acc Δ: competitive Harness-Bench scores | Lat Δ: — | Moves reusable procedures into state machines, hooks, and skill-local state; exact reduction numbers need table-level check
+  - 来源：arXiv
+  - 收录理由：把 agent skill 从长自然语言文档升级为可执行 runtime abstraction，和 repo 工具层高度相关
 
 
