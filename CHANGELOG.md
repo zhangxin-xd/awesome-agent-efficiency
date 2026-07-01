@@ -749,3 +749,99 @@ All additions and rejections are logged here. Most recent entries appear first.
 - [Tool Forge](https://arxiv.org/abs/2605.28000) → §4 Tools & Frameworks | Metric Δ: Router micro-F1 0.901 | Acc Δ: 23/25 sandbox validations pass | Cost/Lat Δ: $99.2\%$ lower estimated tool context | Validation-carrying toolchain; benchmark is initial systems evidence
   - 来源：arXiv search start=550 / GitHub noted in abstract
   - 收录理由：工具封装和 routing 直接减少 full-catalog schema context overhead
+
+## 2026-07-02
+
+### Added
+
+- [Agentic Chain-of-Thought Steering](https://arxiv.org/abs/2606.03965) → §1.1 Planning & Reasoning | Token Δ: substantial savings | Acc Δ: ≈ full-thinking | Lat Δ: lower reasoning cost | Budget-aware CoT controller; exact token delta is not in abstract
+  - 来源：arXiv
+  - 收录理由：直接优化 agent reasoning 的 token-budget trade-off
+
+- [MIRAGE](https://arxiv.org/abs/2606.04627) → §1.1 Planning & Reasoning | Token Δ: $3$-$5\times$ lower decoded-token budget / >$75\%$ fewer tokens | Acc Δ: +10.2 pts vs instruction-tuned baseline | Lat Δ: lower decoding cost | Latent reasoning for mobile agents; domain is mobile GUI control
+  - 来源：arXiv
+  - 收录理由：把显式 CoT 压到 latent state，直接减少 mobile-agent 推理 token
+
+- [LatentSkill](https://arxiv.org/abs/2606.06087) → §1.2 Token & Context | Token Δ: $-64.1\%$ prefill / $-72.2\%$ skill-token overhead | Acc Δ: +21.4 / +13.4 pp ALFWorld; +3.0 EM Search-QA | Lat Δ: lower prefill cost | Converts textual skills into LoRA adapters; requires adapter generation
+  - 来源：arXiv
+  - 收录理由：直接解决 agent skills 每步注入 prompt 的上下文开销
+
+- [ReVision](https://arxiv.org/abs/2605.11212) → §1.2 Token & Context | Token Δ: $-46\%$ visual tokens | Acc Δ: +3% success rate | Lat Δ: lower visual-history cost | Removes temporal visual redundancy for computer-use agents; GUI-specific
+  - 来源：arXiv
+  - 收录理由：针对 CUA 轨迹历史的视觉 token 成本给出明确量化收益
+
+- [Less Context, Better Agents](https://arxiv.org/abs/2606.10209) → §1.2 Token & Context | Token Δ: 1,480,996 → 553,374 | Acc Δ: 71.0% → 91.6% complete itemization | Lat Δ: 14.56h → 5.79h | MCP context pruning and summarization; enterprise expense workflow is narrow
+  - 来源：arXiv
+  - 收录理由：长程 tool-using agent 的 context engineering 有清楚 token/runtime 指标
+
+- [Remember, Don't Re-read](https://arxiv.org/abs/2606.14945) → §1.2 Token & Context | Token Δ: $-90\%$ / $-52\%$ | Acc Δ: comparable optimization quality | Lat Δ: lower repeated-context cost | Stateful ReAct for autonomous experimentation; evaluated on two loops
+  - 来源：arXiv
+  - 收录理由：把 stateless autoresearch 的 $O(n^2)$ token 成本改成持久状态复用
+
+- [ToolGate](https://arxiv.org/abs/2606.03054) → §1.3 Tool Use | Call Δ: token cost to $64$-$69\%$ of ReAct | Acc Δ: ≈ average / +1.65 pts matched-domain | Lat Δ: fewer tool outputs | Pre-call execute/skip controller; focused on VLM agents
+  - 来源：arXiv
+  - 收录理由：直接减少 tool-augmented agent 的无效工具输出和上下文成本
+
+- [Learning When Not to Act](https://arxiv.org/abs/2606.02132) → §1.3 Tool Use | Call Δ: $-18.33$-$24.59\%$ tool calls | Acc Δ: +7.27% to +10.45% avg performance | Lat Δ: lower tool-use cost | Learns selective tool use in agentic RL; under-review status
+  - 来源：arXiv
+  - 收录理由：工具滥用是 agent efficiency 的核心问题，论文有明确 call reduction
+
+- [Self-Reflective APIs](https://arxiv.org/abs/2606.05037) → §1.3 Tool Use | Metric Δ: structured API recovery feedback | Acc Δ: +36.7 to +40.0 pp completion | Cost/Lat Δ: $1.8$-$2.2\times$ per-success token efficiency | Recovery suggestions improve repair; gpt-4o-mini result not significant
+  - 来源：arXiv / GitHub
+  - 收录理由：API 错误恢复是 tool agent 的真实成本点，实验报告 per-success token efficiency
+
+- [Learning Adaptive Parallel Execution](https://arxiv.org/abs/2601.19568) → §1.3 Tool Use | Call Δ: $-67.7\%$ turns | Acc Δ: 84.7% file / 56.4% function F1 | Lat Δ: $93.6\%$ speedup; $-68.9\%$ tokens | Adaptive parallel code localization; software-search specific
+  - 来源：arXiv / ACL Findings 2026
+  - 收录理由：coding-agent code localization 中同时优化质量、并行度、turn 和 token
+
+- [ToolChoiceConfusion](https://arxiv.org/abs/2606.06284) → §1.3 Tool Use | Call Δ: 100 → 1 visible tool per step | Acc Δ: matches strongest causal baseline | Cost/Lat Δ: approx. $-90\%$ tokens | Causal minimal tool filtering; needs tool contracts
+  - 来源：arXiv
+  - 收录理由：大工具菜单导致错误调用和 token 浪费，论文给出可复用过滤方法
+
+- [SlimSearcher](https://arxiv.org/abs/2606.07074) → §1.3 Tool Use | Call Δ: $-17$-$58\%$ tool-call rounds | Acc Δ: maintained or improved | Cost/Lat Δ: lower search trajectory cost | Efficiency-aware web-agent training; focused on deep-search agents
+  - 来源：arXiv
+  - 收录理由：直接训练 web agents 学会少搜、少调用工具，同时保持正确率
+
+- [Contract2Tool](https://arxiv.org/abs/2606.07904) → §1.3 Tool Use | Call Δ: 100 → 1 visible tool | Acc Δ: 0.980 vs 0.990 gold-contract success | Cost/Lat Δ: 26,172 → 2,528 tokens | Learns scalable tool contracts; depends on docs and traces
+  - 来源：arXiv
+  - 收录理由：补齐 CMTF 需要人工 contract 的扩展性缺口
+
+- [Reward Modeling for Multi-Agent Orchestration](https://arxiv.org/abs/2606.13598) → §1.4 Multi-Agent Coordination | Agent Δ: orchestration-level reward model | Acc Δ: up to +8% | Cost Δ: up to $10\times$ token efficiency | Self-supervised orchestration RM; work-in-progress preprint
+  - 来源：arXiv
+  - 收录理由：直接减少 multi-agent orchestrator 训练和 test-time scaling 的 token 成本
+
+- [Towards Direct Latent-Space Synthesis for Parallel Branches in LLM-Agent Workflows](https://arxiv.org/abs/2606.14672) → §1.4 Multi-Agent Coordination | Agent Δ: cache-based parallel-branch synthesis | Acc Δ: matches/outperforms on 7/9 datasets | Cost Δ: $2.5$-$11\times$ TTFT reduction | Direct KV-cache synthesis; requires adapter training
+  - 来源：arXiv
+  - 收录理由：针对 parallel agent branches 的文本拼接和 prefill 冗余给出新接口
+
+- [EMS](https://arxiv.org/abs/2604.02863) → §1.4 Multi-Agent Coordination | Agent Δ: $-35\%$ invoked agents | Acc Δ: preserves majority-voting accuracy | Cost Δ: $-44\%$ tokens | Majority-then-stopping for multi-agent voting; relies on reliability history
+  - 来源：arXiv / GitHub
+  - 收录理由：multi-agent voting 的早停收益清楚，适合 §1.4
+
+- [HCP-MAD](https://arxiv.org/abs/2604.09679) → §1.4 Multi-Agent Coordination | Agent Δ: consensus-gated debate escalation | Acc Δ: improves across six benchmarks | Cost Δ: substantially lower token costs | Adaptive multi-agent debate; exact token delta not in abstract
+  - 来源：arXiv / GitHub
+  - 收录理由：用 consensus 控制 debate 深度和 agent 数，是典型 multi-agent efficiency 方法
+
+- [AdaMEM](https://arxiv.org/abs/2606.05684) → §1.5 Memory & Retrieval | Retrieval Δ: adaptive short-term strategy memory | Acc Δ: up to +13% ALFWorld / +11% WebShop | Index Cost: offline trajectory memory + STEP-MFT | Test-time memory adaptation; exact token saving not in abstract
+  - 来源：arXiv / ICML 2026 / GitHub
+  - 收录理由：直接面向 language agents 的动态 memory 使用和 token-adaptability trade-off
+
+- [Organize then Retrieve](https://arxiv.org/abs/2606.11680) → §1.5 Memory & Retrieval | Retrieval Δ: at most 22.17% baseline token usage | Acc Δ: better under constrained context budgets | Index Cost: hierarchical memory construction | Navigates minimal sufficient memory context; adds construction overhead
+  - 来源：arXiv
+  - 收录理由：长程 agent memory 的层级组织和最小上下文检索很符合 §1.5
+
+- [Handoff Debt](https://arxiv.org/abs/2606.02875) → §3 Benchmarks & Evaluation | Metric Δ: handoff events and prompt tokens | Acc Δ: solved-rate effects model-dependent | Cost/Lat Δ: events $-20$-$59\%$, prompt tokens $-42$-$63\%$ | Benchmark for coding-agent takeover cost; focused on handoff scenarios
+  - 来源：arXiv
+  - 收录理由：补充 repo 缺少的 coding-agent handoff efficiency benchmark
+
+- [M$^3$Exam](https://arxiv.org/abs/2606.07402) → §3 Benchmarks & Evaluation | Metric Δ: multimodal memory efficiency | Acc Δ: +13% with M$^3$Proctor | Cost/Lat Δ: >70% lower index-construction time and retrieved tokens | Multimodal conversational memory benchmark; domain is multimodal memory
+  - 来源：arXiv
+  - 收录理由：评估 realistic user-agent multimodal memory，并包含效率成本指标
+
+- [ToolMenuBench](https://arxiv.org/abs/2606.15508) → §3 Benchmarks & Evaluation | Metric Δ: visible tools, wrong-tool calls, premature actions, token usage | Acc Δ: success 32.1% → 85.7% with CMTF | Cost/Lat Δ: roughly $-98\%$ token usage | Tool-menu filtering benchmark; synthetic tool-menu design limits generality
+  - 来源：arXiv
+  - 收录理由：系统评估 tool-menu construction 对可靠性、风险和 token 成本的影响
+
+- [EffGen](https://arxiv.org/abs/2602.00887) → §4 Tools & Frameworks | Metric Δ: SLM agent prompt/tool routing | Acc Δ: higher success than LangChain, AutoGen, Smolagents | Cost/Lat Δ: 57% average prompt compression, up to 70–80% | Open-source SLM agent framework; broad design makes component attribution harder
+  - 来源：arXiv / ICML 2026 / GitHub
+  - 收录理由：面向小模型本地 agent 的完整 efficiency framework，有 prompt compression 和 routing 指标
