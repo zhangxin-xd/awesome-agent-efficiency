@@ -665,4 +665,87 @@ All additions and rejections are logged here. Most recent entries appear first.
   - 来源：arXiv
   - 收录理由：把 agent skill 从长自然语言文档升级为可执行 runtime abstraction，和 repo 工具层高度相关
 
+## 2026-07-01
 
+### Added
+- [Efficient Agentic Reasoning Through Self-Regulated Simulative Planning](https://arxiv.org/abs/2605.22138) → §1.1 Planning | Token Δ: $25.8\%$-$95.3\%$ fewer reasoning tokens | Acc Δ: competitive with larger systems | Lat Δ: not reported | Self-regulates planning depth; requires trained planning traces/RL
+  - 来源：arXiv search start=550
+  - 收录理由：直接优化 agent planning 的 token-efficiency，且有代码/模型 artifact 信号
+- [De-Linearizing Agent Traces](https://arxiv.org/abs/2602.02806) → §1.1 Planning | Token Δ: substantial reduction | Acc Δ: better dependency recovery | Lat Δ: reduced execution time | Compiles sequential traces into partial-order execution; exact deltas not in abstract
+  - 来源：arXiv search start=550
+  - 收录理由：把 agent trace 转成更高效执行图，覆盖 planning/execution efficiency 缺口
+- [Adaptive Latent Agentic Reasoning](https://arxiv.org/abs/2606.02871) → §1.1 Planning | Token Δ: up to $43.6\%$ search / $84.6\%$ tool-use reduction | Acc Δ: comparable or better | Lat Δ: not reported | Uses latent reasoning for routine turns; requires latent-mode training
+  - 来源：arXiv search start=550
+  - 收录理由：直接减少 agent 多轮决策中的冗余文本推理 tokens
+
+- [PANDO](https://arxiv.org/abs/2605.24785) → §1.2 Token & Context | Token Δ: $58\%$-$61\%$ fewer tokens | Acc Δ: 58.3% success rate | Lat Δ: not reported | Online skill distillation for web agents; VisualWebArena-focused
+  - 来源：arXiv search start=550
+  - 收录理由：同时报告 web-agent success 和 token cost，是高价值 context-efficiency 条目
+- [ZipRL](https://arxiv.org/abs/2605.28069) → §1.2 Token & Context | Token Δ: adaptive compression | Acc Δ: +27.9% / +34.7% vs SOTA | Lat Δ: not reported | RLVR context compression with hindsight replay; exact token delta absent from abstract
+  - 来源：arXiv search start=550
+  - 收录理由：面向长程 multi-turn agent 的 context compression 方法
+- [Masking Stale Observations Helps Search Agents](https://arxiv.org/abs/2606.00408) → §1.2 Token & Context | Token Δ: stale-observation masking | Acc Δ: regime-dependent | Lat Δ: not reported | Explains when masking helps or hurts; intervention is not universally beneficial
+  - 来源：arXiv search start=550
+  - 收录理由：给出 search-agent context management 的机制性结论
+- [SkillPager](https://arxiv.org/abs/2606.00822) → §1.2 Token & Context | Token Δ: $47.04\%$ fewer prompt tokens | Acc Δ: 78.89% vs 82.23% full-doc sufficiency | Lat Δ: not reported | Retrieves minimal skill-document context; slight sufficiency drop vs exhaustive context
+  - 来源：arXiv search start=550
+  - 收录理由：直接针对 skill-based agent 的 prompt token waste
+
+- [Internalizing Tool Knowledge in Small Language Models](https://arxiv.org/abs/2605.17774) → §1.3 Tool Use | Call Δ: schema-free inference / $82.6\%$ shorter input | Acc Δ: +0.18 AT-F1 / +1.00 judge | Lat Δ: Qwen run $2.5\times$ faster than Gemma | Internalizes tool catalog knowledge; fixed-catalog and forgetting risks remain
+  - 来源：arXiv search start=550
+  - 收录理由：直接减少 tool schema prompt overhead，贴合 tool-use efficiency
+
+- [Agent Primitives](https://arxiv.org/abs/2602.03695) → §1.4 Multi-Agent Coordination | Agent Δ: latent reusable primitives | Acc Δ: +12.0%-$16.5\%$ | Cost Δ: $3\times$-$4\times$ lower token/latency vs text MAS | KV-cache MAS building blocks; needs organizer setup
+  - 来源：arXiv search start=550
+  - 收录理由：明确优化 multi-agent communication token 和 latency
+- [ATOM](https://arxiv.org/abs/2605.26178) → §1.4 Multi-Agent Coordination | Agent Δ: budgeted dynamic activation | Acc Δ: SOTA across six benchmarks | Cost Δ: up to $30\%$ token-efficiency gain | Activates query-conditioned agents; adds budget-estimation machinery
+  - 来源：arXiv search start=550
+  - 收录理由：预算可控的 MAS 协作拓扑优化
+- [MACA](https://arxiv.org/abs/2605.25746) → §1.4 Multi-Agent Coordination | Agent Δ: task/budget-conditioned orchestration | Acc Δ: +8.42% average | Cost Δ: $43.19\%$ fewer tokens | Joint structure-orchestration adaptation; generality beyond tested benchmarks unclear
+  - 来源：arXiv search start=550
+  - 收录理由：直接报告 multi-agent token reduction 和 accuracy gain
+- [Self-signals Driven Multi-LLM Debate](https://arxiv.org/abs/2510.06843) → §1.4 Multi-Agent Coordination | Agent Δ: early exit + attention compression | Acc Δ: improves over MAD baselines | Cost Δ: lower token consumption | Uses confidence and token-level focus; exact token delta not in abstract
+  - 来源：arXiv search start=550
+  - 收录理由：减少 multi-agent debate 冗余计算
+- [MOC](https://arxiv.org/abs/2606.02359) → §1.4 Multi-Agent Coordination | Agent Δ: multi-order message consolidation | Acc Δ: improves across six datasets | Cost Δ: reduced communication costs | Optimizes multi-hop communication under token constraints; exact delta not in abstract
+  - 来源：arXiv search start=550
+  - 收录理由：补充 MAS message transmission efficiency 方向
+
+- [DeferMem](https://arxiv.org/abs/2605.22411) → §1.5 Memory & Retrieval | Retrieval Δ: query-time evidence distillation | Acc Δ: highest on memory QA | Index Cost: fastest runtime / $0$ commercial-API token cost | Distills noisy long-term memory evidence; adds RL-trained distiller
+  - 来源：arXiv search start=550
+  - 收录理由：长期记忆 QA 中同时优化 accuracy、runtime 和 memory token cost
+- [Efficient and Transferable Agentic KG-RAG via RL](https://arxiv.org/abs/2509.26383) → §1.5 Memory & Retrieval | Retrieval Δ: single KG-interacting agent | Acc Δ: improves KGQA | Index Cost: fewer generation tokens | Replaces multi-module KG-RAG workflows; KG-specific setting
+  - 来源：arXiv search start=550
+  - 收录理由：面向 agentic KG-RAG 的推理 token 和模块成本优化
+- [PRISM](https://arxiv.org/abs/2605.12260) → §1.5 Memory & Retrieval | Retrieval Δ: min-cost graph memory retrieval | Acc Δ: higher LLM-judge accuracy | Index Cost: order-of-magnitude smaller context budget | Pareto memory retrieval/compression; LoCoMo-focused evidence
+  - 来源：arXiv search start=550
+  - 收录理由：直接覆盖 long-horizon agent memory 的 accuracy-context-cost frontier
+- [DimMem](https://arxiv.org/abs/2605.15759) → §1.5 Memory & Retrieval | Retrieval Δ: dimensional selective recall | Acc Δ: 81.43% / 78.20% | Index Cost: $24\%$ lower LoCoMo token cost | Typed atomic memory units; depends on reliable memory extraction
+  - 来源：arXiv search start=550
+  - 收录理由：长期 memory 结构化带来明确 token-cost 降低
+- [ExpWeaver](https://arxiv.org/abs/2606.01041) → §1.5 Memory & Retrieval | Retrieval Δ: latent experience retrieval | Acc Δ: SOTA on 12/13 tasks | Index Cost: avoids $1.5\times$-$2\times$ text-RAG token overhead | Retrieves experience in hidden space; needs integrated model architecture
+  - 来源：arXiv search start=550
+  - 收录理由：解决 agent experience RAG 的显式文本 token overhead
+- [Rerank Before You Reason](https://arxiv.org/abs/2601.14224) → §1.5 Memory & Retrieval | Retrieval Δ: moderate listwise reranking | Acc Δ: comparable at lower cost | Index Cost: effective token cost metric | Optimizes deep search budget; tied to BrowseComp-Plus pipeline
+  - 来源：arXiv search start=550
+  - 收录理由：系统分析 deep search agent 中 reranking 和 reasoning token budget 的取舍
+
+- [Agentic AI Workload Characteristics](https://arxiv.org/abs/2605.26297) → §1.6 Serving | Throughput Δ: decode-dominated workload insight | Lat Δ: tool temporal structure characterized | Mem Δ: long-lived KV-cache state | Characterizes agent serving traces; empirical study rather than optimizer
+  - 来源：arXiv search start=550
+  - 收录理由：为 agentic serving optimization 提供 workload evidence
+- [XGrammar-2](https://arxiv.org/abs/2601.04426) → §1.6 Serving | Throughput Δ: $>6\times$ faster compilation | Lat Δ: near-zero E2E overhead | Mem Δ: cross-grammar cache reuse | Dynamic structured generation for agentic tool calling; engine-specific
+  - 来源：arXiv search start=550
+  - 收录理由：直接优化 agent structured generation serving overhead
+- [Structured Agent Distillation](https://arxiv.org/abs/2505.13820) → §1.6 Serving | Throughput Δ: compact student agents | Lat Δ: lower inference cost | Mem Δ: smaller deployed models | Segment-aware distillation for ReAct agents; exact compression ratio not in abstract
+  - 来源：arXiv search start=550
+  - 收录理由：AAMAS 2026，面向 agent deployment cost 的蒸馏方法
+- [LRAgent](https://arxiv.org/abs/2602.01053) → §1.6 Serving | Throughput Δ: close to fully shared caching | Lat Δ: TTFT close to shared-cache baseline | Mem Δ: shared base + low-rank LoRA cache | KV-cache sharing for multi-LoRA agents; requires specialized attention kernel
+  - 来源：arXiv search start=550
+  - 收录理由：直接针对 multi-agent LoRA serving 的 KV-cache memory/compute overhead
+- [Observation, Not Prediction](https://arxiv.org/abs/2606.01839) → §1.6 Serving | Throughput Δ: conversation-level placement | Lat Δ: $51.08\%$ lower p95 first-effective-token latency | Mem Δ: single KV transfer / +7.51% energy efficiency | Disaggregated scheduling for agent conversations; serving-system specific
+  - 来源：arXiv search start=550
+  - 收录理由：明确优化 multi-turn agent serving latency 和 energy efficiency
+
+- [Tool Forge](https://arxiv.org/abs/2605.28000) → §4 Tools & Frameworks | Metric Δ: Router micro-F1 0.901 | Acc Δ: 23/25 sandbox validations pass | Cost/Lat Δ: $99.2\%$ lower estimated tool context | Validation-carrying toolchain; benchmark is initial systems evidence
+  - 来源：arXiv search start=550 / GitHub noted in abstract
+  - 收录理由：工具封装和 routing 直接减少 full-catalog schema context overhead
