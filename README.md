@@ -118,6 +118,8 @@ Reducing the number of steps, tokens, and retries needed for an agent to complet
 | [Efficient Agentic Reasoning Through Self-Regulated Simulative Planning](https://arxiv.org/abs/2605.22138) | arXiv 2026 | $25.8\%$-$95.3\%$ fewer reasoning tokens | competitive with much larger systems | not reported | Self-regulates when and how far to plan; depends on trained planning traces/RL |
 | [De-Linearizing Agent Traces](https://arxiv.org/abs/2602.02806) | arXiv 2026 | substantial reduction | better dependency recovery | reduced execution time | Infers partial-order executors from linear traces; exact token/latency numbers not in abstract |
 | [Adaptive Latent Agentic Reasoning](https://arxiv.org/abs/2606.02871) | arXiv 2026 | up to $43.6\%$ fewer search tokens / $84.6\%$ fewer tool-use tokens | comparable or better | not reported | Switches routine turns to latent reasoning; requires latent-reasoning training |
+| [Agentic Chain-of-Thought Steering](https://arxiv.org/abs/2606.03965) | arXiv 2026 | substantial savings | ≈ full-thinking | lower reasoning cost | Budget-aware controller steers CoT at inference time; exact token delta is not in abstract |
+| [MIRAGE](https://arxiv.org/abs/2606.04627) | arXiv 2026 | $3$-$5\times$ lower decoded-token budget / >$75\%$ fewer tokens | +10.2 pts vs instruction-tuned baseline | lower decoding cost | Moves mobile-agent reasoning into latent states; focused on mobile GUI agents |
 
 ---
 
@@ -157,6 +159,11 @@ Compressing prompts, managing long contexts, and reducing per-step token consump
 | [ZipRL](https://arxiv.org/abs/2605.28069) | arXiv 2026 | adaptive multi-turn compression | +27.9% / +34.7% vs SOTA | not reported | RLVR context compression with hindsight replay; abstract lacks exact token-reduction number |
 | [Masking Stale Observations Helps Search Agents](https://arxiv.org/abs/2606.00408) | arXiv 2026 | stale observation masking | regime-dependent gains | not reported | Maps when context masking helps search agents; can hurt saturated models |
 | [SkillPager](https://arxiv.org/abs/2606.00822) | arXiv 2026 | $47.04\%$ fewer prompt tokens | 78.89% sufficiency vs 82.23% full-doc | not reported | Query-adaptive retrieval inside skill documents; slight sufficiency drop vs exhaustive context |
+| [LatentSkill](https://arxiv.org/abs/2606.06087) | arXiv 2026 | $-64.1\%$ prefill / $-72.2\%$ skill-token overhead | +21.4 / +13.4 pp on ALFWorld; +3.0 EM on Search-QA | lower prefill cost | Stores reusable skills as LoRA adapters; requires skill-adapter generation |
+| [ReVision](https://arxiv.org/abs/2605.11212) | arXiv 2026 | $-46\%$ visual tokens | +3% success rate | lower visual-history cost | Removes temporal visual redundancy for computer-use agents; validated on GUI trajectories |
+| [Less Context, Better Agents](https://arxiv.org/abs/2606.10209) | arXiv 2026 | 1,480,996 → 553,374 tokens | 71.0% → 91.6% complete itemization | 14.56h → 5.79h | Prunes and summarizes MCP tool context; enterprise expense workflow is domain-specific |
+| [Remember, Don't Re-read](https://arxiv.org/abs/2606.14945) | arXiv 2026 | $-90\%$ / $-52\%$ tokens | comparable optimization quality | lower repeated-context cost | Uses stateful ReAct memory for autonomous experimentation; evaluated on two experiment loops |
+
 
 ---
 
@@ -196,6 +203,13 @@ Reducing unnecessary tool calls, improving tool selection, and enabling parallel
 | [HyperEyes](https://arxiv.org/abs/2605.07177) | arXiv 2026 | 5.3x fewer tool-call rounds | +9.9% over strongest comparable open-source agent | parallel multimodal search | Searches wider instead of longer for multimodal retrieval; benchmark is newly introduced |
 | [Runtime-Structured Task Decomposition](https://arxiv.org/abs/2605.15425) | Agentic SE Workshop 2026 | reruns failed subtasks only | — | retry cost -51.7% vs monolithic / -73.2% vs static decomposition | Moves coding-agent workflow control into runtime logic; evidence covers two SE workloads |
 | [Internalizing Tool Knowledge in Small Language Models](https://arxiv.org/abs/2605.17774) | arXiv 2026 | schema omitted; $82.6\%$ shorter input | +0.18 AT-F1 / +1.00 judge score | Qwen run $2.5\times$ faster than Gemma | Moves fixed tool knowledge from prompt to weights; risks forgetting and fixed-catalog assumptions |
+| [ToolGate](https://arxiv.org/abs/2606.03054) | arXiv 2026 | token cost to $64$-$69\%$ of ReAct | ≈ average / +1.65 pts matched-domain | fewer unnecessary tool outputs | Skips low-value perceptual tool calls before context insertion; focused on VLM agents |
+| [Learning When Not to Act](https://arxiv.org/abs/2606.02132) | arXiv 2026 | $-18.33$-$24.59\%$ tool calls | +7.27% to +10.45% avg performance | lower tool-use cost | Penalizes redundant tool use through agentic RL; under-review status |
+| [Self-Reflective APIs](https://arxiv.org/abs/2606.05037) | arXiv 2026 | structured retry guidance | +36.7 to +40.0 pp completion on Anthropic models | $1.8$-$2.2\times$ better per-success token efficiency | Machine-readable API recovery feedback improves repair; gpt-4o-mini result is not significant |
+| [Learning Adaptive Parallel Execution](https://arxiv.org/abs/2601.19568) | ACL Findings 2026 | $-67.7\%$ turns | 84.7% file / 56.4% function F1 | $93.6\%$ speedup; $-68.9\%$ tokens | Learns adaptive parallel code localization; tuned for software-search agents |
+| [ToolChoiceConfusion](https://arxiv.org/abs/2606.06284) | arXiv 2026 | 100 → 1 visible tool per step | matches strongest causal baseline | approx. $-90\%$ tokens | Causal minimal tool filtering reduces wrong and premature tool exposure; needs contracts |
+| [SlimSearcher](https://arxiv.org/abs/2606.07074) | arXiv 2026 | $-17$-$58\%$ tool-call rounds | maintained or improved accuracy | lower search trajectory cost | Trains web agents for accuracy-cost Pareto behavior; focused on deep-search tasks |
+| [Contract2Tool](https://arxiv.org/abs/2606.07904) | arXiv 2026 | 100 → 1 visible tool | 0.980 vs 0.990 gold-contract success | 26,172 → 2,528 tokens | Learns scalable tool precondition/effect contracts; depends on docs and traces |
 
 ---
 
@@ -248,9 +262,10 @@ Reducing communication overhead, redundant work, and orchestration cost in multi
 | [MACA](https://arxiv.org/abs/2605.25746) | arXiv 2026 | task/budget-conditioned orchestration | +8.42% average | $43.19\%$ fewer tokens | Jointly adapts MAS structure and orchestration; exact generality beyond tested benchmarks unclear |
 | [Self-signals Driven Multi-LLM Debate](https://arxiv.org/abs/2510.06843) | arXiv 2026 | confidence early exit + attention compression | improves over MAD baselines | lower token consumption | Uses self-signals to reduce redundant debate; abstract does not expose exact token delta |
 | [MOC](https://arxiv.org/abs/2606.02359) | arXiv 2026 | multi-order communication | improves across six datasets | reduced communication costs | Consolidates multi-hop agent messages under token constraints; exact cost delta not in abstract |
-
-
-
+| [Reward Modeling for Multi-Agent Orchestration](https://arxiv.org/abs/2606.13598) | arXiv 2026 | orchestration-level RM | up to +8% accuracy | up to $10\times$ token efficiency | Trains orchestration reward models without human labels; work-in-progress preprint |
+| [Towards Direct Latent-Space Synthesis for Parallel Branches in LLM-Agent Workflows](https://arxiv.org/abs/2606.14672) | arXiv 2026 | cache-based branch synthesis | matches/outperforms text synthesis on 7/9 datasets | $2.5$-$11\times$ TTFT reduction | Synthesizes parallel agent branches from KV caches; requires adapter training |
+| [EMS](https://arxiv.org/abs/2604.02863) | arXiv 2026 | $-35\%$ invoked agents | preserves majority-voting accuracy | $-44\%$ tokens | Stops multi-agent voting once majority is irreversible; assumes reliable history estimates |
+| [HCP-MAD](https://arxiv.org/abs/2604.09679) | arXiv 2026 | consensus-gated debate escalation | improves accuracy across six benchmarks | substantially lower token costs | Dynamically escalates multi-agent debate by consensus; exact token delta not in abstract |
 
 
 ---
@@ -297,6 +312,8 @@ Efficiently storing, indexing, and retrieving agent memories and external knowle
 | [DimMem](https://arxiv.org/abs/2605.15759) | arXiv 2026 | dimensional selective recall | 81.43% / 78.20% overall accuracy | $24\%$ lower LoCoMo token cost | Typed atomic memory units improve recall efficiency; depends on schema extraction quality |
 | [ExpWeaver](https://arxiv.org/abs/2606.01041) | arXiv 2026 | latent experience retrieval | SOTA on 12/13 tasks | avoids $1.5\times$-$2\times$ text-RAG token overhead | Retrieves past experience in latent space; requires model-integrated architecture |
 | [Rerank Before You Reason](https://arxiv.org/abs/2601.14224) | ACL Findings 2026 | listwise reranking budget | comparable accuracy at lower cost | effective token cost metric | Shows moderate reranking can beat more reasoning; focused on deep search pipelines |
+| [AdaMEM](https://arxiv.org/abs/2606.05684) | ICML 2026 | adaptive memory retrieval | up to +13% ALFWorld / +11% WebShop | offline trajectory memory + STEP-MFT | Combines long-term trajectory memory with dynamic strategy memory; exact token saving not in abstract |
+| [Organize then Retrieve](https://arxiv.org/abs/2606.11680) | arXiv 2026 | at most 22.17% baseline token usage | better under constrained budgets | hierarchical memory construction | Navigates structured memory with minimal sufficient context; adds memory-building overhead |
 
 
 
@@ -410,6 +427,9 @@ Expected outcome: **stable performance** on tasks exceeding 100 steps or 500K to
 | [How Do AI Agents Spend Your Money?](https://arxiv.org/abs/2604.22750) | arXiv 2026 | Token consumption patterns for coding agents on SWE-bench Verified | Empirical study; does not propose a new optimization method |
 | [SWE Context Bench](https://arxiv.org/abs/2602.08316) | arXiv 2026 | Context reuse in coding agents across 1,100 base tasks and 376 related tasks | Benchmark; gains depend on accurate summarized/retrieved prior context |
 | [TRIAGE](https://arxiv.org/abs/2605.13414) | arXiv 2026 | Prospective metacognitive control under finite token budgets | Evaluation framework; does not directly optimize agents |
+| [Handoff Debt](https://arxiv.org/abs/2606.02875) | arXiv 2026 | Coding-agent takeover cost, events, prompt tokens, solved rate | Context handoffs cut median events by $20$-$59\%$ and prompt tokens by $42$-$63\%$; solved-rate effects are model-dependent |
+| [M$^3$Exam](https://arxiv.org/abs/2606.07402) | arXiv 2026 | Multimodal conversational memory, cross-session reasoning, retrieved-token cost | M$^3$Proctor improves accuracy by 13% and cuts index-construction time / retrieved tokens by over 70%; multimodal-memory focused |
+| [ToolMenuBench](https://arxiv.org/abs/2606.15508) | arXiv 2026 | Tool-menu filtering, wrong-tool calls, premature actions, token usage, risk exposure | CMTF improves success from 32.1% to 85.7% and reduces token usage by roughly 98%; benchmark design is tool-menu specific |
 
 
 > **Critical gap**: No widely-adopted benchmark jointly reports task success rate, total token cost, step count, and wall-clock latency on the same tasks. See §5.
@@ -434,7 +454,7 @@ Expected outcome: **stable performance** on tasks exceeding 100 steps or 500K to
 | [SkillSmith](https://arxiv.org/abs/2605.15215) | Agent skill runtime context | Compiles skills into boundary-guided interfaces; -57.44% solve-stage tokens, -42.99% iterations, 2.02x faster |
 | [Formal Skill](https://arxiv.org/abs/2605.19604) | Runtime-native executable skills | Moves reusable procedures into state machines, hooks, and skill-local state with substantially fewer tokens |
 | [Tool Forge](https://arxiv.org/abs/2605.28000) | Tool context/routing | Validation-carrying tool capsules; Router reduces full-catalog schema exposure by $99.2\%$ |
-
+| [EffGen](https://arxiv.org/abs/2602.00887) | Prompt/tool routing for SLM agents | Compresses prompts by 57% on average and up to 70–80%; broad framework makes component attribution harder |
 
 ---
 
