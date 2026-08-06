@@ -845,3 +845,80 @@ All additions and rejections are logged here. Most recent entries appear first.
 - [EffGen](https://arxiv.org/abs/2602.00887) → §4 Tools & Frameworks | Metric Δ: SLM agent prompt/tool routing | Acc Δ: higher success than LangChain, AutoGen, Smolagents | Cost/Lat Δ: 57% average prompt compression, up to 70–80% | Open-source SLM agent framework; broad design makes component attribution harder
   - 来源：arXiv / ICML 2026 / GitHub
   - 收录理由：面向小模型本地 agent 的完整 efficiency framework，有 prompt compression 和 routing 指标
+ 
+
+## 2026-08-06
+
+
+### Added
+- [Pessimistic Verification](https://arxiv.org/abs/2511.21522) → §1.1 Planning | Token Δ: ↓ vs long CoT / standard verification | Acc Δ: ↑ on IMO 2025 / MathArena Apex 2025 | Lat Δ: — | Uses progressive pessimistic verification to improve token-accuracy trade-offs; validated mainly on contest mathematics
+  - 来源：arXiv / GitHub
+  - 收录理由：直接优化 agentic verification 的 accuracy-token trade-off，并提供公开代码和竞赛数学实验
+
+- [Scaling Laws for Agent Harnesses](https://arxiv.org/abs/2605.29682) → §1.1 Planning | Token Δ: raw cost 213.8→85.1 (−60.2%) | Acc Δ: pass rate 61.2%→68.2% (+7.0pp) | Lat Δ: — | Uses Effective Feedback Compute to retain useful feedback and reduce harness cost; venue and official code are not stated
+  - 来源：arXiv
+  - 收录理由：提出面向 agent harness 的有效反馈计算指标，并同时提升成功率、降低测试时成本
+
+- [Semantic Early-Stopping](https://arxiv.org/abs/2606.27009) → §1.1 Planning | Token Δ: −38% operational tokens | Acc Δ: Δ-IS −0.004 (p=0.81) | Lat Δ: — | Stops semantically converged multi-agent loops at parity quality; evidence is limited to a 60-question HotpotQA split
+  - 来源：arXiv / GitHub
+  - 收录理由：为迭代 agent loop 提供可复现的 early-stopping 方法，在质量持平时显著减少 token
+
+- [The Harness Effect](https://arxiv.org/abs/2607.06906) → §1.1 Planning | Token Δ: −38% (14.2k→8.8k) | Acc Δ: 0.78→0.81 | Lat Δ: −44% (48s→27s) | Shows orchestration design can reduce enterprise-agent cost across models; evaluation uses 22 locked tasks and one target harness
+  - 来源：arXiv
+  - 收录理由：隔离并量化 harness 对 token、cost 和 wall-clock 的影响，覆盖六个模型
+
+- [SkillReducer](https://arxiv.org/abs/2603.29919) → §1.2 Token & Context | Token Δ: −48% descriptions / −39% bodies | Acc Δ: +2.8% functional quality | Lat Δ: — | Compresses skill routing and bodies through progressive disclosure; deployment-level latency is not reported
+  - 来源：arXiv
+  - 收录理由：直接解决 agent skills 注入上下文造成的 token 浪费，并在大规模 skill 数据上验证
+
+- [CoACT](https://arxiv.org/abs/2607.02911) → §1.2 Token & Context | Token Δ: −33.0% total tokens | Acc Δ: ≈uncompressed agent | Lat Δ: — | Preserves coding-agent actions while compressing observations; evaluated only on SWE-bench Verified
+  - 来源：arXiv
+  - 收录理由：以 next-action preservation 约束 observation compression，在保持 coding-agent 效果时减少总 token
+
+- [ContextSniper](https://arxiv.org/abs/2607.01916) → §1.2 Token & Context | Token Δ: −38.9–51.5% | Acc Δ: ≈same resolution rate | Lat Δ: cost −27.3–36.4% | Selects compact code and tool-output evidence for repair agents; evaluation uses SWE-bench Lite and two host agents
+  - 来源：arXiv / GitCode
+  - 收录理由：通过精确检索和 tool-output filtering 显著降低 repository-repair agent 的 token 与成本
+
+- [Natural Language Tools Replication](https://arxiv.org/abs/2607.03953) → §1.3 Tool Use | Call Δ: — / −25.2% tokens | Acc Δ: +14.9pp overall | Lat Δ: — | Replicates natural-language tool interfaces across 14 models and 8,560 trials; gains shrink or reverse on some frontier models
+  - 来源：arXiv
+  - 收录理由：在大规模跨模型实验中复现 natural-language tools 的准确率和 token-efficiency 收益
+
+- [QueenBee Planner](https://arxiv.org/abs/2606.27492) → §1.4 Multi-Agent Coordination | Agent Δ: learned temporal DAGs | Acc Δ: RMSE 12.53→7.87 | Cost Δ: ↓ messages/calls/tokens | Learns reusable communication topologies for fixed agent teams; evaluation is limited to aggregation and Silo-style tasks
+  - 来源：arXiv
+  - 收录理由：直接学习 multi-agent communication topology，并同时减少通信、模型调用和 token cost
+
+- [When LLMs Develop Languages](https://arxiv.org/abs/2606.29354) → §1.4 Multi-Agent Coordination | Agent Δ: adaptive symbolic routing | Acc Δ: maintained | Cost Δ: −3–6× generated tokens | Uses compact learned symbolic protocols for multi-agent reasoning; end-to-end orchestration overhead is not reported
+  - 来源：arXiv / ICML 2026 / GitHub
+  - 收录理由：ICML 2026 Regular，通过紧凑 symbolic protocols 明显改善 multi-agent accuracy-token trade-off
+
+- [Is GraphRAG Needed?](https://arxiv.org/abs/2606.25656) → §1.5 Memory & Retrieval | Retrieval Δ: −19–53% tokens | Acc Δ: — | Index Cost: graph/text setup varies | Optimizes context representations and loops across nine RAG scenarios; workshop paper with GraphRAG-heavy evaluation
+  - 来源：arXiv / ACL GEM Workshop 2026
+  - 收录理由：系统比较九类 RAG 场景，并对 GraphRAG 和 Agentic RAG 给出明确 token reduction
+
+- [SWE-MeM](https://arxiv.org/abs/2606.28434) → §1.5 Memory & Retrieval | Retrieval Δ: adaptive memory compression | Acc Δ: 43.4% / 60.2% resolve (4B/30B) | Index Cost: Memory-aware GRPO training | Lets coding agents decide when and how to compress memory; abstract does not quantify the token reduction
+  - 来源：arXiv
+  - 收录理由：将自适应 memory management 与 coding-agent issue resolution 联合优化，并在 SWE-Bench Verified 验证
+
+- [Mandol](https://arxiv.org/abs/2606.29778) → §1.5 Memory & Retrieval | Retrieval Δ: +5.4× speed | Acc Δ: best overall on LoCoMo/LongMemEval | Index Cost: +4.8× insertion speed | Unifies vector, graph, and structured agent memory retrieval; evidence is concentrated on long-term conversations
+  - 来源：arXiv
+  - 收录理由：同时优化 agent memory 的检索质量、retrieval latency 和 insertion throughput
+
+- [Multi-Head Recurrent Memory Agents](https://arxiv.org/abs/2607.01523) → §1.5 Memory & Retrieval | Retrieval Δ: zero additional token overhead | Acc Δ: retention <30%→73.96% at 896K | Index Cost: stage-wise head updates | Protects recurrent memory from destructive overwriting; evaluated primarily in recurrent long-context settings
+  - 来源：arXiv
+  - 收录理由：通过无额外 token 开销的多头结构显著改善超长上下文 memory retention
+
+- [Cognitive-structured Multimodal Agent](https://arxiv.org/abs/2607.08497) → §1.5 Memory & Retrieval | Retrieval Δ: 91.4% over 20 turns | Acc Δ: +8.2pp vs 32B | Index Cost: episodic visual memory | Selectively reactivates visual episodes and cuts per-turn latency from 23.1s to 12.7s; focused on multimodal dialogue
+  - 来源：arXiv / GitHub / Project Page
+  - 收录理由：利用 episodic visual memory 同时改善长程多模态检索准确率和单轮推理时间
+
+- [SMetric](https://arxiv.org/abs/2607.08565) → §1.6 Serving | Throughput Δ: +10–16% cluster TPS / +2–34% prefill TPS | Lat Δ: better per-token latency | Mem Δ: preserves >80% KV reuse trace | Balances agent sessions while retaining cache locality; requires global-tier KV-store infrastructure
+  - 来源：arXiv
+  - 收录理由：专门针对 agentic serving workload，在真实 trace 上优化负载均衡、KV reuse 和吞吐量
+
+- [KV-PRM](https://arxiv.org/abs/2607.09153) → §1.6 Serving | Throughput Δ: up to 5,000× fewer scoring FLOPs | Lat Δ: ↓37× | Mem Δ: ↓34× | Scores multi-agent trajectories directly from generation KV caches; experiments are concentrated on mathematical test-time scaling
+  - 来源：arXiv
+  - 收录理由：直接复用 agent rollout 的 KV cache，显著降低 process reward scoring 的计算、延迟和内存开销
+
+- [The Illusion of Agentic Complexity](https://arxiv.org/abs/2606.30524) → §3 Benchmarks & Evaluation | Token Δ: −86% single-agent vs MAS | Acc Δ: comparable lexical / 98% MAS structural consistency | Lat Δ: ↓2× | Empirically compares single- and multi-agent RAG architectures; task-specific to README generation
+  - 来源：arXiv / ICSME 2026
+  - 收录理由：ICSME 2026，通过受控比较揭示 multi-agent complexity 与 token、速度和结构质量之间的权衡
