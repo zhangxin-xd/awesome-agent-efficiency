@@ -922,3 +922,47 @@ All additions and rejections are logged here. Most recent entries appear first.
 - [The Illusion of Agentic Complexity](https://arxiv.org/abs/2606.30524) → §3 Benchmarks & Evaluation | Token Δ: −86% single-agent vs MAS | Acc Δ: comparable lexical / 98% MAS structural consistency | Lat Δ: ↓2× | Empirically compares single- and multi-agent RAG architectures; task-specific to README generation
   - 来源：arXiv / ICSME 2026
   - 收录理由：ICSME 2026，通过受控比较揭示 multi-agent complexity 与 token、速度和结构质量之间的权衡
+  
+## 2026-08-12
+
+### Added
+
+- [SWE-Pruner Pro](https://arxiv.org/abs/2607.18213) → §1.2 Token & Context | Token Δ: up to −39% prompt/completion tokens | Acc Δ: +3.8% SWE-Bench Verified; +2.2pp Oolong | Lat Δ: bounded overhead | Prunes coding-agent tool outputs using the agent's own representations; evaluated mainly on coding agents
+  - 来源：[arXiv](https://arxiv.org/abs/2607.18213) / [GitHub](https://github.com/Ayanami1314/swe-pruner-pro)
+  - 收录理由：Direct agent-context efficiency gains with open implementation and multi-benchmark evidence.
+
+- [When Replanning Becomes the Bottleneck](https://arxiv.org/abs/2608.01428) → §1.2 Token & Context | Token Δ: −62–92% replanning-call tokens | Acc Δ: preserves task success | Lat Δ: SLO violations ↓ | Budgeted replanning with E-RECAP; experiments focus mainly on embodied agents
+  - 来源：[arXiv](https://arxiv.org/abs/2608.01428)
+  - 收录理由：Accepted at ICML 2026 and directly optimizes agent replanning context and token cost.
+
+- [Beyond Sequential Interaction](https://arxiv.org/abs/2607.22689) → §1.4 Multi-Agent Coordination | Agent Δ: parallel planner-worker | Acc Δ: 46.4% success; +12.9pp | Cost Δ: ~−50% steps; <−50% tokens | Benchmarks parallel GUI coordination; gains depend on decomposable long-horizon GUI tasks
+  - 来源：[arXiv](https://arxiv.org/abs/2607.22689) / [GitHub](https://github.com/pkgunboat/ParaGUIBench)
+  - 收录理由：Introduces a dedicated parallel GUI-agent benchmark with explicit step and token efficiency metrics.
+
+- [BANDMAS](https://arxiv.org/abs/2608.00458) → §1.4 Multi-Agent Coordination | Agent Δ: packet-level scheduling | Acc Δ: highest mean task metric under constrained caps | Cost Δ: −53.2–77.3% application-layer bytes | Causality-inspired communication pruning; early paper with limited adoption evidence
+  - 来源：[arXiv](https://arxiv.org/abs/2608.00458)
+  - 收录理由：Directly reduces multi-agent communication overhead under bandwidth, latency, deadline, and context constraints.
+
+- [TeaRAG](https://arxiv.org/abs/2511.05385) → §1.5 Memory & Retrieval | Retrieval Δ: graph-compressed retrieval | Acc Δ: +4% / +2% EM | Index Cost: — | Compresses retrieval content and reasoning steps for agentic RAG; requires IP-DPO training and benchmark-specific setup
+  - 来源：[arXiv](https://arxiv.org/abs/2511.05385) / [GitHub](https://github.com/Applied-Machine-Learning-Lab/TeaRAG)
+  - 收录理由：Reports 61%/59% output-token reductions with accuracy improvements across six datasets and provides code.
+
+- [PRO-LONG](https://arxiv.org/abs/2607.20064) → §1.5 Memory & Retrieval | Retrieval Δ: programmatic memory search | Acc Δ: +18.0pp average; up to 76.1% pass@1 | Index Cost: — | Keeps full interaction logs searchable for long-horizon agents; strongest evidence is on ARC-AGI-3
+  - 来源：[arXiv](https://arxiv.org/abs/2607.20064) / [GitHub](https://github.com/alexisfox7/PRO-LONG)
+  - 收录理由：Combines strong long-horizon gains with 4.2–5.8× fewer tokens and public code/logs.
+
+- [BM25 Wins at Scale](https://arxiv.org/abs/2607.26497) → §1.5 Memory & Retrieval | Retrieval Δ: BM25 becomes Pareto-efficient at scale | Acc Δ: approaching +20pp at full scale | Index Cost: no LLM construction | Provides a controlled 28-tier accuracy-cost scaling study; conclusions use one reader model and judging protocol
+  - 来源：[arXiv](https://arxiv.org/abs/2607.26497)
+  - 收录理由：Provides concrete token-cost and latency evidence for choosing retrieval strategies in large agentic search spaces.
+
+- [Stop When Memory Suffices](https://arxiv.org/abs/2608.01285) → §1.5 Memory & Retrieval | Retrieval Δ: evidence-conditioned early stopping | Acc Δ: 55.17% / 38.77% score | Index Cost: — | Avoids unnecessary deep memory execution; evaluated on two recent benchmarks
+  - 来源：[arXiv](https://arxiv.org/abs/2608.01285)
+  - 收录理由：Directly addresses online memory latency and reports 27.3%/25.5% average inference-time reductions.
+
+- [Agentic Coding in the Wild](https://arxiv.org/abs/2608.00101) → §1.6 Serving | Throughput Δ: — | Lat Δ: idle-time predictor captures 86–90% of idle time | Mem Δ: KV hit 90% within turns; 55% across turn boundaries | Production-scale characterization of agentic coding workloads; observational study rather than a serving algorithm
+  - 来源：[arXiv](https://arxiv.org/abs/2608.00101)
+  - 收录理由：Offers the first large-scale empirical workload characterization needed for agent-native serving design.
+
+- [OrchBench](https://arxiv.org/abs/2607.25656) → §3 Benchmarks & Evaluation | Measures: plan quality, makespan, and token cost | Gap: correlation r=0.816 with real execution; 1.3% tokens and 10.3% wall-clock time | Efficient deterministic simulator; worker and environment fidelity still need validation
+  - 来源：[arXiv](https://arxiv.org/abs/2607.25656)
+  - 收录理由：Fills the repository gap for efficient evaluation of multi-agent orchestration plans with explicit cost metrics.
