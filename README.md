@@ -169,6 +169,8 @@ Compressing prompts, managing long contexts, and reducing per-step token consump
 | [SkillReducer](https://arxiv.org/abs/2603.29919) | arXiv 2026 | −48% descriptions / −39% bodies | +2.8% functional quality | — | Compresses skill routing and bodies through progressive disclosure; deployment-level latency is not reported |
 | [CoACT](https://arxiv.org/abs/2607.02911) | arXiv 2026 | −33.0% total tokens | ≈uncompressed agent | — | Preserves coding-agent actions while compressing observations; evaluated only on SWE-bench Verified |
 | [ContextSniper](https://arxiv.org/abs/2607.01916) | arXiv 2026 | −38.9–51.5% | ≈same resolution rate | −27.3–36.4% cost | Selects compact code and tool-output evidence for repair agents; evaluation uses SWE-bench Lite and two host agents |
+| [SWE-Pruner Pro](https://arxiv.org/abs/2607.18213) | arXiv 2026 | up to −39% prompt/completion tokens | +3.8% SWE-Bench Verified; +2.2pp Oolong | bounded overhead | Prunes coding-agent tool outputs using the agent's own representations; evaluated mainly on coding agents |
+| [When Replanning Becomes the Bottleneck](https://arxiv.org/abs/2608.01428) | ICML 2026 | −62–92% replanning-call tokens | preserves task success | SLO violations ↓ | Budgeted replanning with E-RECAP; experiments focus mainly on embodied agents |
 
 ---
 
@@ -273,6 +275,8 @@ Reducing communication overhead, redundant work, and orchestration cost in multi
 | [HCP-MAD](https://arxiv.org/abs/2604.09679) | arXiv 2026 | consensus-gated debate escalation | improves accuracy across six benchmarks | substantially lower token costs | Dynamically escalates multi-agent debate by consensus; exact token delta not in abstract |
 | [QueenBee Planner](https://arxiv.org/abs/2606.27492) | arXiv 2026 | learned temporal DAGs | RMSE 12.53→7.87 | ↓ messages/calls/tokens | Learns reusable communication topologies for fixed agent teams; evaluation is limited to aggregation and Silo-style tasks |
 | [When LLMs Develop Languages](https://arxiv.org/abs/2606.29354) | ICML 2026 | adaptive symbolic routing | maintained | −3–6× generated tokens | Uses compact learned symbolic protocols for multi-agent reasoning; end-to-end orchestration overhead is not reported |
+| [Beyond Sequential Interaction](https://arxiv.org/abs/2607.22689) | arXiv 2026 | parallel planner-worker | 46.4% success; +12.9pp | ~−50% steps; <−50% tokens | Benchmarks parallel GUI coordination; gains depend on decomposable long-horizon GUI tasks |
+| [BANDMAS](https://arxiv.org/abs/2608.00458) | arXiv 2026 | packet-level scheduling | highest mean task metric under constrained caps | −53.2–77.3% application-layer bytes | Causality-inspired communication pruning; early paper with limited adoption evidence |
 
 ---
 
@@ -325,6 +329,10 @@ Efficiently storing, indexing, and retrieving agent memories and external knowle
 | [Mandol](https://arxiv.org/abs/2606.29778) | arXiv 2026 | +5.4× retrieval speed | best overall on LoCoMo/LongMemEval | +4.8× insertion speed | Unifies vector, graph, and structured agent memory retrieval; evidence is concentrated on long-term conversations |
 | [Multi-Head Recurrent Memory Agents](https://arxiv.org/abs/2607.01523) | arXiv 2026 | zero additional token overhead | retention <30%→73.96% at 896K | stage-wise head updates | Protects recurrent memory from destructive overwriting; evaluated primarily in recurrent long-context settings |
 | [Cognitive-structured Multimodal Agent](https://arxiv.org/abs/2607.08497) | arXiv 2026 | 91.4% retrieval over 20 turns | +8.2pp vs 32B | episodic visual memory | Selectively reactivates visual episodes and cuts per-turn latency from 23.1s to 12.7s; focused on multimodal dialogue |
+| [TeaRAG](https://arxiv.org/abs/2511.05385) | arXiv 2025 | graph-compressed retrieval | +4% / +2% EM | — | Compresses retrieval content and reasoning steps for agentic RAG; requires IP-DPO training and benchmark-specific setup |
+| [PRO-LONG](https://arxiv.org/abs/2607.20064) | arXiv 2026 | programmatic memory search | +18.0pp average; up to 76.1% pass@1 | — | Keeps full interaction logs searchable for long-horizon agents; strongest evidence is on ARC-AGI-3 |
+| [BM25 Wins at Scale](https://arxiv.org/abs/2607.26497) | arXiv 2026 | BM25 becomes Pareto-efficient at scale | approaching +20pp at full scale | no LLM construction | Provides a controlled 28-tier accuracy-cost scaling study; conclusions use one reader model and judging protocol |
+| [Stop When Memory Suffices](https://arxiv.org/abs/2608.01285) | arXiv 2026 | evidence-conditioned early stopping | 55.17% / 38.77% score | — | Avoids unnecessary deep memory execution; evaluated on two recent benchmarks |
 
 
 
@@ -364,7 +372,7 @@ Reducing per-token latency and increasing throughput for deployed agent workload
 | [Observation, Not Prediction](https://arxiv.org/abs/2606.01839) | arXiv 2026 | conversation-level placement | $51.08\%$ lower p95 first-effective-token latency | single KV transfer; +7.51% energy efficiency | Disaggregated scheduling for agent conversations; serving-system specific |
 | [SMetric](https://arxiv.org/abs/2607.08565) | arXiv 2026 | +10–16% cluster TPS / +2–34% prefill TPS | better per-token latency | preserves >80% KV reuse trace | Balances agent sessions while retaining cache locality; requires global-tier KV-store infrastructure |
 | [KV-PRM](https://arxiv.org/abs/2607.09153) | arXiv 2026 | up to 5,000× fewer scoring FLOPs | ↓37× | ↓34× | Scores multi-agent trajectories directly from generation KV caches; experiments are concentrated on mathematical test-time scaling |
-
+| [Agentic Coding in the Wild](https://arxiv.org/abs/2608.00101) | arXiv 2026 | — | idle-time predictor captures 86–90% of idle time | KV hit 90% within turns; 55% across turn boundaries | Production-scale characterization of agentic coding workloads; observational study rather than a serving algorithm |
 
 ---
 
@@ -442,6 +450,7 @@ Expected outcome: **stable performance** on tasks exceeding 100 steps or 500K to
 | [M$^3$Exam](https://arxiv.org/abs/2606.07402) | arXiv 2026 | Multimodal conversational memory, cross-session reasoning, retrieved-token cost | M$^3$Proctor improves accuracy by 13% and cuts index-construction time / retrieved tokens by over 70%; multimodal-memory focused |
 | [ToolMenuBench](https://arxiv.org/abs/2606.15508) | arXiv 2026 | Tool-menu filtering, wrong-tool calls, premature actions, token usage, risk exposure | CMTF improves success from 32.1% to 85.7% and reduces token usage by roughly 98%; benchmark design is tool-menu specific |
 | [The Illusion of Agentic Complexity](https://arxiv.org/abs/2606.30524) | ICSME 2026 | Single vs multi-agent README generation: −86% tokens, 2× speed, 98% MAS structural consistency | Task-specific evaluation without a standardized cross-domain benchmark |
+| [OrchBench](https://arxiv.org/abs/2607.25656) | arXiv 2026 | Orchestration-plan quality, makespan, and token cost | Simulator scores correlate with real execution at r=0.816 while using 1.3% of tokens and 10.3% of wall-clock time; worker and environment fidelity still need validation |
 
 > **Critical gap**: No widely-adopted benchmark jointly reports task success rate, total token cost, step count, and wall-clock latency on the same tasks. See §5.
 
