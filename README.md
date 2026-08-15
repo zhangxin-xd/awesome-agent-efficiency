@@ -23,6 +23,12 @@ Most existing lists on agent efficiency are **paper dumps** — long, flat, and 
 
 ---
 
+## Keywords / Search Terms
+
+`LLM agent efficiency`, `agentic AI efficiency`, `efficient AI agents`, `AI agent optimization`, `planning efficiency`, `reasoning efficiency`, `token efficiency`, `context compression`, `tool use efficiency`, `multi-agent coordination`, `agent communication efficiency`, `agent memory`, `retrieval efficiency`, `inference serving`, `latency optimization`, `cost optimization`, `agent benchmarks`, `AgentOps`, `LLM multi-agent systems`
+
+---
+
 ## Contents
 
 - [Where Is Your Bottleneck?](#where-is-your-bottleneck)
