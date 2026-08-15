@@ -966,3 +966,9 @@ All additions and rejections are logged here. Most recent entries appear first.
 - [OrchBench](https://arxiv.org/abs/2607.25656) → §3 Benchmarks & Evaluation | Measures: plan quality, makespan, and token cost | Gap: correlation r=0.816 with real execution; 1.3% tokens and 10.3% wall-clock time | Efficient deterministic simulator; worker and environment fidelity still need validation
   - 来源：[arXiv](https://arxiv.org/abs/2607.25656)
   - 收录理由：Fills the repository gap for efficient evaluation of multi-agent orchestration plans with explicit cost metrics.
+
+## 2026-08-15
+
+### Added
+
+-Add a Keywords / Search Terms section
