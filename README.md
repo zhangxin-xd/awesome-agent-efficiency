@@ -473,7 +473,6 @@ Expected outcome: **stable performance** on tasks exceeding 100 steps or 500K to
 | [MemGPT / Letta](https://github.com/letta-ai/letta) | Long-horizon context | OS-style memory paging |
 | [LiteLLM](https://github.com/BerriAI/litellm) | Cost visibility | Unified cost tracking across 400+ models |
 | [AgentOps](https://github.com/AgentOps-AI/agentops) | Observability | Token cost + latency + step trace per run |
-| [EffGen](https://github.com/ctrl-gaurav/effGen) | Local small-model agents | Open-source framework with 70-80% context compression, complexity routing, tool calling, and unified memory |
 | [SkVM](https://arxiv.org/abs/2604.03088) | Cross-harness skill execution | Up to −40% token consumption, 3.2× speedup, and large latency reductions |
 | [FlashEvolve](https://arxiv.org/abs/2605.08520) | Agent self-evolution throughput | Async stage orchestration improves proposal throughput by 3.5x on local vLLM and 4.9x on API serving |
 | [SkillSmith](https://arxiv.org/abs/2605.15215) | Agent skill runtime context | Compiles skills into boundary-guided interfaces; -57.44% solve-stage tokens, -42.99% iterations, 2.02x faster |
