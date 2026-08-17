@@ -972,3 +972,10 @@ All additions and rejections are logged here. Most recent entries appear first.
 ### Added
 
 -Add a Keywords / Search Terms section
+
+## 2026-08-17
+
+### Removed
+
+-Remove duplicate papers ,SkillReducer：(added by 2026-06-23, 1.2 Token & Context Efficiency) and EffGen：(added by 2026-06-20, 4 Tools & Frameworks)
+
