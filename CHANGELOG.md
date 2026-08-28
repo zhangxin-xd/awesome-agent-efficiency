@@ -1053,3 +1053,23 @@ All additions and rejections are logged here. Most recent entries appear first.
 - [ToolSpec](https://arxiv.org/abs/2604.13519) → §1.6 Serving | Throughput Δ: — | Lat Δ: up to ↓4.2× | Mem Δ: — | Accelerates structured tool calls with schema-aware and retrieval-augmented speculative decoding; requires specialized decoding integration and reusable call histories
   - 来源：[arXiv](https://arxiv.org/abs/2604.13519)
   - 收录理由：将投机解码专门用于结构化工具调用，提供最高 4.2× 加速，补充工具调用的 serving-level efficiency
+  
+- [Beyond Accuracy: Unveiling Inefficiency Patterns in Tool-Integrated Reasoning](https://aclanthology.org/2026.acl-long.339/) → §3 Benchmarks & Evaluation | Metric Δ: hardware-aware PTE across 5 TIR benchmarks | Acc Δ: higher PTE often correlates with lower correctness | Cost/Lat Δ: better alignment with wall-clock latency than token counts | Unifies reasoning, tool interruption, KV-cache loss, and long-response costs; evaluation framework rather than an optimizer
+  - 来源：[ACL Anthology](https://aclanthology.org/2026.acl-long.339/)
+  - 收录理由：ACL 2026 Main，指出 token 数和工具调用数无法准确代表真实计算成本，并提供工具集成推理的硬件感知效率指标
+
+- [AsyncLM: Asynchronous LLM Function Calling](https://arxiv.org/abs/2412.07017) → §1.3 Tool Use | Call Δ: concurrent LLM generation and tool execution | Acc Δ: — | Lat Δ: ↓1.6–5.4× end-to-end latency | Interrupts in-flight generation when asynchronous tool results arrive; requires model adaptation and inference-runtime changes
+  - 来源：[arXiv](https://arxiv.org/abs/2412.07017)
+  - 收录理由：通过异步中断机制重叠 LLM 推理与工具执行，补充 Parallel Function Calling 和 LLMCompiler 未覆盖的运行时异步调用方向
+
+- [ProMCP](https://aclanthology.org/2026.findings-acl.1967/) → §3 Benchmarks & Evaluation | Metric Δ: six-stage MCP token/latency profiling | Acc Δ: evaluates 20 servers and 169 tools | Cost/Lat Δ: planning/schema injection accounts for 56–72% tokens and 60–67% latency in custom clients | Attributes MCP-agent costs across the full protocol pipeline; profiling framework rather than an optimizer
+  - 来源：[ACL Anthology](https://aclanthology.org/2026.findings-acl.1967/) / [GitHub](https://github.com/ResponsibleAILab/ProMCP)
+  - 收录理由：ACL Findings 2026，提供开源 MCP Agent 成本分析框架，并证明真正瓶颈通常是规划、Schema 注入和答案合成而非工具执行
+
+- [FANTASE](https://arxiv.org/abs/2407.13945) → §1.3 Tool Use | Call Δ: state-tracked constrained API decoding | Acc Δ: +12.67–17.04pp with SCD | Lat Δ: ↓1.56–2.39× generation time | Accelerates faithful API-call generation with token-search constraints; evidence is limited to API Bank and DSTC8 rather than long-horizon agents
+  - 来源：[ACL Anthology](https://aclanthology.org/2024.findings-emnlp.359/)
+  - 收录理由：Findings of EMNLP 2024，在提高 API 调用准确率的同时提供明确的生成速度收益，补充工具调用约束解码方向
+
+- [An LLM-Tool Compiler for Fused Parallel Function Calling](https://arxiv.org/abs/2405.17438) → §1.3 Tool Use | Call Δ: up to 4× more parallel calls | Acc Δ: — | Cost/Lat Δ: −40% token cost; −12% latency | Fuses similar tool operations into composite runtime functions; evidence relies on a large-scale internal Copilot platform
+  - 来源：[arXiv](https://arxiv.org/abs/2405.17438)
+  - 收录理由：通过运行时工具操作融合进一步提高并行度，与已收录 LLMCompiler 的依赖图并行方法形成互补
