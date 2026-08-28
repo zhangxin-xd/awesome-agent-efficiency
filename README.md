@@ -469,6 +469,9 @@ Expected outcome: **stable performance** on tasks exceeding 100 steps or 500K to
 | [ToolMenuBench](https://arxiv.org/abs/2606.15508) | arXiv 2026 | Tool-menu filtering, wrong-tool calls, premature actions, token usage, risk exposure | CMTF improves success from 32.1% to 85.7% and reduces token usage by roughly 98%; benchmark design is tool-menu specific |
 | [The Illusion of Agentic Complexity](https://arxiv.org/abs/2606.30524) | ICSME 2026 | Single vs multi-agent README generation: −86% tokens, 2× speed, 98% MAS structural consistency | Task-specific evaluation without a standardized cross-domain benchmark |
 | [OrchBench](https://arxiv.org/abs/2607.25656) | arXiv 2026 | Orchestration-plan quality, makespan, and token cost | Simulator scores correlate with real execution at r=0.816 while using 1.3% of tokens and 10.3% of wall-clock time; worker and environment fidelity still need validation |
+| [Beyond Accuracy: Unveiling Inefficiency Patterns in Tool-Integrated Reasoning](https://aclanthology.org/2026.acl-long.339/) | ACL 2026 Main | Hardware-aware PTE cost across 5 TIR benchmarks | Evaluation metric and diagnostic analysis only; does not optimize agents directly |
+| [ProMCP](https://aclanthology.org/2026.findings-acl.1967/) | ACL Findings 2026 | Six-stage token/latency profiling across 20 MCP servers and 169 tools | Profiling framework rather than an optimization method |
+
 
 > **Critical gap**: No widely-adopted benchmark jointly reports task success rate, total token cost, step count, and wall-clock latency on the same tasks. See §5.
 
