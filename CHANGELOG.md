@@ -979,3 +979,35 @@ All additions and rejections are logged here. Most recent entries appear first.
 
 -Remove duplicate papers ,SkillReducer：(added by 2026-06-23, 1.2 Token & Context Efficiency) and EffGen：(added by 2026-06-20, 4 Tools & Frameworks)
 
+## 2026-08-28
+
+### Updated
+
+- [AnyTool](https://arxiv.org/abs/2402.04253) → §1.3 Tool Use | Venue: arXiv 2024 → ICML 2024
+  - 来源：[PMLR](https://proceedings.mlr.press/v235/du24h.html)
+  - 更新理由：ICML 2024 官方论文集已收录该论文
+
+- [BridgeScope](https://arxiv.org/abs/2508.04031) → §1.3 Tool Use | Venue: arXiv 2025 → CIDR 2026
+  - 来源：[CIDR Proceedings](https://www.vldb.org/cidrdb/2026/bridgescope-a-universal-toolkit-for-bridging-large-language-models-and-databases.html)
+  - 更新理由：CIDR 2026 官方论文集已收录该论文
+
+- [RepoMaster](https://arxiv.org/abs/2505.21577) → §1.3 Tool Use | Venue: arXiv 2025 → NeurIPS 2025
+  - 来源：[NeurIPS Proceedings](https://papers.nips.cc/paper_files/paper/2025/hash/98da9cdb7e8af9192f1fe2cb38690d60-Abstract-Conference.html)
+  - 更新理由：NeurIPS 2025 Main Conference Track 官方论文集已收录该论文
+
+- [ToolRM](https://arxiv.org/abs/2510.26167) → §1.3 Tool Use | Venue: arXiv 2025 → ACL Findings 2026
+  - 来源：[ACL Anthology](https://aclanthology.org/2026.findings-acl.419/)
+  - 更新理由：Findings of ACL 2026 官方论文集已收录该论文
+
+- [HyFunc](https://arxiv.org/abs/2602.13665) → §1.3 Tool Use | Venue: arXiv 2026 → KDD 2026
+  - 来源：[ACM Digital Library](https://doi.org/10.1145/3770854.3780283)
+  - 更新理由：KDD 2026 正式论文记录及 DOI 已发布
+
+- [OpaqueToolsBench](https://arxiv.org/abs/2602.15197) → §1.3 Tool Use | Venue: arXiv 2026 → CAIS 2026
+  - 来源：[ACM Digital Library](https://doi.org/10.1145/3786335.3813182)
+  - 更新理由：ACM Conference on AI and Agentic Systems 2026 正式论文记录及 DOI 已发布
+
+- [AutoTool](https://arxiv.org/abs/2603.13348) → §1.3 Tool Use | Venue: arXiv 2026 → ICLR 2026
+  - 来源：[OpenReview](https://openreview.net/forum?id=zFkopTvclB)
+  - 更新理由：OpenReview 已确认其为 ICLR 2026 Poster
+ 
