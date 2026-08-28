@@ -233,7 +233,9 @@ Reducing unnecessary tool calls, improving tool selection, and enabling parallel
 | [ToolScope](https://arxiv.org/abs/2510.20036) | ACL 2026 | merged and top-k filtered tools | +8.38–38.6% selection accuracy | — | Merges redundant tools and retrieves a context-fitting subset; lacks an aggregate token or latency reduction metric |
 | [Scalable LLM Agent Tool Access in the Cloud](https://arxiv.org/abs/2607.15593) | arXiv 2026 | scales access to 3,000+ tools | 98% Top-15 recall | ↓8.9× selection time; ↓23.8× tokens | Offloads MCP recommendation and routing to a cloud gateway; requires substantial gateway infrastructure |
 | [Optimizing Agentic Workflows using Meta-tools](https://arxiv.org/abs/2601.22037) | arXiv 2026 | up to −11.9% LLM calls | up to +4.2pp success | shorter execution paths | Compiles recurring tool sequences into deterministic meta-tools; requires historical traces with reusable patterns |
-
+| [AsyncLM: Asynchronous LLM Function Calling](https://arxiv.org/abs/2412.07017) | arXiv 2024 | concurrent LLM generation and tool execution | — | ↓1.6–5.4× end-to-end latency | Interrupts in-flight generation when asynchronous tool results arrive; requires model adaptation and inference-runtime changes |
+| [FANTASE](https://arxiv.org/abs/2407.13945) | EMNLP Findings 2024 | state-tracked constrained API decoding | +12.67–17.04pp with SCD | ↓1.56–2.39× generation time | Accelerates faithful API-call generation with token-search constraints; evidence is limited to API Bank and DSTC8 rather than long-horizon agents |
+| [An LLM-Tool Compiler for Fused Parallel Function Calling](https://arxiv.org/abs/2405.17438) | arXiv 2024 | up to 4× more parallel calls | — | −40% token cost; −12% latency | Fuses similar tool operations into composite runtime functions; evidence relies on a large-scale internal Copilot platform |
 ---
 
 ### 1.4 Multi-Agent Coordination
