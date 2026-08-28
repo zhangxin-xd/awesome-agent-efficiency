@@ -130,6 +130,9 @@ Reducing the number of steps, tokens, and retries needed for an agent to complet
 | [Scaling Laws for Agent Harnesses](https://arxiv.org/abs/2605.29682) | arXiv 2026 | raw cost −60.2% | pass rate +7.0pp | — | Uses Effective Feedback Compute to retain useful feedback and reduce harness cost; venue and official code are not stated |
 | [Semantic Early-Stopping](https://arxiv.org/abs/2606.27009) | arXiv 2026 | −38% operational tokens | Δ-IS −0.004 (p=0.81) | — | Stops semantically converged multi-agent loops at parity quality; evidence is limited to a 60-question HotpotQA split |
 | [The Harness Effect](https://arxiv.org/abs/2607.06906) | arXiv 2026 | −38% (14.2k→8.8k) | 0.78→0.81 | −44% (48s→27s) | Shows orchestration design can reduce enterprise-agent cost across models; evaluation uses 22 locked tasks and one target harness |
+| [ReWOO](https://arxiv.org/abs/2305.18323) | arXiv 2023 | 5× token efficiency | +4% on HotpotQA | — | Decouples planning from tool observations to remove repeated prompts; preplanned trajectories adapt poorly to unexpected tool outputs |
+| [ToolTree](https://arxiv.org/abs/2603.12740) | ICLR 2026 | fewer rollouts / expanded nodes | ~+10% avg | best performance gain per second | Plans tool trajectories with dual-feedback MCTS and bidirectional pruning; still incurs search and LLM-evaluator overhead |
+
 ---
 
 ### 1.2 Token & Context Efficiency
@@ -223,6 +226,14 @@ Reducing unnecessary tool calls, improving tool selection, and enabling parallel
 | [SlimSearcher](https://arxiv.org/abs/2606.07074) | arXiv 2026 | $-17$-$58\%$ tool-call rounds | maintained or improved accuracy | lower search trajectory cost | Trains web agents for accuracy-cost Pareto behavior; focused on deep-search tasks |
 | [Contract2Tool](https://arxiv.org/abs/2606.07904) | arXiv 2026 | 100 → 1 visible tool | 0.980 vs 0.990 gold-contract success | 26,172 → 2,528 tokens | Learns scalable tool precondition/effect contracts; depends on docs and traces |
 | [Natural Language Tools Replication](https://arxiv.org/abs/2607.03953) | arXiv 2026 | −25.2% tokens | +14.9pp overall | — | Replicates natural-language tool interfaces across 14 models and 8,560 trials; gains shrink or reverse on some frontier models |
+| [An LLM Compiler for Parallel Function Calling](https://arxiv.org/abs/2312.04511) | ICML 2024 | fewer sequential LLM rounds | up to ~+9% | up to ↓3.7× latency; ↓6.7× cost | Compiles dependent tool calls into a parallel execution DAG; gains depend on planner quality and available parallelism |
+| [EcoAct](https://arxiv.org/abs/2411.01643) | ICLR 2025 | selective tool registration | performance maintained | >−50% compute cost | Registers tools only when required during agent reasoning; benefits depend on large toolsets containing irrelevant tools |
+| [AutoTool: Efficient Tool Selection](https://ojs.aaai.org/index.php/AAAI/article/view/40389) | AAAI 2026 | minimizes repeated LLM selection | competitive completion | up to −30% inference cost | Selects tools and parameters through a trajectory-derived transition graph; relies on historical workflow regularities |
+| [Alignment for Efficient Tool Calling](https://arxiv.org/abs/2503.06708) | EMNLP 2025 | fewer unnecessary tool calls | improved across tool-use scenarios | — | Aligns tool invocation with probabilistic knowledge boundaries; requires confidence estimation and alignment training |
+| [ToolScope](https://arxiv.org/abs/2510.20036) | ACL 2026 | merged and top-k filtered tools | +8.38–38.6% selection accuracy | — | Merges redundant tools and retrieves a context-fitting subset; lacks an aggregate token or latency reduction metric |
+| [Scalable LLM Agent Tool Access in the Cloud](https://arxiv.org/abs/2607.15593) | arXiv 2026 | scales access to 3,000+ tools | 98% Top-15 recall | ↓8.9× selection time; ↓23.8× tokens | Offloads MCP recommendation and routing to a cloud gateway; requires substantial gateway infrastructure |
+| [Optimizing Agentic Workflows using Meta-tools](https://arxiv.org/abs/2601.22037) | arXiv 2026 | up to −11.9% LLM calls | up to +4.2pp success | shorter execution paths | Compiles recurring tool sequences into deterministic meta-tools; requires historical traces with reusable patterns |
+
 ---
 
 ### 1.4 Multi-Agent Coordination
@@ -378,7 +389,7 @@ Reducing per-token latency and increasing throughput for deployed agent workload
 | [SMetric](https://arxiv.org/abs/2607.08565) | arXiv 2026 | +10–16% cluster TPS / +2–34% prefill TPS | better per-token latency | preserves >80% KV reuse trace | Balances agent sessions while retaining cache locality; requires global-tier KV-store infrastructure |
 | [KV-PRM](https://arxiv.org/abs/2607.09153) | arXiv 2026 | up to 5,000× fewer scoring FLOPs | ↓37× | ↓34× | Scores multi-agent trajectories directly from generation KV caches; experiments are concentrated on mathematical test-time scaling |
 | [Agentic Coding in the Wild](https://arxiv.org/abs/2608.00101) | arXiv 2026 | — | idle-time predictor captures 86–90% of idle time | KV hit 90% within turns; 55% across turn boundaries | Production-scale characterization of agentic coding workloads; observational study rather than a serving algorithm |
-
+| [ToolSpec](https://arxiv.org/abs/2604.13519) | arXiv 2026 | — | up to ↓4.2× | — | Accelerates structured tool calls with schema-aware and retrieval-augmented speculative decoding; requires specialized decoding integration and reusable call histories |
 ---
 
 ## 2. Practical Stack Recommendations
