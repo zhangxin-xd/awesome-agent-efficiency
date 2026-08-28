@@ -1011,3 +1011,45 @@ All additions and rejections are logged here. Most recent entries appear first.
   - 来源：[OpenReview](https://openreview.net/forum?id=zFkopTvclB)
   - 更新理由：OpenReview 已确认其为 ICLR 2026 Poster
  
+
+### Added
+
+- [An LLM Compiler for Parallel Function Calling](https://arxiv.org/abs/2312.04511) → §1.3 Tool Use | Call Δ: fewer sequential LLM rounds | Acc Δ: up to ~+9% | Lat Δ: up to ↓3.7× latency; ↓6.7× cost | Compiles dependent tool calls into a parallel execution DAG; gains depend on planner quality and available parallelism
+  - 来源：[PMLR](https://proceedings.mlr.press/v235/kim24y.html)
+  - 收录理由：ICML 2024，直接优化多工具调用的执行轮次、延迟与成本，补足当前 Parallel Function Calling 文档缺少正式方法论文的问题
+
+- [EcoAct](https://arxiv.org/abs/2411.01643) → §1.3 Tool Use | Call Δ: selective tool registration | Acc Δ: performance maintained | Cost Δ: >−50% compute cost | Registers tools only when required during agent reasoning; benefits depend on large toolsets containing irrelevant tools
+  - 来源：[OpenReview](https://openreview.net/forum?id=IHgVuYwhnz)
+  - 收录理由：ICLR 2025，将工具注册纳入 Agent 推理过程，直接减少无关工具说明产生的重复计算成本
+
+- [AutoTool: Efficient Tool Selection](https://ojs.aaai.org/index.php/AAAI/article/view/40389) → §1.3 Tool Use | Call Δ: minimizes repeated LLM selection | Acc Δ: competitive completion | Cost Δ: up to −30% inference cost | Selects tools and parameters through a trajectory-derived transition graph; relies on historical workflow regularities
+  - 来源：[AAAI Proceedings](https://ojs.aaai.org/index.php/AAAI/article/view/40389)
+  - 收录理由：AAAI 2026，使用统计工具图替代反复的 LLM 工具选择；与仓库现有 arXiv:2603.13348 的 AutoTool 不是同一篇论文
+
+- [Alignment for Efficient Tool Calling](https://arxiv.org/abs/2503.06708) → §1.3 Tool Use | Call Δ: fewer unnecessary tool calls | Acc Δ: improved across tool-use scenarios | Cost Δ: — | Aligns tool invocation with probabilistic knowledge boundaries; requires confidence estimation and alignment training
+  - 来源：[ACL Anthology](https://aclanthology.org/2025.emnlp-main.898/)
+  - 收录理由：EMNLP 2025，直接研究模型何时不应调用工具，补充工具过度调用和知识边界对齐方向
+
+- [ToolScope](https://arxiv.org/abs/2510.20036) → §1.3 Tool Use | Call Δ: merged and top-k filtered tools | Acc Δ: +8.38–38.6% selection accuracy | Lat Δ: — | Merges redundant tools and retrieves a context-fitting subset; lacks an aggregate token or latency reduction metric
+  - 来源：[ACL Anthology](https://aclanthology.org/2026.acl-long.1573/)
+  - 收录理由：ACL 2026，同时处理工具集合冗余和上下文容量限制，在三个工具使用 benchmark 上有明确准确率提升
+
+- [ReWOO](https://arxiv.org/abs/2305.18323) → §1.1 Planning | Token Δ: 5× token efficiency | Acc Δ: +4% on HotpotQA | Lat Δ: — | Decouples planning from tool observations to remove repeated prompts; preplanned trajectories adapt poorly to unexpected tool outputs
+  - 来源：[arXiv](https://arxiv.org/abs/2305.18323) / [GitHub](https://github.com/billxbf/ReWOO)
+  - 收录理由：早期工具增强 Agent 效率的代表性工作，通过解耦推理和工具观察显著减少重复提示 token
+
+- [Scalable LLM Agent Tool Access in the Cloud](https://arxiv.org/abs/2607.15593) → §1.3 Tool Use | Call Δ: scales access to 3,000+ tools | Acc Δ: 98% Top-15 recall | Lat Δ: ↓8.9× selection time; ↓23.8× tokens | Offloads MCP recommendation and routing to a cloud gateway; requires substantial gateway infrastructure
+  - 来源：[arXiv](https://arxiv.org/abs/2607.15593)
+  - 收录理由：面向云端大规模 MCP 工具目录，具有工具规模、检索召回率、选择时间和 token 使用的完整量化证据
+
+- [Optimizing Agentic Workflows using Meta-tools](https://arxiv.org/abs/2601.22037) → §1.3 Tool Use | Call Δ: up to −11.9% LLM calls | Acc Δ: up to +4.2pp success | Lat Δ: shorter execution paths | Compiles recurring tool sequences into deterministic meta-tools; requires historical traces with reusable patterns
+  - 来源：[arXiv](https://arxiv.org/abs/2601.22037)
+  - 收录理由：将重复工具调用序列编译为确定性 meta-tool，同时减少 LLM 调用并提高任务成功率
+
+- [ToolTree](https://arxiv.org/abs/2603.12740) → §1.1 Planning | Token Δ: fewer rollouts / expanded nodes | Acc Δ: ~+10% avg | Lat Δ: best performance gain per second | Plans tool trajectories with dual-feedback MCTS and bidirectional pruning; still incurs search and LLM-evaluator overhead
+  - 来源：[OpenReview](https://openreview.net/forum?id=Ef5O9gNNLE)
+  - 收录理由：ICLR 2026，通过双向剪枝提高长程工具规划的搜索效率，覆盖四个开放和封闭工具规划 benchmark
+
+- [ToolSpec](https://arxiv.org/abs/2604.13519) → §1.6 Serving | Throughput Δ: — | Lat Δ: up to ↓4.2× | Mem Δ: — | Accelerates structured tool calls with schema-aware and retrieval-augmented speculative decoding; requires specialized decoding integration and reusable call histories
+  - 来源：[arXiv](https://arxiv.org/abs/2604.13519)
+  - 收录理由：将投机解码专门用于结构化工具调用，提供最高 4.2× 加速，补充工具调用的 serving-level efficiency
