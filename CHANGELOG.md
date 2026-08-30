@@ -1073,3 +1073,52 @@ All additions and rejections are logged here. Most recent entries appear first.
 - [An LLM-Tool Compiler for Fused Parallel Function Calling](https://arxiv.org/abs/2405.17438) → §1.3 Tool Use | Call Δ: up to 4× more parallel calls | Acc Δ: — | Cost/Lat Δ: −40% token cost; −12% latency | Fuses similar tool operations into composite runtime functions; evidence relies on a large-scale internal Copilot platform
   - 来源：[arXiv](https://arxiv.org/abs/2405.17438)
   - 收录理由：通过运行时工具操作融合进一步提高并行度，与已收录 LLMCompiler 的依赖图并行方法形成互补
+
+
+## 2026-08-30
+
+### Added
+
+- [AgentReuse](https://doi.org/10.7544/issn1000-1239.202440380) → §1.1 Planning | Token Δ: 93% effective plan reuse | Acc Δ: 0.9718 F1 / 0.9459 accuracy | Lat Δ: −93.12% | Reuses structured plans for recurring tool workflows; evaluated mainly on personal-assistant and AIoT patterns
+  - 来源：[JCRD](https://doi.org/10.7544/issn1000-1239.202440380)
+  - 收录理由：补充重复工具工作流中的 plan reuse 方法，具有明确复用率、准确率和延迟指标
+
+- [SMART](https://aclanthology.org/2025.findings-acl.239/) → §1.3 Tool Use | Call Δ: −24% tool use / 5× fewer OOD calls | Acc Δ: >+37% performance | Lat Δ: — | Learns self-aware tool-use decisions; requires supervised reasoning-tool traces
+  - 来源：[ACL Anthology](https://aclanthology.org/2025.findings-acl.239/)
+  - 收录理由：正式研究 Agent 是否需要调用工具，同时报告工具调用减少和任务性能提升
+
+- [MeCo](https://aclanthology.org/2025.acl-long.655/) → §1.3 Tool Use | Call Δ: 296→206 pre-FT / 277→240 post-FT | Acc Δ: +3.1pp / +2.2pp | Lat Δ: avoids 14.8s retrieval on skipped queries | Uses metacognitive probes for selective tool invocation
+  - 来源：[ACL Anthology](https://aclanthology.org/2025.acl-long.655/)
+  - 收录理由：ACL 2025，提供调用次数、决策准确率和检索延迟三类明确数据
+
+- [BTP](https://aclanthology.org/2024.findings-acl.536/) → §1.3 Tool Use | Call Δ: average cost −8.1 to −69.1 points | Acc Δ: +9.3–53.9pp pass rate under budget | Lat Δ: — | Optimizes tool usage under explicit budgets through dynamic programming
+  - 来源：[ACL Anthology](https://aclanthology.org/2024.findings-acl.536/)
+  - 收录理由：补充 budget-constrained tool use，能够支持 Survey 中的 cost-aware optimization 分类
+
+- [AsyncLM](https://arxiv.org/abs/2412.07017) → §1.3 Tool Use | Call Δ: asynchronous execution | Acc Δ: maintained | Lat Δ: ↓1.6–5.4× E2E latency | Executes functions without blocking token generation; requires specialized training and serving
+  - 来源：[arXiv](https://arxiv.org/abs/2412.07017)
+  - 收录理由：直接覆盖工具执行阶段的并发优化，是现有 selection-oriented 论文之外的重要方向
+
+- [ToolCaching](https://arxiv.org/abs/2601.15335) → §1.3 Tool Use | Call Δ: up to +11% cache-hit ratio | Acc Δ: — | Lat Δ: up to −34% | Learns adaptive caching policies for repeated tool calls
+  - 来源：[arXiv](https://arxiv.org/abs/2601.15335)
+  - 收录理由：补充仓库缺少的 tool-result caching 方向，并提供明确延迟数据
+
+- [PASTE](https://arxiv.org/abs/2603.18897) → §1.3 Tool Use | Call Δ: speculative future calls | Acc Δ: — | Lat Δ: up to −43.5% E2E / 1.8× tool speedup | Overlaps generation and tool execution using recurring trajectory patterns
+  - 来源：[arXiv](https://arxiv.org/abs/2603.18897)
+  - 收录理由：补充 speculative tool execution，可以支持 Survey 中 execution scheduling 分类
+
+- [When2Call](https://aclanthology.org/2025.naacl-long.174/) → §3 Benchmarks & Evaluation | Metric Δ: answer/call/clarify/abstain decisions | Acc Δ: Macro-F1 and normalized accuracy | Cost/Lat Δ: tool hallucination rate | Evaluates whether an agent should invoke a tool
+  - 来源：[ACL Anthology](https://aclanthology.org/2025.naacl-long.174/)
+  - 收录理由：补充工具调用时机 benchmark，覆盖 unnecessary calls 和 tool hallucination
+
+- [ToolSandbox](https://arxiv.org/abs/2408.04682) → §3 Benchmarks & Evaluation | Metric Δ: 1,032 stateful tasks / 34 tools | Acc Δ: milestone and task success | Cost/Lat Δ: turns and tool-call counts | Stateful benchmark with milestones and minefields
+  - 来源：[arXiv](https://arxiv.org/abs/2408.04682)
+  - 收录理由：补充真实多轮、状态依赖工具调用评估，并直接记录工具调用次数
+
+- [MCPVerse](https://arxiv.org/abs/2508.16260) → §3 Benchmarks & Evaluation | Metric Δ: 550+ executable tools / 147K-token action space | Acc Δ: outcome-based success | Cost/Lat Δ: not standardized | Evaluates agents over large-scale real MCP tools
+  - 来源：[arXiv](https://arxiv.org/abs/2508.16260)
+  - 收录理由：补充大规模 MCP 环境，为 Survey 的工具规模与检索效率分析提供实验基础
+
+- [BFCL](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2025/EECS-2025-184.html) → §3 Benchmarks & Evaluation | Metric Δ: single/parallel/multi-turn function calling | Acc Δ: AST, execution, and relevance accuracy | Cost/Lat Δ: leaderboard latency and cost | Scalable function-calling evaluation with continuously updated versions
+  - 来源：[UC Berkeley Technical Report](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2025/EECS-2025-184.html)
+  - 收录理由：函数调用领域的核心 benchmark，可用于统一比较正确率、并行调用能力、延迟和成本
