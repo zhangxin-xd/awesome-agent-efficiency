@@ -132,7 +132,7 @@ Reducing the number of steps, tokens, and retries needed for an agent to complet
 | [The Harness Effect](https://arxiv.org/abs/2607.06906) | arXiv 2026 | −38% (14.2k→8.8k) | 0.78→0.81 | −44% (48s→27s) | Shows orchestration design can reduce enterprise-agent cost across models; evaluation uses 22 locked tasks and one target harness |
 | [ReWOO](https://arxiv.org/abs/2305.18323) | arXiv 2023 | 5× token efficiency | +4% on HotpotQA | — | Decouples planning from tool observations to remove repeated prompts; preplanned trajectories adapt poorly to unexpected tool outputs |
 | [ToolTree](https://arxiv.org/abs/2603.12740) | ICLR 2026 | fewer rollouts / expanded nodes | ~+10% avg | best performance gain per second | Plans tool trajectories with dual-feedback MCTS and bidirectional pruning; still incurs search and LLM-evaluator overhead |
-
+| [AgentReuse](https://doi.org/10.7544/issn1000-1239.202440380) | JCRD 2024 | 93% effective plan reuse | 0.9718 F1 / 0.9459 accuracy | −93.12% latency | Reuses structured plans for recurring tool workflows; evaluated mainly on personal-assistant and AIoT request patterns |
 ---
 
 ### 1.2 Token & Context Efficiency
@@ -236,6 +236,13 @@ Reducing unnecessary tool calls, improving tool selection, and enabling parallel
 | [AsyncLM: Asynchronous LLM Function Calling](https://arxiv.org/abs/2412.07017) | arXiv 2024 | concurrent LLM generation and tool execution | — | ↓1.6–5.4× end-to-end latency | Interrupts in-flight generation when asynchronous tool results arrive; requires model adaptation and inference-runtime changes |
 | [FANTASE](https://arxiv.org/abs/2407.13945) | EMNLP Findings 2024 | state-tracked constrained API decoding | +12.67–17.04pp with SCD | ↓1.56–2.39× generation time | Accelerates faithful API-call generation with token-search constraints; evidence is limited to API Bank and DSTC8 rather than long-horizon agents |
 | [An LLM-Tool Compiler for Fused Parallel Function Calling](https://arxiv.org/abs/2405.17438) | arXiv 2024 | up to 4× more parallel calls | — | −40% token cost; −12% latency | Fuses similar tool operations into composite runtime functions; evidence relies on a large-scale internal Copilot platform |
+| [SMART](https://aclanthology.org/2025.findings-acl.239/) | ACL Findings 2025 | −24% tool use / 5× fewer OOD calls | >+37% performance | — | Trains self-aware tool-use decisions from generated rationales; requires supervised training on curated reasoning-tool traces |
+| [MeCo](https://aclanthology.org/2025.acl-long.655/) | ACL 2025 | 296→206 calls pre-FT / 277→240 post-FT | 61.9→65.0% / 82.1→84.3% | avoids 14.8s retrieval on skipped queries | Uses metacognitive probes for fine-tuning-free call decisions; evaluates necessity decisions rather than end-to-end tool execution |
+| [BTP](https://aclanthology.org/2024.findings-acl.536/) | ACL Findings 2024 | average cost −8.1 to −69.1 points | +9.3–53.9pp pass rate under budget | — | Allocates tool usage with dynamic programming under explicit budgets; evaluated only on ToolBench with benchmark-defined costs |
+| [AsyncLM](https://arxiv.org/abs/2412.07017) | arXiv 2024 | concurrent generation and function execution | accuracy maintained | ↓1.6–5.4× E2E latency | Enables nonblocking tool calls with interrupt-driven generation; requires fine-tuning and an interrupt-aware inference runtime |
+| [ToolCaching](https://arxiv.org/abs/2601.15335) | arXiv 2026 | up to +11% cache-hit ratio | — | up to −34% latency | Learns adaptive admission and eviction for repeated tool calls; gains depend on workload repetition and cache freshness |
+| [PASTE](https://arxiv.org/abs/2603.18897) | arXiv 2026 | speculative future tool calls | — | up to −43.5% E2E latency / 1.8× tool speedup | Overlaps tool execution with LLM generation using mined patterns; requires predictable traces and side-effect-safe speculation |
+
 ---
 
 ### 1.4 Multi-Agent Coordination
@@ -471,7 +478,10 @@ Expected outcome: **stable performance** on tasks exceeding 100 steps or 500K to
 | [OrchBench](https://arxiv.org/abs/2607.25656) | arXiv 2026 | Orchestration-plan quality, makespan, and token cost | Simulator scores correlate with real execution at r=0.816 while using 1.3% of tokens and 10.3% of wall-clock time; worker and environment fidelity still need validation |
 | [Beyond Accuracy: Unveiling Inefficiency Patterns in Tool-Integrated Reasoning](https://aclanthology.org/2026.acl-long.339/) | ACL 2026 Main | Hardware-aware PTE cost across 5 TIR benchmarks | Evaluation metric and diagnostic analysis only; does not optimize agents directly |
 | [ProMCP](https://aclanthology.org/2026.findings-acl.1967/) | ACL Findings 2026 | Six-stage token/latency profiling across 20 MCP servers and 169 tools | Profiling framework rather than an optimization method |
-
+| [When2Call](https://aclanthology.org/2025.naacl-long.174/) | NAACL 2025 | Call, answer, clarify, and abstain decisions; Macro-F1, accuracy, and tool hallucination | Mostly synthetic multiple-choice evaluation; does not execute complete tool workflows |
+| [ToolSandbox](https://arxiv.org/abs/2408.04682) | arXiv 2024 | 1,032 stateful conversational tasks; milestone score, minefields, turns, and tool calls | Only 34 tools; no standardized token, latency, or monetary-cost reporting |
+| [MCPVerse](https://arxiv.org/abs/2508.16260) | arXiv 2025 | 550+ executable tools, 147K-token action space, and real-time outcome-based success | Success-focused; lacks standardized token, call-count, latency, and cost comparisons |
+| [BFCL](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2025/EECS-2025-184.html) | Technical Report 2025 | Single, parallel, and multi-turn function calling; AST/execution accuracy, relevance detection, latency, and cost | Continuously updated benchmark versions complicate longitudinal comparison |
 
 > **Critical gap**: No widely-adopted benchmark jointly reports task success rate, total token cost, step count, and wall-clock latency on the same tasks. See §5.
 
